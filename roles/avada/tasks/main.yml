@@ -1,11 +1,49 @@
 ---
 - name: Download wordpress
   unarchive:
-    src: "{{ WordPress }}"
+    src: "{{ wordpress }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: apache
     group: apache
+
+- name: Download avada theme frome oss
+  unarchive:
+    src: "{{ avada }}"
+    dest: /data/wwwroot/wordpress/wp-content/themes
+    remote_src: yes
+    owner: apache
+    group: apache
+
+- name: Download fusion-builder frome oss
+  unarchive:
+    src: "{{ fusion-builder }}"
+    dest: /data/wwwroot/wordpress/wp-content/plugins
+    remote_src: yes
+    owner: apache
+    group: apache
+
+- name: Download fusion-core frome oss
+  unarchive:
+    src: "{{ fusion-core }}"
+    dest: /data/wwwroot/wordpress/wp-content/plugins
+    remote_src: yes
+    owner: apache
+    group: apache
+
+- name: Download revslider frome oss
+  unarchive:
+    src: "{{ revslider }}"
+    dest: /data/wwwroot/wordpress/wp-content/plugins
+    remote_src: yes
+    owner: apache
+    group: apache
+
+- name: Change default theme 
+  lineinfile:
+    path: /data/wwwroot/wordpress/wp-includes/default-constants.php
+    regexp: "define( 'WP_DEFAULT_THEME', 'twentyseventeen' );"
+    line: "define( 'WP_DEFAULT_THEME\', 'avada' );"
 
 - name: Remove example dir
   file:

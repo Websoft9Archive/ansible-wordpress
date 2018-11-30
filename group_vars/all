@@ -1,8 +1,11 @@
 # 下载链接  
 # 1. 官方原版
-WordPress:      https://wordpress.org/latest.zip
+WordPress:          https://wordpress.org/latest.zip
 
 # 2. avada主题
-#avada：
+avada:              http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/theme/avada.zip
+fusion-builder:     http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/plugin/fusion-builder.zip 
+fusion-core:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/plugin/fusion-core.zip
+revslider:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/plugin/revslider.zip
 
 # 3. portal主题 

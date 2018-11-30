@@ -5,3 +5,4 @@
 
   roles:
     - { role: wordpress , tags: "wordpress"} 
+    - { role: avada , tags: "avada" }
