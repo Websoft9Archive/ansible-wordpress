@@ -1,7 +1,11 @@
 ---
+
+- name: System Upgrade
+  yum: name=* state=latest
+
 - name: Download wordpress
   unarchive:
-    src: "{{ wordpress }}"
+    src: "{{ WordPress }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: apache
@@ -15,17 +19,17 @@
     owner: apache
     group: apache
 
-- name: Download fusion-builder frome oss
+- name: Download fusion builder frome oss
   unarchive:
-    src: "{{ fusion-builder }}"
+    src: "{{ fusionbuilder }}"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
     group: apache
 
-- name: Download fusion-core frome oss
+- name: Download fusion core frome oss
   unarchive:
-    src: "{{ fusion-core }}"
+    src: "{{ fusioncore }}"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
@@ -52,6 +56,10 @@
 
 - name: Copy Apache Vhost Configuration
   template: src=vhost.conf dest=/etc/httpd/vhost/vhost.conf
+  notify: restart Apache
+
+- name: Copy PHP Configuration
+  template: src=php.ini dest=/etc/php.ini
   notify: restart Apache
 
 - name: Create wordpress databases
