@@ -6,3 +6,4 @@
   roles:
     - { role: wordpress , tags: "wordpress"} 
     - { role: avada , tags: "avada" }
+    - { role: porto , tags: "porto" }

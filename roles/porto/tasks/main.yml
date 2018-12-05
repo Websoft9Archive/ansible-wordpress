@@ -11,25 +11,25 @@
     owner: apache
     group: apache
 
-- name: Download avada theme from oss
+- name: Download porto theme from oss
   unarchive:
-    src: "{{ avada }}"
+    src: "{{ portal }}"
     dest: /data/wwwroot/wordpress/wp-content/themes
     remote_src: yes
     owner: apache
     group: apache
 
-- name: Download fusion builder from oss
+- name: Download porto_functionality plugin from oss
   unarchive:
-    src: "{{ fusion_builder }}"
+    src: "{{ porto_functionality }}"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
     group: apache
 
-- name: Download fusion core from oss
+- name: Download js_composer plugin from oss
   unarchive:
-    src: "{{ fusion_core }}"
+    src: "{{ js_composer }}"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
@@ -37,7 +37,7 @@
 
 - name: Download revslider from oss
   unarchive:
-    src: "{{ revslider }}"
+    src: "{{ revslider1 }}"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
@@ -47,7 +47,7 @@
   lineinfile:
     path: /data/wwwroot/wordpress/wp-includes/default-constants.php
     regexp: "define( 'WP_DEFAULT_THEME', 'twentyseventeen' );"
-    line: "define( 'WP_DEFAULT_THEME', 'avada' );"
+    line: "define( 'WP_DEFAULT_THEME', 'porto' );"
 
 - name: Remove example dir
   file:
