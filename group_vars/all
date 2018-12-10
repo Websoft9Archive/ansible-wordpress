@@ -1,15 +1,8 @@
-# 下载链接  
-# 1. 官方原版
-WordPress:          https://wordpress.org/latest.zip
+# 1. wordpress官方下载链接
+WordPress:           https://wordpress.org/latest.zip
 
 # 2. avada主题
-avada:               http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/avada/avada.zip
-fusion_builder:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/avada/fusion-builder.zip
-fusion_core:         http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/avada/fusion-core.zip
-revslider:           http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/avada/revslider.zip
+avada:              http://libs.websoft9.com/apps/wordpress/avada/avada.tar.gz
 
 # 3. portal主题 
-portal:              http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/porto/porto.zip
-porto_functionality: http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/porto/porto-functionality.zip
-js_composer:         http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/porto/js_composer.zip
-revslider1:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/wordpress/avada/revslider.zip
+porto:              http://libs.websoft9.com/apps/wordpress/porto/potro.tar.gz

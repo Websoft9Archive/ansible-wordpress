@@ -1,2 +1,2 @@
 [server]
-114.116.132.0 ansible_ssh_user=root ansible_ssh_pass=Qwer1234
+159.138.5.116 ansible_ssh_user=root ansible_ssh_pass=Qwer1234

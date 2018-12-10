@@ -3,45 +3,14 @@
 - name: System Upgrade
   yum: name=* state=latest
 
-- name: Download wordpress
+- name: Download wordpress (include avada theme)
   unarchive:
-    src: "{{ WordPress }}"
+    src: "{{ avada }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: apache
     group: apache
 
-- name: Download avada theme from oss
-  unarchive:
-    src: "{{ avada }}"
-    dest: /data/wwwroot/wordpress/wp-content/themes
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download fusion builder from oss
-  unarchive:
-    src: "{{ fusion_builder }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download fusion core from oss
-  unarchive:
-    src: "{{ fusion_core }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download revslider from oss
-  unarchive:
-    src: "{{ revslider }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
-    remote_src: yes
-    owner: apache
-    group: apache
 
 - name: Change default theme 
   lineinfile:

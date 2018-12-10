@@ -1,4 +1,7 @@
 ---
+- name: System Upgrade
+  yum: name=* state=latest
+
 - name: Download wordpress
   unarchive:
     src: "{{ WordPress }}"

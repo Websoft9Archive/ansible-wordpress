@@ -3,42 +3,10 @@
 - name: System Upgrade
   yum: name=* state=latest
 
-- name: Download wordpress
+- name: Download wordpress (include porto theme)
   unarchive:
-    src: "{{ WordPress }}"
+    src: "{{ porto }}"
     dest: /data/wwwroot
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download porto theme from oss
-  unarchive:
-    src: "{{ portal }}"
-    dest: /data/wwwroot/wordpress/wp-content/themes
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download porto_functionality plugin from oss
-  unarchive:
-    src: "{{ porto_functionality }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download js_composer plugin from oss
-  unarchive:
-    src: "{{ js_composer }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
-    remote_src: yes
-    owner: apache
-    group: apache
-
-- name: Download revslider from oss
-  unarchive:
-    src: "{{ revslider1 }}"
-    dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
     owner: apache
     group: apache
