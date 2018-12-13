@@ -1,7 +1,9 @@
 ---
+# 系统更新
 - name: System Upgrade
   yum: name=* state=latest
 
+# 下载源文件
 - name: Download wordpress
   unarchive:
     src: "{{ WordPress }}"
@@ -9,6 +11,35 @@
     remote_src: yes
     owner: apache
     group: apache
+  when: theme == 'twentynineteen'
+
+- name: Download wordpress which include avada theme
+  unarchive:
+    src: "{{ avada }}"
+    dest: /data/wwwroot
+    remote_src: yes
+    owner: apache
+    group: apache
+  when: theme == 'avada'
+
+- name: Download wordpress which include porto theme
+  unarchive:
+    src: "{{ porto }}"
+    dest: /data/wwwroot
+    remote_src: yes
+    owner: apache
+    group: apache
+  when: theme == 'porto'
+
+# 修改默认主题
+
+- name: Replace default theme
+  template:
+    src: default-constants.php
+    dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
+    owner: apache
+    group: apache
+    mode: 0640
 
 - name: Remove example dir
   file:
