@@ -1,8 +1,8 @@
-# 1. wordpress官方下载链接
-WordPress:           https://wordpress.org/latest.zip
+# 1. wordpress（官方主题）
+twentynineteen:           https://wordpress.org/latest.zip
 
-# 2. avada主题
+# 2. WordPress（包含avada主题）
 avada:              http://libs.websoft9.com/apps/wordpress/avada/avada.tar.gz
 
-# 3. portal主题 
+# 3. WordPress（包含portal主题 ）
 porto:              http://libs.websoft9.com/apps/wordpress/porto/porto.tar.gz
