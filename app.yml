@@ -5,5 +5,5 @@
 
   roles:
     - { role: wordpress , tags: "wordpress"} 
-    # - { role: avada , tags: "avada" }
+    - { role: wordpress-discuz , tags: "wordpress-discuz" }
     # - { role: porto , tags: "porto" }

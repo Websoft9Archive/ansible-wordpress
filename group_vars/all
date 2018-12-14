@@ -6,3 +6,6 @@ avada:              http://libs.websoft9.com/apps/wordpress/avada/avada.tar.gz
 
 # 3. WordPress（包含portal主题 ）
 porto:              http://libs.websoft9.com/apps/wordpress/porto/porto.tar.gz
+
+# 4. Discuz
+Discuz:         https://gitee.com/ComsenzDiscuz/DiscuzX.git

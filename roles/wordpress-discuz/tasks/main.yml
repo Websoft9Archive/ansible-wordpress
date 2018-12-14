@@ -1,0 +1,59 @@
+---
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+## wordpress
+- name: Download wordpress
+  unarchive:
+    src: "{{ twentynineteen }}"
+    dest: /data/wwwroot
+    remote_src: yes
+    owner: apache
+    group: apache
+
+- name: Copy Apache Vhost Configuration
+  template: src=vhost.conf dest=/etc/httpd/vhost/vhost.conf
+  notify: restart Apache
+
+- name: Create wordpress databases
+  mysql_db:
+    login_user: root
+    login_password: 123456
+    name: wordpress
+    state: present
+
+## discuz
+- name: Download Discuz!X3.4
+  git:
+    repo: "{{ Discuz }}"
+    dest: /data/wwwroot/discuz
+
+- name: copy discuz config
+  copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
+
+# common
+- name: Change 9panel 
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"WordPress","switch":0,'
+    line: '{"appname":"WordPress","switch":1,'
+
+- name: Change discuz 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"Discuz","switch":0,'
+    line: '{"appname":"Discuz","switch":1,'
+    
+- name: Change installdr of discuz's appurl
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/"},'
+    line: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/discuz"},'
+
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -type f -exec chmod 640 {} \;
