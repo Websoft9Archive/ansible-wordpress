@@ -87,21 +87,18 @@
     line: '{"appname":"WordPress","switch":1,'
 
 - name: Change Permission of directory for Apache
-  #shell: chown -R apache.apache /data/wwwroot
   file: 
     path: /data/wwwroot
     owner: apache
     group: apache
-    mode: 0750
+    recurse: yes
   when: web == 'apache'
 
 - name: Change Permission of directory for Nginx
-  #shell: chown -R nginx.nginx /data/wwwroot
   file: 
     path: /data/wwwroot
     owner: nginx
     group: nginx
-    mode: 0750
     recurse: yes
   when: web == 'nginx'
 
