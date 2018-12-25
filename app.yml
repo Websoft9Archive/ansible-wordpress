@@ -6,4 +6,3 @@
   roles:
     - { role: wordpress , tags: "wordpress"} 
     - { role: wordpress-discuz , tags: "wordpress-discuz" }
-    # - { role: porto , tags: "porto" }

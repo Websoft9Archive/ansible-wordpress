@@ -51,7 +51,7 @@
   notify: restart Apache
   when: web == 'apache'
 
-- name: Copy Apache Vhost Configuration
+- name: Copy nginx Vhost Configuration
   template: src=default.conf dest=/etc/nginx/conf.d/default.conf
   notify: restart nginx
   when: web == 'nginx'
@@ -86,17 +86,27 @@
     regexp: '{"appname":"WordPress","switch":0,'
     line: '{"appname":"WordPress","switch":1,'
 
-- name: Change Permission of directory
-  shell: chown -R apache.apache /data/wwwroot
+- name: Change Permission of directory for Apache
+  #shell: chown -R apache.apache /data/wwwroot
+  file: 
+    path: /data/wwwroot
+    owner: apache
+    group: apache
+    mode: 0750
   when: web == 'apache'
 
-- name: Change nginx Permission of directory
-  shell: chown -R nginx.nginx /data/wwwroot
+- name: Change Permission of directory for Nginx
+  #shell: chown -R nginx.nginx /data/wwwroot
+  file: 
+    path: /data/wwwroot
+    owner: nginx
+    group: nginx
+    mode: 0750
   when: web == 'nginx'
 
-- name: Permission directory
+- name: Permission directory 750
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
-- name: Permission file
+- name: Permission file 640
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
