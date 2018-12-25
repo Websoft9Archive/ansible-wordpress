@@ -88,11 +88,11 @@
 
 - name: Change Permission of directory
   shell: chown -R apache.apache /data/wwwroot
-  when: web == apache
+  when: web == 'apache'
 
 - name: Change nginx Permission of directory
   shell: chown -R nginx.nginx /data/wwwroot
-  when: web == nginx
+  when: web == 'nginx'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
