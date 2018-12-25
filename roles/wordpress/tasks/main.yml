@@ -9,8 +9,8 @@
     src: "{{ twentynineteen }}"
     dest: /data/wwwroot
     remote_src: yes
-    owner: apache
-    group: apache
+    owner: root
+    group: root
   when: theme == 'twentynineteen'
 
 - name: Download wordpress which include avada theme
@@ -18,8 +18,8 @@
     src: "{{ avada }}"
     dest: /data/wwwroot
     remote_src: yes
-    owner: apache
-    group: apache
+    owner: root
+    group: root
   when: theme == 'avada'
 
 - name: Download wordpress which include porto theme
@@ -27,8 +27,8 @@
     src: "{{ porto }}"
     dest: /data/wwwroot
     remote_src: yes
-    owner: apache
-    group: apache
+    owner: root
+    group: root
   when: theme == 'porto' 
 
 # 修改默认主题
@@ -37,8 +37,8 @@
   template:
     src: default-constants.php
     dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
-    owner: apache
-    group: apache
+    owner: root
+    group: root
     mode: 0640
 
 - name: Remove example dir
@@ -49,6 +49,12 @@
 - name: Copy Apache Vhost Configuration
   template: src=vhost.conf dest=/etc/httpd/vhost/vhost.conf
   notify: restart Apache
+  when: web == apache
+
+- name: Copy Apache Vhost Configuration
+  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+  notify: restart nginx
+  when: web == nginx
 
 - name: Create wordpress databases
   mysql_db:
@@ -57,21 +63,21 @@
     name: wordpress
     state: present
 
-# - name: Copy WordPress config file
-#   template: src=wp-config.php dest=/data/wwwroot/wordpress/ owner=apache group=apache
+- name: Copy WordPress config file
+  template: src=wp-config.php dest=/data/wwwroot/wordpress/ owner=apache group=apache
 
-# - name: Copy databases initialization
-#   copy:
-#     src: init.sh
-#     dest: /root
-#     mode: 0770
+- name: Copy databases initialization
+  copy:
+    src: init.sh
+    dest: /root
+    mode: 0770
 
-# - name: initialization Script Start
-#   lineinfile:
-#     path: /etc/rc.d/rc.local
-#     regexp: '/root/init.sh'
-#     line: '/root/init.sh'
-#     mode: 0770
+- name: initialization Script Start
+  lineinfile:
+    path: /etc/rc.d/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0770
 
 
 - name: Change 9panel 
@@ -79,6 +85,14 @@
     path: /data/apps/9panel/js/websoft9.js
     regexp: '{"appname":"WordPress","switch":0,'
     line: '{"appname":"WordPress","switch":1,'
+
+- name: Change Permission of directory
+  shell: chown -R apache.apache /data/wwwroot
+  when: web == apache
+
+- name: Change nginx Permission of directory
+  shell: chown -R nginx.nginx /data/wwwroot
+  when: web == nginx
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;

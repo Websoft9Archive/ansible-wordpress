@@ -2,3 +2,6 @@
 # theme变量的取值范围：twentynineteen、avada、porto
 theme: 'twentynineteen'
 
+# web应用类型: apache、nginx
+web: 'apache'
+
