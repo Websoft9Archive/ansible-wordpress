@@ -102,6 +102,7 @@
     owner: nginx
     group: nginx
     mode: 0750
+    recurse: yes
   when: web == 'nginx'
 
 - name: Permission directory 750
