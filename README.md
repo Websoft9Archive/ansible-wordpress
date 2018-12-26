@@ -21,6 +21,8 @@ tag:wordpress-discuz
 theme:[twentynineteen,avada,porto],不设置默认为第一个
 web:[apache,nginx]
 
+## 主题上传要求
+主题以及所需的插件和WordPress源文件放在一起后，打包上传即可
 
 
 
