@@ -56,6 +56,9 @@
   notify: restart nginx
   when: web == 'nginx'
 
+- name: Copy Apache Vhost Configuration
+  template: src=php.ini dest=/etc/php.ini
+
 - name: Create wordpress databases
   mysql_db:
     login_user: root
