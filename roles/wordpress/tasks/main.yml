@@ -4,7 +4,7 @@
   yum: name=* state=latest
 
 # 下载源文件
-- name: Download wordpress
+- name: Download wordpress which include default theme
   unarchive:
     src: "{{ twentynineteen }}"
     dest: /data/wwwroot

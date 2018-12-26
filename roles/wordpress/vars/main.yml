@@ -3,5 +3,5 @@
 theme: 'twentynineteen'
 
 # web应用类型: apache、nginx
-web: 'apache'
+web: 'nginx'
 
