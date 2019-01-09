@@ -6,7 +6,7 @@ WordPress 包括三个版本：
 3. avada英文版（英文版5.7.2）
 3. portal主题版（中文版本4.7.3）
 
-主题变量名为 theme ，取值范围：[twentynineteen,avada,avadaen,porto],其中 twentynineteen 对应
+主题变量名为 theme ，取值范围：[twentynineteen,avada,porto],其中 twentynineteen 对应
 官方原版。部署前需要检查的文件：hosts 里的IP，/roles/vars/main.yml 变量是否正确。
 
 ## WordPress的下载地址
