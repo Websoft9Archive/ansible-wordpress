@@ -2,10 +2,10 @@
 twentynineteen:           https://wordpress.org/latest.zip
 
 # 2. WordPress（包含avada主题）
-avada:              http://libs.websoft9.com/apps/wordpress/avada/avada.tar.gz
+avada:              http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz
 
 # 3. WordPress（包含portal主题 ）
-porto:              http://libs.websoft9.com/apps/wordpress/porto/porto.tar.gz
+porto:              http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz
 
 # 4. Discuz
 Discuz:         https://gitee.com/ComsenzDiscuz/DiscuzX.git
