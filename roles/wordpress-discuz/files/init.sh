@@ -1,6 +1,6 @@
 #!/bin/bash
 
-password=`< /dev/urandom tr -dc 0-9-A-Z-a-z-/|head -c ${1:-10};echo`
+password=`< /dev/urandom tr -dc 0-9-A-Z-a-z|head -c ${1:-10};echo`
 
 systemctl restart mysqld
 
