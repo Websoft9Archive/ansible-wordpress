@@ -13,18 +13,15 @@ WordPress 包括三个版本：
 group_vars/all 文件里
 
 ## 运行参数
-运行ansible安装程序，变量和标签需要设置
+
+### 标签
+本程序可以运行WordPress镜像，也可以运行WordPress组合镜像，通过下面两个标签区分：
 tag:wordpress
 tag:wordpress-discuz
 必须设置其中一个
 
-变量
+### 变量
 theme:[twentynineteen,avada,porto],不设置默认为第一个
-web:[apache,nginx]
 
 ## 主题上传要求
 主题以及所需的插件和WordPress源文件放在一起后，打包上传即可
-
-
-
-
