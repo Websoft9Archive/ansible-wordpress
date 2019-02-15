@@ -3,6 +3,12 @@
 - name: System Upgrade
   yum: name=* state=latest
 
+# 活获取Web服务器类型
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 # 下载源文件
 - name: Download wordpress which include default theme
   unarchive:
@@ -46,18 +52,23 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
-- name: Copy Apache Vhost Configuration
-  template: src=vhost.conf dest=/etc/httpd/vhost/vhost.conf
-  notify: restart Apache
-  when: web == 'apache'
-
-- name: Copy nginx Vhost Configuration
-  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+#====================apache and nginx==========================================#
+- name: Copy Nginx Vhost Configuration
+  template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
-  when: web == 'nginx'
+  when: nginx_ver.stderr.find('nginx version') != -1
 
 - name: Copy Apache Vhost Configuration
+  template: src=vhost.conf dest=/etc/httpd/vhost/
+  notify: restart Apache
+  when: nginx_ver.stderr.find('command not found') != -1
+#==========================+=================================================#
+
+- name: Copy PHP.ini Template
   template: src=php.ini dest=/etc/php.ini
+
+- name: Copy WordPress config file
+  template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
 - name: Create wordpress databases
   mysql_db:
@@ -66,10 +77,7 @@
     name: wordpress
     state: present
 
-- name: Copy WordPress config file
-  template: src=wp-config.php dest=/data/wwwroot/wordpress/ owner=apache group=apache
-
-- name: Copy databases initialization
+- name: Copy databases initialization.sh
   copy:
     src: init.sh
     dest: /root
@@ -89,21 +97,24 @@
     regexp: '{"appname":"WordPress","switch":0,'
     line: '{"appname":"WordPress","switch":1,'
 
-- name: Change Permission of directory for Apache
-  file: 
-    path: /data/wwwroot
-    owner: apache
-    group: apache
-    recurse: yes
-  when: web == 'apache'
 
-- name: Change Permission of directory for Nginx
-  file: 
-    path: /data/wwwroot
-    owner: nginx
-    group: nginx
-    recurse: yes
-  when: web == 'nginx'
+#====================apache and nginx==========================================#
+- name: change Nginx owner
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx version') != -1
+
+- name: change Apache owner
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart Nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx version') != -1
+#==========================+=================================================#
 
 - name: Permission directory 750
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
