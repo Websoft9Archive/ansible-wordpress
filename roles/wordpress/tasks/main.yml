@@ -70,10 +70,14 @@
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
+- name: Obtain mysql root's password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_root_password
+
 - name: Create wordpress databases
   mysql_db:
     login_user: root
-    login_password: 123456
+    login_password: "{{ mysql_root_password }}"
     name: wordpress
     state: present
 
