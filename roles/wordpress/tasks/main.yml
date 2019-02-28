@@ -3,7 +3,7 @@
 - name: System Upgrade
   yum: name=* state=latest
 
-# 活获取Web服务器类型
+# 获取Web服务器类型
 - name: Get WebServer
   shell: nginx -v
   register: nginx_ver
@@ -62,7 +62,7 @@
   template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
   when: nginx_ver.stderr.find('command not found') != -1
-#==========================+=================================================#
+#============================================================================#
 
 - name: Copy PHP.ini Template
   template: src=php.ini dest=/etc/php.ini
@@ -77,7 +77,7 @@
 - name: Create wordpress databases
   mysql_db:
     login_user: root
-    login_password: "{{ mysql_root_password }}"
+    login_password: "{{ mysql_root_password.stdout }}"
     name: wordpress
     state: present
 
@@ -102,7 +102,7 @@
     line: '{"appname":"WordPress","switch":1,'
 
 
-#====================apache and nginx==========================================#
+# ====================apache and nginx==========================================#
 - name: change Nginx owner
   shell: chown nginx. -R /data/wwwroot
   when: nginx_ver.stderr.find('nginx version') != -1
@@ -118,7 +118,7 @@
 - name: restart Nginx
   service: name=nginx state=restarted enabled=yes
   when: nginx_ver.stderr.find('nginx version') != -1
-#==========================+=================================================#
+# ==========================+=================================================#
 
 - name: Permission directory 750
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
