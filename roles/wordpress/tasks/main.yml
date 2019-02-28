@@ -52,7 +52,7 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
-#====================apache and nginx==========================================#
+# ====================apache and nginx==========================================#
 - name: Copy Nginx Vhost Configuration
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
@@ -61,8 +61,8 @@
 - name: Copy Apache Vhost Configuration
   template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
-  when: nginx_ver.stderr.find('command not found') != -1
-#============================================================================#
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+# ============================================================================#
 
 - name: Copy PHP.ini Template
   template: src=php.ini dest=/etc/php.ini
@@ -94,7 +94,6 @@
     line: '/root/init.sh'
     mode: 0770
 
-
 - name: Change 9panel 
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
@@ -109,15 +108,15 @@
 
 - name: change Apache owner
   shell: chown apache. -R /data/wwwroot
-  when: nginx_ver.stderr.find('command not found') != -1
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
 
 - name: restart Apache
   service: name=httpd state=restarted enabled=yes
-  when: nginx_ver.stderr.find('command not found') != -1
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
 
 - name: restart Nginx
   service: name=nginx state=restarted enabled=yes
-  when: nginx_ver.stderr.find('nginx version') != -1
+  when: nginx_ver.stderr.find('nginx version') != -1 
 # ==========================+=================================================#
 
 - name: Permission directory 750
