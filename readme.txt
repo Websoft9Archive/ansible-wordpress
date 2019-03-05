@@ -41,5 +41,5 @@ pdo_dblib  pdo_mysql  PDO_ODBC  pdo_sqlite  wddx  xmlreader  xmlrpc  igbinary  i
 
 You can find a quick start guide and more documentation about all of the components at:
 
-中文文档：http://support.websoft9.com/docs/mediawiki-image-guide/
-English: https://en.websoft9.com/docs/mediawiki
+中文文档：http://support.websoft9.com/docs/wordpress-image-guide/
+English: https://en.websoft9.com/docs/wordpress
