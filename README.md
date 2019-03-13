@@ -16,8 +16,10 @@ group_vars/all 文件里
 
 ### 标签
 本程序可以运行WordPress镜像，也可以运行WordPress组合镜像，通过下面两个标签区分：
+
 tag:wordpress
 tag:wordpress-discuz
+
 必须设置其中一个
 
 ### 变量
