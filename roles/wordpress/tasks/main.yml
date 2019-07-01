@@ -35,7 +35,7 @@
     remote_src: yes
     owner: root
     group: root
-  when: theme == 'porto' 
+  when: theme == 'porto'
 
 # 修改默认主题
 
@@ -71,7 +71,7 @@
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
 - name: Obtain mysql root's password
-  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  shell: cat /credentials/password.txt | awk -F ":" '{print $2}' | sed -n '2p'
   register: mysql_root_password
 
 - name: Create wordpress databases
@@ -94,14 +94,14 @@
     line: '/root/init.sh'
     mode: 0770
 
-- name: Change 9panel 
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"WordPress","switch":0,'
-    line: '{"appname":"WordPress","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["WordPress"];'
 
 
-# ====================apache and nginx==========================================#
+# ====================apache and nginx========================================== #
 - name: change Nginx owner
   shell: chown nginx. -R /data/wwwroot
   when: nginx_ver.stderr.find('nginx version') != -1
@@ -116,12 +116,12 @@
 
 - name: restart Nginx
   service: name=nginx state=restarted enabled=yes
-  when: nginx_ver.stderr.find('nginx version') != -1 
-# ==========================+=================================================#
+  when: nginx_ver.stderr.find('nginx version') != -1
+# ============================================================================#
 
 - name: Permission directory 750
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
+
 - name: Permission file 640
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
 

@@ -1,6 +1,6 @@
 # #!/bin/bash
 
-old_password=$(cat /root/password.txt | awk -F ":" '{print $2}' )
+old_password=$(cat /credentials/password.txt | awk -F ":" '{print $2}' | sed -n '2p' )
 new_password=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
 
 systemctl restart mysqld
@@ -16,7 +16,7 @@ systemctl restart mysqld
 mysql -uroot -p$new_password -e "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY '${password}';"
 mysql -uroot -p$new_password -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' WITH GRANT OPTION;"
 
-printf "username:wordpress\npassword:${password}\n" >> ~/password.txt
+printf "username:wordpress\npassword:${password}\n" >> /credentials/password.txt
 
 sed -i "s/wordpress_password/${password}/" /data/wwwroot/wordpress/wp-config.php
 
