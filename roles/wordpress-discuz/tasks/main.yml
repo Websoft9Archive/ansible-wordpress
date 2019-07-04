@@ -15,7 +15,9 @@
 
 - name: Copy Apache Vhost Configuration
   template: src=vhost.conf dest=/etc/httpd/vhost/vhost.conf
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Create wordpress databases
   mysql_db:
@@ -34,26 +36,23 @@
   copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
 
 # common
-- name: Change 9panel 
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"WordPress","switch":0,'
-    line: '{"appname":"WordPress","switch":1,'
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["WordPress", "Discuz"];'
 
-- name: Change discuz 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Discuz","switch":0,'
-    line: '{"appname":"Discuz","switch":1,'
-    
-- name: Change installdr of discuz's appurl
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/"},'
-    line: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/discuz"},'
+# ====================change file permission========================================== #
+- name: change Apache owner
+  shell: chown apache. -R /data/wwwroot
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
 - name: Permission file
   shell: find /data/wwwroot -type f -exec chmod 640 {} \;
+
+# ====================change file permission========================================== #
