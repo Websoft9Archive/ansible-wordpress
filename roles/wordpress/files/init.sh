@@ -1,15 +1,15 @@
 # #!/bin/bash
 
-old_password=$(cat /credentials/password.txt | awk -F ":" '{print $2}' | sed -n '2p' )
-new_password=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
+old_password=$(cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}')
+new_password=$(</dev/urandom tr -dc '12345qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
 
 systemctl restart mysqld
 mysqladmin -uroot -p${old_password} -h 127.0.0.1 password $new_password
 mysqladmin -uroot -p${old_password} -h localhost password $new_password
 
-echo 'Databases root Password:'$new_password  > /root/password.txt
+echo -e 'MySQL username:root\nMySQL Password:'$new_password  > /credentials/password.txt
 
-password=`< /dev/urandom tr -dc 0-9-A-Z-a-z|head -c ${1:-10};echo`
+password=$(</dev/urandom tr -dc '12345qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c10)
 
 systemctl restart mysqld
 

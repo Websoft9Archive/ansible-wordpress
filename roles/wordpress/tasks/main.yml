@@ -52,15 +52,24 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
+
 # ====================apache and nginx==========================================#
-- name: Copy Nginx Vhost Configuration
-  template: src=default.conf dest=/etc/nginx/conf.d/
-  notify: restart nginx
+- block:
+  - name: Copy Nginx Vhost Configuration
+    template: src=default.conf dest=/etc/nginx/conf.d/
+  
+  - name: restart nginx 
+    service: name=nginx state=restarted enabled=yes
+    
   when: nginx_ver.stderr.find('nginx version') != -1
 
-- name: Copy Apache Vhost Configuration
-  template: src=vhost.conf dest=/etc/httpd/vhost/
-  notify: restart Apache
+- block:
+  - name: Copy Apache Vhost Configuration
+    template: src=vhost.conf dest=/etc/httpd/vhost/
+
+  - name: restart Apache
+    service: name=httpd state=restarted enabled=yes
+
   when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
 # ============================================================================#
 
@@ -71,7 +80,7 @@
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
 - name: Obtain mysql root's password
-  shell: cat /credentials/password.txt | awk -F ":" '{print $2}' | sed -n '2p'
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
   register: mysql_root_password
 
 - name: Create wordpress databases
@@ -97,7 +106,7 @@
 - name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=["Example"];'
+    regexp: 'var set_apps=\["Example"\];'
     line: 'var set_apps=["WordPress"];'
 
 
