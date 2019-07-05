@@ -4,6 +4,10 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
+- name: Obtain mysql root's password
+  shell: cat /credentials/password.txt | awk -F ":" '{print $2}' | sed -n '2p'
+  register: mysql_root_password
+
 ## wordpress
 - name: Download wordpress
   unarchive:
@@ -22,7 +26,7 @@
 - name: Create wordpress databases
   mysql_db:
     login_user: root
-    login_password: 123456
+    login_password: "{{ mysql_root_password.stdout }}"
     name: wordpress
     state: present
 
