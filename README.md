@@ -1,6 +1,7 @@
 ## 镜像说明
 
 WordPress 包括三个版本：
+
 1. 官方原版
 2. avada主题版（中文版5.6.2）
 3. avada英文版（英文版5.7.2）
@@ -10,11 +11,13 @@ WordPress 包括三个版本：
 官方原版。部署前需要检查的文件：hosts 里的IP，/roles/vars/main.yml 变量是否正确。
 
 ## WordPress的下载地址
+
 group_vars/all 文件里
 
 ## 运行参数
 
 ### 标签
+
 本程序可以运行WordPress镜像，也可以运行WordPress组合镜像，通过下面两个标签区分：
 
 * tag:wordpress
@@ -23,7 +26,10 @@ group_vars/all 文件里
 必须设置其中一个
 
 ### 变量
-theme:[twentynineteen,avada,porto],不设置默认为第一个
+
+theme:[twentynineteen,avada,porto]
+
+不设置默认为第一个
 
 ## 主题上传要求
 主题以及所需的插件和WordPress源文件放在一起后，打包上传即可
