@@ -28,7 +28,7 @@ $_config = array();
  *
  */
 $_config['db'][1]['dbhost']  		= 'localhost';
-$_config['db'][1]['dbuser']  		= 'root';
+$_config['db'][1]['dbuser']  		= 'discuz';
 $_config['db'][1]['dbpw'] 	 	= '123456';
 $_config['db'][1]['dbcharset'] 		= 'utf8';
 $_config['db'][1]['pconnect'] 		= 0;
