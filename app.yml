@@ -8,4 +8,3 @@
   roles:
     - { role: wordpress , tags: "wordpress"} 
     - { role: wordpress-discuz , tags: "wordpress-discuz" }
-    - { role: end , tags: "end" }
