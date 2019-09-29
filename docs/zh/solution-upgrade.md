@@ -24,16 +24,31 @@ apt update && apt upgrade -y
 
 ## WordPress升级
 
-WordPress有升级包的时候，后台会及时给出提示。参考下面的步骤完成升级：
+WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。这三者都可以通过 WordPress 后台进行升级  
+![](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-upgrade-websoft9.png)
 
-1. WordPress后台->设置->升级，如果有新的升级包，系统会给与提示
-![WordPress升级提示](https://libs.websoft9.com/Websoft9/DocsPicture/zh/metabase/metabase-updatereminder-websoft9.png)
+由于这三者分别属于不同的开发者，升级后可能会导致不兼容的现象。具体表现有：
 
-2. 点击“更新”按钮后，系统会跳转到WordPress官方的安装页面。
-3. 我们提供的部署包采用的是jar包安装模式，因此在安装页面我们选择“Custom install”模式，
-![WordPress升级提示](https://libs.websoft9.com/Websoft9/DocsPicture/zh/metabase/metabase-updatedl-websoft9.png)
+- 网站打不开，显示500程序错误
+- 网站结构变得混乱
+- 主题部分功能不可用
 
-3. 下载WordPress.jar包后，上传到服务器 `/data/wwwroot/metabase`, 覆盖已有的同名文件
-![WordPress升级提示](https://libs.websoft9.com/Websoft9/DocsPicture/zh/metabase/metabase-updatereplace-websoft9.png)
+以上不兼容现象是正常的，最好的解决办法是让 主题和插件的版本 适应 WordPress 内核版本。
 
-4. 重新加载WordPress，升级成功
+### 内核升级
+
+WordPress 内核升级非常简单，当进入后台之后系统会提示需要升级，点击升级即可（ 特别注意：Wordpress应用程序升级之前务必进行完整备份，以保证备份出现差错之后能够复原。）
+
+ ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-update-websoft9.png)
+
+
+### 插件升级
+
+插件一般采用在线升级的方式
+
+### 主题升级
+
+主题升级建议采用的方式：
+
+1. 使用 WinSCP 登录服务，删除原有主题（或对其改名）
+2. 通过 【WordPress 后台】>【外观】>【主题】>【添加】>【上传主题】的方式，完成主题安装

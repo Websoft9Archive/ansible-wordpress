@@ -54,9 +54,20 @@ sidebarDepth: 3
 ```
 通用的手动备份操作步骤如下：
 
-1. 通过WinSCP将网站目录（*/data/wwwroot/metabase*）**压缩后**再完整的下载到本地
-2. 通过phpMyAdmin导出WordPress数据库
+1. 通过 WinSCP 将网站目录（例如：*/data/wwwroot/wordpress*）**压缩后**再完整的下载到本地
+2. 通过 phpMyAdmin 导出 WordPress 数据库
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/phpmyadmin-export-websoft9.png)
 3. 将程序文件和数据库文件放到同一个文件夹，根据日期命名
 4. 备份工作完成
 
+### WordPress 备份插件
+
+WordPress插件库中有数量众多的备份插件，我们推荐使用：[UpdraftPlus WordPress Backup Plugin ](https://wordpress.org/plugins/updraftplus/)
+
+![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-updraftplus-websoft9.png)
+
+这个插件特点和好处包括：
+
+* 可以预设备份时间点，实现自动备份
+* 可以备份网站文件和数据库
+* 可以实现一键恢复
