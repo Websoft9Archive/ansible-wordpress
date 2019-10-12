@@ -10,31 +10,19 @@ If you have completed the WordPress deployment on Cloud Platform, the following 
 
 ## WordPress Installation Wizard
 
-1. Using local Chrome or Firefox to visit the URL *http://domain name* or *http://Internet IP*, you will enter the register interface of WordPress
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-start-websoft9.png)
-2. You may wait for 1-3 Minutes for the loading of WordPress
-![Start WordPress](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-starty-websoft9.png)
+1. Using local Chrome or Firefox to visit the URL *http://domain name* or *http://Internet IP*, you will enter the WordPress   
+   ![Wordpress installation language](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installsetlanguage-websoft9.png)
+2. Select your language, then go to next step
+3. Set administrator user, password and mail, then click **Install WordPress**
+   ![Wordpress installation administrator](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installsetadmin-websoft9.png)
+4. OK, it has been installed successfully.
+   ![Wordpress installation ok](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installss-websoft9.png)
+5.Use *http://domain or Internet IP/wp-admin*  to login to WordPress's dashboard
+   ![Wordpress installation dashbaord](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-bkdashboard-websoft9.png)
 
-3. Click the **Let's get started** button and set your administrator account, then go to next step
-4. Add your data: you can select the type of Database which will be analyzed or  click **I'll add my data later** then WordPress will create a Demo from H2 Database
-![Add data to WordPress](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-installdb-websoft9.png)
+> More useful WordPress guide, please refer to [WordPress Documentation](https://wordpress.org/support/)
 
-5. Once you have completed the installation, click the button **Take me to WordPress** to log in WordPress Console
-![WordPress installation successful](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-installss-websoft9.png)
-
-6. Take the H2 demo data as an example to start data analysis work.
-![WordPress H2](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-dashborad-websoft9.png)
-
-7. Log in WordPress Console, go to **WordPress Admin** page like below
-![WordPress Admin](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-admin-websoft9.png)
-
-8. Click **Add a database** to add a new data source for WordPress
-![WordPress Data source](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-adddb-websoft9.png)
-
-9. Click **People** tab on the top of WordPress Admin, you can add user and modify password
-![WordPress People](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-users-websoft9.png)
-
-> More useful WordPress guide, please refer to [WordPress Documentation](https://metabase.com/docs/latest/)
+## 
 
 ## Q&A
 
@@ -45,3 +33,17 @@ Your TCP:80 of Security Group Rules is not allowed so there no response from Chr
 #### Which database does this WordPress use?
 
 MySQL
+
+#### Why can I not see the database configuration step?
+
+If you are familiar with Wordpress, you should know that you can see the database configuration interface In the installation wizard process of Wordprees like below
+
+![Wordpress install password](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wp04.png)
+
+Why can't I see this interface? Websoft9 Wordpress Image have pre-configure the database in your wp-config.php like below
+```sql
+Database Name: wordpress
+Username: wordpress
+Password: a very strong password,you can get it in the file /credentials/password.txt or /root/password.txt
+Database: Host localhost
+```

@@ -17,7 +17,7 @@ WordPress 域名绑定操作步骤：
 
      server {
       listen 80;
-      server_name    metabase.example.com; # 改为自定义域名
+      server_name    wordpress.example.com; # 改为自定义域名
      ...
 
    #### WordPress(LNMP) 或 WordPress（WAMPServer）域名绑定 #### 
