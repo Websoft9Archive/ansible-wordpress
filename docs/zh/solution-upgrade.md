@@ -25,7 +25,7 @@ apt update && apt upgrade -y
 ## WordPress升级
 
 WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。这三者都可以通过 WordPress 后台进行升级  
-![](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-upgrade-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-upgrade-websoft9.png)
 
 由于这三者分别属于不同的开发者，升级后可能会导致不兼容的现象。具体表现有：
 
@@ -39,7 +39,7 @@ WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。
 
 WordPress 内核升级非常简单，当进入后台之后系统会提示需要升级，点击升级即可（ 特别注意：Wordpress应用程序升级之前务必进行完整备份，以保证备份出现差错之后能够复原。）
 
- ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-update-websoft9.png)
+ ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-update-websoft9.png)
 
 
 ### 插件升级

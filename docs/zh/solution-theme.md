@@ -135,7 +135,7 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 1、后台-页面-新增页面，我们会看到如下页面
 
-![](http://www.websoft9.com/wp-content/plugins/documente/documentations/w9cms_server_maintains_v1_0_0/images/w9cms_pageedit001.jpg)
+![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-addnewpage-websoft9.jpg)
 
 上图就是一个页面制作界面，其中“Fusion页面构建器”为可视化模式，“默认编辑器”为code编辑模式，对于普通用户，我们选择可视化编辑模式
 

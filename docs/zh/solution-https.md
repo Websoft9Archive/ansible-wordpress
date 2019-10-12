@@ -10,10 +10,10 @@ WordPress预装包，已安装Web服务器 SSL 模块和公共免费证书方案
 
 具体配置非常严谨，请根据不同版本的WordPress而采用对应的配置方案：
 
-1. [LAMP版本的WordPress配置方案](http://help.websoft9.com/lamp-guide/solution/sethttps.html)
-2. [LNMP版本的Wordpress配置方案](http://help.websoft9.com/lnmp-guide/solution/sethttps.html)
-3. [WAMPServer版本的Wordpress配置方案](http://help.websoft9.com/phpstacks-practice-windows/wampserver/sethttps.html)
-4. [IIS版本的Wordpress配置方案](http://help.websoft9.com/windows-iis/solution/sethttps.html)
+1. [LAMP版本的WordPress配置方案](https://help.websoft9.com/lamp-guide/solution/sethttps.html)
+2. [LNMP版本的Wordpress配置方案](https://help.websoft9.com/lnmp-guide/solution/sethttps.html)
+3. [WAMPServer版本的Wordpress配置方案](https://help.websoft9.com/phpstacks-practice-windows/wampserver/sethttps.html)
+4. [IIS版本的Wordpress配置方案](https://help.websoft9.com/windows-iis/solution/sethttps.html)
 
 ## 专题指南
 

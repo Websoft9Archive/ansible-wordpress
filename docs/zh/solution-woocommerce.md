@@ -17,7 +17,7 @@ WooCommerce 默认提供了国外主流的支付插件，下面重点介绍中�
 1. 申请支付宝商家账户，申请开通即时到账；
 2. 在商城中安装支付宝支付插件（如果没有支付宝插件，请通过此处购买）
 3. 在商城中配置支付宝参数。配置界面如下：
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/intallalipay-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/intallalipay-websoft9.png)
 
 ### 配置微信扫描支付
 
@@ -26,12 +26,12 @@ WooCommerce微信支付插件使用非常简单，只需要如下步骤，就可
 1. 安装微信支付插件（如果没有支付宝插件，请通过此处购买）
 2. 获取微信公众号APPID，密钥，微信支付密钥以及微信支付授权目录
    - 获取微信公众号的AppID\(应用ID\) 和AppSecret\(应用密钥\) AppID\(应用ID\) 和AppSecret\(应用密钥\)是微信公众号与第三方网站（wordpress）通信的授权ID和密码，非常重要，必须填写。 请登录微信公众平台（https://mp.weixin.qq.com），点击开发-配置获取：AppID 和AppSecret
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/wechatpay-help001-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/wechatpay-help001-websoft9.png)
    - 获取微信支付密钥登录微信支付商户平台（https://pay.weixin.qq.com），在账户设置-API安全中找到并设置密钥，密钥为32位，注意一下，获取密钥后保留备用
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help002-websoft9.png)
-3. 添加授权支付目录在微信公众平台（https://mp.weixin.qq.com）点击-微信支付-开发配置，设置授权支付目录 微信支付插件的授权支付目录为：http://你的域名/wp-content/plugins/wechat-weixin-payments-for-woocommerce/
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help003-websoft9.png)
-4. 设置回调域名在微信公众平台（http://mp.weixin.qq.com）-开发-接口权限中找到-网页服务-网页账号修改授权回调页面域名，域名为你的网站域名，注意区分www和不带www；
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help004-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help002-websoft9.png)
+3. 添加授权支付目录在微信公众平台（https://mp.weixin.qq.com）点击-微信支付-开发配置，设置授权支付目录 微信支付插件的授权支付目录为：https://你的域名/wp-content/plugins/wechat-weixin-payments-for-woocommerce/
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help003-websoft9.png)
+4. 设置回调域名在微信公众平台（https://mp.weixin.qq.com）-开发-接口权限中找到-网页服务-网页账号修改授权回调页面域名，域名为你的网站域名，注意区分www和不带www；
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help004-websoft9.png)
 5. 配置微信支付插件在woocommerce设置，支付设置中找到微信支付设置，填入微信公众号appid和微信支付密钥
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help005-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/woocommerce/weichatpay-help005-websoft9.png)

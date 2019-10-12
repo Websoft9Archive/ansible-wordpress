@@ -26,6 +26,6 @@
 
 另外，你可能会思考，WordPress 是如何在这些环境下运行的呢？ 请参考下图的层次结构图
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wamp/php-infra-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wamp/php-infra-websoft9.png)
 
 

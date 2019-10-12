@@ -33,7 +33,7 @@ WordPress 域名绑定操作步骤：
 
 ### 如何修改WordPress管理员密码？
 
-以管理员账号登录后台-&gt;用户管理，找到账号后，点击打开详细信息，然后往下拉倒“账号管理”项，点击“生成密码”，然后修改密码，并更新个人资料 ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-modifypw-websoft9.png)
+以管理员账号登录后台-&gt;用户管理，找到账号后，点击打开详细信息，然后往下拉倒“账号管理”项，点击“生成密码”，然后修改密码，并更新个人资料 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-modifypw-websoft9.png)
 
 ### 如何找回WordPress管理员密码？
 
@@ -78,7 +78,7 @@ WordPress默认支持大部分图片等文件格式的上传，但也有一些�
 
 为了解决这一问题，可以使用Discuz提供的UCenter功能来将两者的用户数据进行统一整合。
 
-具体参考：[http://bbs.websoft9.com/forum.php?mod=viewthread&tid=9](http://bbs.websoft9.com/forum.php?mod=viewthread&tid=9)
+具体参考：[https://bbs.websoft9.com/forum.php?mod=viewthread&tid=9](https://bbs.websoft9.com/forum.php?mod=viewthread&tid=9)
 
 > Wordpress与Discuz集成是一件复杂的事情，以上方案我们在WordPress4.6版本上测试可用，WordPress4.9以上版本还没有测试过。
 
@@ -92,10 +92,10 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 1. 通过OSS的客户端工具，上传图片到对象存储
 2. 获取对象存储中图片的地址，地址一般类似如下：
    ```
-   http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-youjian.png
+   https://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-youjian.png
    ```
 3. Wordpress后台-页面编辑-插入多媒体，将图片插入到WordPress系统中
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-oss-adresstowp-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-oss-adresstowp-websoft9.png)
 
 ### WordPress与OSS集成（自动）
 将WordPress的wp-upload文件夹路径更改到OSS，这要每次通过WordPress上传的文件，就自动存放到了OSS中。具体操作步骤如下：

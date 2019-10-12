@@ -7,7 +7,7 @@
 寻找所需的插件，有三种方式：
 
 1. 通过WordPress后台-外观-安装插件，在线获取[WordPress插件库](https://wordpress.org/plugins/)的插件 
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addplugins-websoft9.png)
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addplugins-websoft9.png)
 2. 通过百度、google等搜索“WordPress插件”，淘到自己喜欢的主题
 3. 通过插件交易市场购买功能强大的插件，例如：[codecanyon.net](https://codecanyon.net/?osr=tn)
 

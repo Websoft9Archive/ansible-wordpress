@@ -63,9 +63,9 @@ Windows下的镜像采用图形化界面实现服务的启动、停止和重启�
 
 进入IIS，点击主机名称，右侧的操作就会显示重启启动，停止等操作
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/iis/iis-restart-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/iis/iis-restart-websoft9.png)
 
 ### --WAMPServer
 
 远程桌面点击WAMPServer图标，然后点击“重新启动所有服务”
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wampserver/wampserver-clicks-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wampserver/wampserver-clicks-websoft9.png)
