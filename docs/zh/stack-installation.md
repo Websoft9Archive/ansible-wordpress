@@ -14,7 +14,7 @@ sidebarDepth: 3
 
 ## WordPress 安装向导
 
-1. 使用本地电脑的 Chrome 或 Firefox 浏览器访问网址：*https://域名* 或 *https://Internet IP*, 就进入安装向导
+1. 使用本地电脑的 Chrome 或 Firefox 浏览器访问网址：*https://域名* 或 *https://Internet IP*, 进入安装向导  
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wp01.png)
 2. 选择语言后，进入 WordPress 安装要求说明，点击“现在就开始”进入下一步 
   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-install001-websoft9.png)

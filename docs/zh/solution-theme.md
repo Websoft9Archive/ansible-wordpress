@@ -233,7 +233,7 @@ Avada有专有的案例管理功能，在后台体现问“作品”。作品管
 
 5、给行业增加一个构建器元素-作品
 
-![](http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi003-websoft9.png)
+![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi003-websoft9.png)
 
 6、进入作品调用设置页面，可以一般设置一边预览
 

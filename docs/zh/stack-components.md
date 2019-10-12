@@ -11,17 +11,20 @@ Websoft9 提供了多种 WordPress部署包，有着不同的操作系统以及 
 #### Wordpress(LAMP or LNMP)
 
 WordPress 安装目录： */data/wwwroot/wordpress*  
-WordPress 配置文件： */data/wwwroot/wordpress/wp-config.php* 
+WordPress 配置文件： */data/wwwroot/wordpress/wp-config.php*   
+虚拟机主机配置文件： */etc/httpd/conf.d/vhost.conf* 或 */etc/nginx/conf.d/default.conf*  
 
 #### Wordpress(IIS)
 
 WordPress 安装目录： *C:\inetpub\wwwroot\wordpress*  
-WordPress 配置文件： *C:\inetpub\wwwroot\wordpress\wp-config.php* 
+WordPress 配置文件： *C:\inetpub\wwwroot\wordpress\wp-config.php*   
+虚拟机主机配置文件： *C:\websoft9\wampserver\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf*
 
 #### Wordpress(WAMP)
 
 WordPress 安装目录： *C:\websoft9\wampserver\www*  
 WordPress 配置文件： *C:\websoft9\wampserver\www\wp-config.php* 
+虚拟机主机配置文件： *C:\websoft9\wampserver\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf*
 
 > WordPress 配置文件中包含数据库连接信息，更改了 MySQL 数据库账号密码，此处也需要对应修改
 

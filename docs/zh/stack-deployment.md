@@ -2,7 +2,7 @@
 
 不少 WordPress 初学者在安装部署 WordPress 过程中碰到了“拦路虎”，为了能够安装好WordPress，被弄得“为伊消得人憔悴”。
 
-**部署就是将 WordPress 预装包在线复制到你的云服务器中**。例如：用户在云平台购买 WordPress 之后，云平台就会自动将 WordPress 复制到对应的云服务器。
+**部署就是将 WordPress 预装环境在线复制到你的云服务器中**。例如：用户在云平台购买 WordPress 之后，云平台就会自动将 WordPress 复制到对应的云服务器。
 
 - 如果已经部署 WordPress，请进入[初始化安装](/zh/stack-installation.md) ，完成相关操作。
 - 如果没有部署 WordPress，需要先将 WordPress 部署到您的云服务器。
