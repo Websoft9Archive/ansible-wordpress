@@ -44,6 +44,21 @@ LAMP和LNMP代表支持WordPress运行所对应的基础环境，具体参考[�
 
 可以，通过修改 [虚拟主机配置文件](/zh/stack-components.md#wordpress路径)中相关参数
 
+#### WordPress 登录后台如何使用 SSL？
+
+在 wp-config.php 文件中的特定位置，添加如下两行代码
+
+```
+### 添加代码开始 ###
+define('FORCE_SSL_ADMIN', true);
+define('FORCE_SSL_LOGIN', true);
+### 添加代码结束 ###
+
+if ( !defined(‘ABSPATH’) )
+        define(‘ABSPATH’, dirname(__FILE__) . ‘/’)
+```
+
+
 #### 如何修改上传的文件权限?
 
 ```shell

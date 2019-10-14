@@ -11,18 +11,16 @@ If you have completed the WordPress deployment on Cloud Platform, the following 
 ## WordPress Installation Wizard
 
 1. Using local Chrome or Firefox to visit the URL *http://domain name* or *http://Internet IP*, you will enter the WordPress   
-   ![Wordpress installation language](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installsetlanguage-websoft9.png)
+   ![Wordpress installation language](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-installsetlanguage-websoft9.png)
 2. Select your language, then go to next step
 3. Set administrator user, password and mail, then click **Install WordPress**
-   ![Wordpress installation administrator](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installsetadmin-websoft9.png)
+   ![Wordpress installation administrator](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-installsetadmin-websoft9.png)
 4. OK, it has been installed successfully.
-   ![Wordpress installation ok](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-installss-websoft9.png)
+   ![Wordpress installation ok](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-installss-websoft9.png)
 5.Use *http://domain or Internet IP/wp-admin*  to login to WordPress's dashboard
-   ![Wordpress installation dashbaord](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/websoft9-bkdashboard-websoft9.png)
+   ![Wordpress installation dashbaord](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-bkdashboard-websoft9.png)
 
 > More useful WordPress guide, please refer to [WordPress Documentation](https://wordpress.org/support/)
-
-## 
 
 ## Q&A
 
@@ -38,7 +36,7 @@ MySQL
 
 If you are familiar with Wordpress, you should know that you can see the database configuration interface In the installation wizard process of Wordprees like below
 
-![Wordpress install password](http://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wp04.png)
+![Wordpress install password](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wp04.png)
 
 Why can't I see this interface? Websoft9 Wordpress Image have pre-configure the database in your wp-config.php like below
 ```sql

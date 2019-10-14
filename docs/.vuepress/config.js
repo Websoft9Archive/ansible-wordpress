@@ -32,7 +32,7 @@ themeConfig: {
   sidebar: 'auto', // 默认值：false
 
   //Github 
-  repo: 'Websoft9/ansible-metabase',
+  repo: 'Websoft9/ansible-wordpress',
   editLinks: true,
   docsDir: 'docs',
   docsBranch: 'master',

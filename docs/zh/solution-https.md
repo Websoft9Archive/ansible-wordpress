@@ -11,8 +11,8 @@ WordPress预装包，已安装Web服务器 SSL 模块和公共免费证书方案
 不同的环境，配置方式不一样，请选择对应的方案：
 
 * [WordPress（LAMP） HTTPS 配置方案](https://support.websoft9.com/docs/lamp/solution-https.html)
-* [WordPress（LNMP） HTTPS 配置方案](https://support.websoft9.com/docs//lnmp/solution-https.html)
-* [WordPress（WAMP） HTTPS 配置方案 ](https://support.websoft9.com/docs//wampserver/solution-https.html)
+* [WordPress（LNMP） HTTPS 配置方案](https://support.websoft9.com/docs/lnmp/solution-https.html)
+* [WordPress（WAMP） HTTPS 配置方案 ](https://support.websoft9.com/docs/wampserver/solution-https.html)
 * [WordPress（IIS） HTTPS 配置方案 ](https://support.websoft9.com/docs/windows/solution-https.html)
 
 ## 疑难问题

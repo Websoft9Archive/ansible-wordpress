@@ -4,11 +4,45 @@ WordPress deployment package has installed the SSL module of Nginx and open Cert
 
 > In addition to the vhost configuration file, HTTPS settings do not need to modify any files in Nginx
 
-## Simple Steps
+## Quick configuration
 
 If you want to use a free certificate, just run the one command `certbot` on your instance to start the HTTPS deployment.
+```
+sudo certbot
+```
 
 If you have applied for a commercial certificate, complete the HTTPS configuration in just three steps:
+### For WordPress(LAMP)
+
+LAMP means that **Apache** for Web Server
+
+1. Upload your certificate to the directory of your instance: */data/cert* 
+2. Edit the vhost configuration file: */etc/httpd/conf.d/vhost.conf* 
+3. Insert the **HTTPS template**  segment `<VirtualHost *:443>--</VirtualHost>` into `vhost.conf`
+   ``` text
+   #-----HTTPS template start------------
+   <VirtualHost *:443>
+    ServerName  wordpress.yourdomain.com
+    DocumentRoot "/data/wwwroot/wordpress"
+    #ErrorLog "logs/wordpress.yourdomain.com-error_log"
+    #CustomLog "logs/wordpress.yourdomain.com-access_log" common
+    <Directory "/data/wwwroot/wordpress">
+    Options Indexes FollowSymlinks
+    AllowOverride All
+    Require all granted
+    </Directory>
+    SSLEngine on
+    SSLCertificateFile  /data/cert/wordpress.yourdomain.com.crt
+    SSLCertificateKeyFile  /data/cert/wordpress.yourdomain.com.key
+    </VirtualHost>
+   #-----HTTPS template end------------
+   ```
+4. Modify ServerName, SSLCertificateFile, SSLCertificateKeyFile
+5. Save it and [Restart Apache service](/admin-services.md#apache)
+
+### For WordPress(LNMP)
+
+LAMP means that **Nginx** for Web Server
 
 1. Upload your certificate to the directory of your instance: */data/cert* 
 2. Edit the vhost configuration file: */etc/nginx/conf.d/default.conf* 
@@ -24,7 +58,8 @@ If you have applied for a commercial certificate, complete the HTTPS configurati
    ssl_prefer_server_ciphers on;
    #-----HTTPS template end------------
    ```
-4. Save file and [Restart Nginx service](/admin-services.md)
+4. Modify ssl_certificate, ssl_certificate_key
+5. Save it and [Restart Nginx service](/admin-services.md#nginx)
 
 ## Special Guide
 

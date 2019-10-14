@@ -49,9 +49,22 @@ Manual backup for application is based on the **Exporting source code and databa
 ```
 The general manual backup operation steps are as follows:
 
-1. Just compression and download the entire */data/wwwroot/metabase* directory by SFTP 
+1. Just compression and download the entire */data/wwwroot/wordpress* directory by SFTP 
 2. Export WordPress's database by [phpMyAdmin](/zh/admin-mysql.md)
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/phpmyadmin/phpmyadmin-export-websoft9.png)
 3. Put the source code file and database file in the same folder, named according to the date
 4. Backup completed
+
+### WordPress Backup Plugin
+
+Their many WordPress plugins for backup, we recommend [UpdraftPlus WordPress Backup Plugin ](https://wordpress.org/plugins/updraftplus/) 
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-updraftplus-websoft9.png)
+
+UpdraftPlus simplifies backups (and restoration). Backup into the cloud, Dropbox, Google Drive, Rackspace Cloud, DreamObjects, FTP, Openstack Swift, UpdraftPlus Vault and email and restore with a single click. Backups of files and database can have separate schedules. The paid version also backs up to Microsoft OneDrive, Microsoft Azure, Google Cloud Storage, SFTP, SCP, and WebDAV.
+
+* Backup scope: Database,Wordpress
+* Backup effect: Very Good
+* Backup frequency: Automatic backup per day if you need
+* Recommended reason : Automation Backup
 

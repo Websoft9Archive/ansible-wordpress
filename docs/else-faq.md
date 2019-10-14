@@ -4,9 +4,22 @@
 
 Yes
 
+#### What is the default character set?
+
+UTF-8
+
+#### What the difference between the WordPress(LAMP) and WordPress(LEMP) ?
+
+LAMP is using Apache as Web Server for your Wordpress  
+LEMP is using Nginx as Web Server for your Wordpress
+
+#### Can I use the RDS of Cloud Provider for Wordpress?
+
+You can use the RDS for Wordpress if you need,and just need to modify the database configuration section in the wp-config.php
+
 #### Where is the database connection configuration of WordPress?
 
-Database configuration information in *metabase.conf* in the WordPress installation directory, [refer to the installation directory](/stack-components.md#metabase)
+Database configuration information in *wp-config.php* in the [WordPress installation directory](/stack-components.md#wordpress)
 
 #### If there is no domain name, can I deploy WordPress?
 
@@ -18,15 +31,45 @@ The password is stored in the server related file: `/credentials/password.txt`
 
 #### Is there a web-base GUI database management tools?
 
-Yes, phpMyAdmin is on it, visit by http://Internet IP:9090
+Yes, phpMyAdmin is on it, visit by *http://Internet IP/phpmyadmin*
 
 #### How to disable phpMyAdmin access?
 
-Disable port 9090 of the server security group
+Edit the  [phpMyAdmin configuration file](/stack-components.md#phpmyadmin), replace `Require all granted` with `Require ip 192.160.1.0`, then restart Apache service
 
 #### Is it possible to modify the source path of WordPress?
 
-Yes, modify it by [Nginx vhost configuration file](/stack-components.md)
+Yes, modify it by [vhost configuration file](/stack-components.md#apache)
+
+#### How to enable HTTS for log in WordPress?
+
+Insert these codes below in you `wp-config.php` file
+
+```
+### Insert start ###
+define('FORCE_SSL_ADMIN', true);
+define('FORCE_SSL_LOGIN', true);
+### Insert end ###
+
+if ( !defined(‘ABSPATH’) )
+        define(‘ABSPATH’, dirname(__FILE__) . ‘/’)
+```
+
+#### Can I configure this WordPress if I don't understand the Linux command?
+
+Yes, you can use GUI tool WinSCP to start WordPress, no commands
+
+#### Do I need to change the owner(group) for the files which I upload by SFTP?
+
+No, you don't need to change them because LAMP/LNMP was set to changed automaticly
+
+#### How to modify the path of WordPress?
+
+Example application's path is: */data/wwwroot/wordpress*, you can modify it by [vhost configuration file](/stack-components.md#apache)
+
+#### How to delete 9Panel?
+
+Please delete all files in 9Panel */data/apps/9panel* and keep an empty 9Panel folder
 
 #### How to change the permissions of filesytem?
 
@@ -37,6 +80,15 @@ chown -R nginx.nginx /data/wwwroot
 find /data/wwwroot -type d -exec chmod 750 {} \;
 find /data/wwwroot -type f -exec chmod 640 {} \;
 ```
+
+#### Can I deploy multiple sites on the WordPress(LAMP) or WordPress(LEMP) ?
+
+Websoft9 Wordpress stack supports the deployment of multiple applications (websites), but different environments have different operating methods.
+
+* [Add new site on Wordpress on LAMP](https://support.websoft9.com/docs/lamp/solution-deployment.html#deploy-second-application)
+* [Add new site on Wordpress on LEMP](https://support.websoft9.com/docs/lnmp/solution-deployment.html#deploy-second-application)
+
+
 #### What's the difference between Deployment and Installation?
 
 - Deployment is a process of installing and configuring a sequence of software in sequence in a different order, which is a complex system engineering.  

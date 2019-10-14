@@ -6,18 +6,27 @@ The WordPress deployment package contains a sequence software (referred to as "c
 
 ### WordPress
 
-WordPress installation directory: */data/wwwroot/metabase*  
-WordPress configuration file: */data/wwwroot/metabase/metabase.conf*  
+WordPress installation directory: */data/wwwroot/wordpress*  
+WordPress configuration file: */data/wwwroot/wordpress/wp-config.php*  
 
-### Java
+### PHP
 
-Java Directory: */usr/lib/jvm*
+PHP configuration file: */etc/php.ini*  
+PHP Modules configurations directory: */etc/php.d*
+
+### Apache
+
+Apache vhost configuration file: */etc/httpd/conf.d/vhost.conf*    
+Apache main configuration file: */etc/httpd/conf/httpd.conf*   
+Apache logs file: */var/log/httpd*  
+Apache module configuration file: */etc/httpd/conf.modules.d/00-base.conf*    
 
 ### Nginx
 
-Nginx vhost configuration file: */etc/nginx/sites-available/default.conf*  
-Nginx main configuration file: */etc/nginx/nginx.conf*  
-Nginx logs file: */var/log/nginx/*
+Nginx vhost configuration file: */etc/nginx/conf.d/default.conf*    
+Nginx main configuration file: */etc/nginx/nginx.conf*   
+Nginx logs file: */var/log/nginx*  
+Nginx rewrite rules directory: */etc/nginx/conf.d/rewrite*   
 
 ### MYSQL
 
@@ -26,10 +35,23 @@ MySQL data directory: */data/mysql*
 MySQL configuration file: */etc/my.cnf*    
 MySQL Web Management URL: *http://Internet IP:9090*, get credential from [Username and Password](/stack-accounts.md)
 
+### phpMyAdmin
+
+phpMyAdmin installation directory: */data/apps/phpmyadmin*  
+phpMyAdmin configuration file: */data/apps/phpmyadmin/config.inc.php*   
+phpMyAdmin vhost configuration file: */etc/httpd/conf.d/phpMyAdmin.conf* or */etc/nginx/php.conf*   
+
+
+### Redis
+
+Redis configuration file: */etc/redis.conf*  
+Redis data directory: */var/lib/redis*  
+Redis logs file: */var/log/redis/redis.log*
+
 
 ## Ports
 
-You can view all the used ports from the official docs [Package defaults](https://docs.gitlab.com/omnibus/package-information/defaults.html) . You can control(open or shut down) ports by **[Security Group Setting](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** of your Cloud Server whether the port can be accessed from Internet.
+You can control(open or shut down) ports by **[Security Group Setting](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** of your Cloud Server whether the port can be accessed from Internet.
 
 These ports should be opened for this application:
 
@@ -48,15 +70,30 @@ You can see the version from product page of Marketplace. However, after being d
 # Linux Version
 lsb_release -a
 
-# Java Version
-java --version
+# PHP Version
+php -v
 
-# Nginx version:
+# List Installed PHP Modules
+php -m
+
+# Apache version on Centos
+httpd -v
+
+# Apache version on Ubuntu
+apache2 -v
+
+# List Installed Apache Modules
+apachectl -M
+
+# Nginx version
 nginx -v
 
-# MySQL version:
+# List Installed Nginx Modules
+nginx -V
+
+# MySQL version
 mysql -V
 
-# Dokcer:
-docker --version
+# Redis version
+redis-server -v
 ```

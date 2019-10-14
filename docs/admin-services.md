@@ -2,13 +2,20 @@
 
 These commands you must know when you using the WordPress of Websoft9
 
-### WordPress
+### Apache
 
 ```shell
-sudo systemctl start metabase
-sudo systemctl stop metabase
-sudo systemctl restart metabase
-sudo systemctl status metabase
+#For Centos&Redhat
+sudo systemctl start httpd
+sudo systemctl stop httpd
+sudo systemctl restart httpd
+sudo systemctl status httpd
+
+#For Ubuntu&Debian
+sudo systemctl start apache2
+sudo systemctl stop apache2
+sudo systemctl restart apache2
+sudo systemctl status apache2
 ```
 
 ### Nginx

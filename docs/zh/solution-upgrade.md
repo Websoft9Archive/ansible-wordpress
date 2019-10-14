@@ -24,7 +24,9 @@ apt update && apt upgrade -y
 
 ## WordPress升级
 
-WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。这三者都可以通过 WordPress 后台进行升级  
+### 须知
+
+WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。这三者都可以通过 WordPress 后台进行在线升级，下图是升级提醒：  
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-upgrade-websoft9.png)
 
 由于这三者分别属于不同的开发者，升级后可能会导致不兼容的现象。具体表现有：
@@ -37,9 +39,20 @@ WordPress 升级包括：WordPress 内核升级、插件升级和主题升级。
 
 ### 内核升级
 
+#### 一键升级
+
 WordPress 内核升级非常简单，当进入后台之后系统会提示需要升级，点击升级即可（ 特别注意：Wordpress应用程序升级之前务必进行完整备份，以保证备份出现差错之后能够复原。）
 
- ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-update-websoft9.png)
+ ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-wordpresscoreupdate-websoft9.png)
+
+#### 手动升级
+
+有的时候，由于网络原因，在线一键升级不可用，那么就需要手工升级
+
+1. [下载](https://wordpress.org/download/)最新的 WordPress 版本，并解压
+2. 登录云服务器，进入 [WordPress 的根目录](/zh/stack-components.html#wordpress路径)
+3. 删除此目录下的 `wp-admin` 和 `wp-includes` 文件夹
+4. 上传本地解压后的 WordPress代码，有同名文件提醒的时候选择覆盖上传
 
 
 ### 插件升级
@@ -54,4 +67,4 @@ WordPress 内核升级非常简单，当进入后台之后系统会提示需要�
 
 1. 使用 WinSCP 登录服务，删除原有主题（或对其改名）
 2. 通过 【WordPress 后台】>【外观】>【主题】>【添加】>【上传主题】的方式，完成主题安装
-   ![Wordpress 上传主题](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addthemes-websoft9.png)
+   ![Wordpress 上传主题](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addthemes-websoft9.png)

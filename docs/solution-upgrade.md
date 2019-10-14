@@ -26,17 +26,47 @@ apt update && apt upgrade -y
 
 ## WordPress Upgrade
 
-Follow the steps below to complete the upgrade:
+### Overview
 
-1. Log in WordPress, go to Admin->Setting->Updates, the system will give you a reminder if there is a new upgrade package
-![WordPress updates reminder](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-updatereminder-websoft9.png)
+WordPress Upgrade includes: WordPress core upgrade, Plugin upgrade, Theme upgrade. You can upgrade them by the dashboard of WordPress. Following is the reminder links for WordPress Upgrade
 
-2. Click the **Upgrade** button, go to the [WordPress Install](https://metabase.com/start/) page
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-upgrade-websoft9.png)
 
-3. The deployment package we provide is in the jar package installation mode, so on the installation page we select the **Custom install** mode.
-![WordPress install](https://libs.websoft9.com/Websoft9/DocsPicture/zh/metabase/metabase-updatedl-websoft9.png)
+WordPress core, Plugin, Theme are developed by different organization, so their may have the incompatible problem after any upgrade like below
 
-3. Download teh WordPress.jar pakage and upload to your instance's directory `/data/wwwroot/metabase`
-![WordPress upload](https://libs.websoft9.com/Websoft9/DocsPicture/zh/metabase/metabase-updatereplace-websoft9.png)
+- The website cannot be opened, showing 500 program errors
+- Website structure has become confusing
+- The topic part feature is not available
 
-4. Overwrite existing files and reload the WordPress
+The above incompatibility is normal, and the best solution is to adapt the theme and plugin version to the WordPress kernel version.
+
+### Worpress Core upgrade
+
+#### One-click upgrade
+
+When new version for Wordpress Core,you can see the upgrade reminder link, click it to start updates
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-wordpresscoreupdate-websoft9.png)
+
+#### Manual upgrade
+
+Sometimes, you can't upgrade WordPress by On-Click for the reason of networ, manual upgrade for you
+
+1. [Download](https://wordpress.org/download/) a new WordPress version and unzip it
+2. Log in to Cloud Server and go to the [WordPress root directory](/stack-components.html#wordpress),
+3. Delete the `wp-admin` and `wp-includes` 
+4. Upload local WordPress to Cloud Server, cover all files if have the same file name 
+
+### Plugins upgrade
+
+Please update plugin online if you need,e.x
+   ![Wordpress plugin upgrade](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-pluginsupgrade-websoft9.png)
+
+### Theme upgrade
+
+Most of the time,you may using the business theme which don't provider online update,below is the suggest steps  
+
+1. Using SFTP to delete the theme from wp-contents folder
+2. Log in WordPress, go to Appearance->Theme->Add New, upload the theme online
+  ![Wordpress theme upgrade](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-themesupgrade-websoft9.png)
+3. Enable the theme when complete the installation

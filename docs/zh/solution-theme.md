@@ -9,7 +9,7 @@ WordPress初始化的前台只是一个博客界面，读者千万不要因此�
 
 ## 寻找
 
-1. 通过WordPress后台-外观-主题-添加，在线获取WordPress主题库的主题 ![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addthemes-websoft9.png)
+1. 通过WordPress后台-外观-主题-添加，在线获取WordPress主题库的主题 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-addthemes-websoft9.png)
 2. 通过百度等搜索“WordPress主题”，淘到自己喜欢的主题
 3. 通过主题交易市场购买美轮美奂的主题，例如：themeforest.net
 
@@ -41,9 +41,9 @@ Avada安装和下载有两种方式，请根据实际情况选择合适您的方
 购买地址：https://themeforest.net/item/avada-responsive-multipurpose-theme/2833226
 
 #### 方式三：在Websoft9下载主题自行安装
-* [Avada 5.7.2 官方原版下载](http://libs.websoft9.com/apps/wordpress/wordpress5.0.2-avada5.7.2-en.tar.gz)
-* [Avada 5.3.1 汉化版下载](http://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.3.1%E5%85%88%E8%A7%A3%E5%8E%8B.zip)
-* [Avada 5.5 汉化版下载](http://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.5%E5%85%88%E8%A7%A3%E5%8E%8B.1.zip)
+* [Avada 5.7.2 官方原版下载](https://libs.websoft9.com/apps/wordpress/wordpress5.0.2-avada5.7.2-en.tar.gz)
+* [Avada 5.3.1 汉化版下载](https://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.3.1%E5%85%88%E8%A7%A3%E5%8E%8B.zip)
+* [Avada 5.5 汉化版下载](https://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.5%E5%85%88%E8%A7%A3%E5%8E%8B.1.zip)
 
 ---
 
@@ -62,7 +62,7 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 后台-外观-主题选项，我们就进入了如下配置管理界面：
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada_gsetting-websoft9.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada_gsetting-websoft9.jpg)
 
 **布局：**对网站内容区的宽度进行设置，一般建议布局采用宽屏模式，网站宽度设置为：1140px；
 
@@ -127,7 +127,7 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 在学会制作前，请仔细阅读如下的首页布局图：
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada_indexmap-websoft9.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada_indexmap-websoft9.jpg)
 
 如果我们通过4.1 网站通用设置与配置已经完成了页眉、页脚，那我们制作首页就非常简单了，只需要完成首页对应的Slider（轮播）和内容设置，再套用已经预设值好的页眉、页脚，首页就完成了。
 
@@ -135,7 +135,7 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 1、后台-页面-新增页面，我们会看到如下页面
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-addnewpage-websoft9.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-addnewpage-websoft9.jpg)
 
 上图就是一个页面制作界面，其中“Fusion页面构建器”为可视化模式，“默认编辑器”为code编辑模式，对于普通用户，我们选择可视化编辑模式
 
@@ -159,21 +159,21 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 1、后台- Slider Revolution-新建滑块
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/3bc66360.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/3bc66360.jpg)
 
 2、输入滑块名称，选择布局和样式，保存。轮播文件就新建好了
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/revs-new.jpg)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/revs-new.jpg)
 
 3、点击“Slider Editor”标签，进入轮播项的设计与处理
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/6823997d.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/6823997d.png)
 
 接下来，我们就像制作ppt一样制作轮播了
 
 4、轮播完成之后，需要通过页面调用这个轮播。任意一个页面的页面选项，都有幻灯片的调用项。具体如下：
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/80427780.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/plugins/Revolutionslider/80427780.png)
 
 #### 第四步 菜单管理
 
@@ -183,13 +183,13 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 1、后台-外观-菜单，进入菜单编辑页面
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-createmenu-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-createmenu-websoft9.png)
 
 2、创建一个新菜单，名称定义为“我的菜单”（任意命名）
 
 3、选择左侧菜单来源，分别添加到菜单中。显示位置选择“main navigation”为主菜单位置。菜单添加完成后，保存菜单
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-createmenu002-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-createmenu002-websoft9.png)
 
 4、我们刷新网站，发现菜单已经更改成我们的菜单了
 
@@ -205,11 +205,11 @@ Avada采用的是配置式的工作方式，即网站的布局、风格、颜色
 
 3、新建一个页面，命名为“新闻中心”，给此页面增加一个行的容器元素
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi001-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi001-websoft9.png)
 
 4、给行内添加一个构建起元素，选择博客
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi002-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi002-websoft9.png)
 
 5、进入博客调用（文章调用）设置页面，其中分类选择刚刚新建的“公司新闻”类目
 
@@ -227,13 +227,13 @@ Avada有专有的案例管理功能，在后台体现问“作品”。作品管
 
 3、对作品的特色图像进行设置（这样页面调用的时候才会有图片的动画效果）
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-spepic-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-spepic-websoft9.png)
 
 4、新建一个页面，命名为“案例”，给此页面增加一个行的容器元素
 
 5、给行业增加一个构建器元素-作品
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi003-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi003-websoft9.png)
 
 6、进入作品调用设置页面，可以一般设置一边预览
 
@@ -253,7 +253,7 @@ Avada有专有的案例管理功能，在后台体现问“作品”。作品管
 
 4、给行业增加一个构建器元素-常见问题
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi004-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-rongqi004-websoft9.png)
 
 6、进入常见问题调用设置页面，可以一般设置一边预览
 
@@ -281,11 +281,11 @@ Avada有专有的案例管理功能，在后台体现问“作品”。作品管
 
 3、将左侧的“可用小工具”元素拖到右侧小工具栏中（如果拖拽的是文本项，可以在文本项中自定义任意html或js代码），然后保存
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-widget001-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-widget001-websoft9.png)
 
 4、新建或任何已有的页面进入编辑状态，插入构建器元素-小工具区
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-widget002-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-widget002-websoft9.png)
 
 5、选择您的小工具，保存
 
@@ -303,11 +303,11 @@ Avada的SEO是通过一个SEO插件来实现的，这里我们推荐使用最广
 
 3、Yoast SEO一旦安装完成之后，所有的页面（文章）类型都嵌入登录SEO选项。我们通过页面-所有页面，会看到所有页面都有SEO的属性（其中圆图标代表SEO的优化程度），如下图：
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-seo001-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-seo001-websoft9.png)
 
 4、进入任意一个页面的的编辑状态项，都会出现SEO的选项。一般填写关键字和描述即可。Yoast SEO还有一个分析检查SEO填写的功能，仅供参考
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-seo002-websoft9.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/avada/avada-seo002-websoft9.png)
 
 说明：以上仅描述了SEO的实现方法。SEO是一门学问（伴随人工智能出现，SEO未来的学问会越来越浅），如何设置关键、描述等信息，还需要自己反复探索。
 
@@ -331,7 +331,7 @@ Porto的安装和下载有两种方式，请根据实际情况选择合适您的
 购买地址：https://themeforest.net/item/porto-responsive-wordpress-ecommerce-theme/9207399
 
 #### 方式三：向 Websoft9 下载主题自行安装
-* [Porto 4.7.3 官方原版下载](http://libs.websoft9.com/apps/wordpress/wordpress5.2.3-porto4.7.3-zh.tar.gz)
+* [Porto 4.7.3 官方原版下载](https://libs.websoft9.com/apps/wordpress/wordpress5.2.3-porto4.7.3-zh.tar.gz)
 ---
 
 **FAQ**

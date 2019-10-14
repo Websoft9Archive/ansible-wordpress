@@ -15,6 +15,9 @@ module.exports = [
         title: 'Best Practices',
         collapsable: false,
         children: [
+          '/solution-plugin',
+          '/solution-theme',
+          '/solution-woocommerce',
           '/solution-smtp',
           '/solution-https',
           '/solution-backup',
@@ -28,8 +31,8 @@ module.exports = [
         collapsable: false,
         children: [
           '/admin-services',
+          '/admin-runtime',
           '/admin-mysql',
-          ['https://support.websoft9.com/docs/linux/webs-nginx.html','Nginx'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]
       },

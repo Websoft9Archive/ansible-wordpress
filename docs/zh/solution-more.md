@@ -13,19 +13,20 @@ WordPress 域名绑定操作步骤：
 1. 登录云服务器
 2. 修改 [虚拟机主机配置文件](/zh/stack-components.html#wordpress路径)，将其中的域名相关的值
    ```text
-   #### WordPress(LAMP) 域名绑定 #### 
+   #### WordPress(LAMP) bind domain #### 
+
+     <VirtualHost *:80>
+     ServerName www.mydomain.com # 修改成您的实际域名
+     DocumentRoot "/data/wwwroot/wordpress"
+     ...
+     
+   #### WordPress(LNMP) bind domain #### 
 
      server {
       listen 80;
-      server_name    wordpress.example.com; # 改为自定义域名
+      server_name    wordpress.example.com; # 修改成您的实际域名
      ...
 
-   #### WordPress(LNMP) 或 WordPress（WAMPServer）域名绑定 #### 
-
-     <VirtualHost *:80>
-     ServerName www.mydomain.com # 此处修改为你的域名
-     DocumentRoot "/data/wwwroot/mysite2"
-     ...
    ```
 3. 保存配置文件，重启服务
 
@@ -114,7 +115,7 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 1. 通过OSS的客户端工具，上传图片到对象存储
 2. 获取对象存储中图片的地址，地址一般类似如下：
    ```
-   https://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/websoft9-winscp-youjian.png
+   https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-product-screenshot.png
    ```
 3. Wordpress后台-页面编辑-插入多媒体，将图片插入到WordPress系统中
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/aliyun/aliyun-oss-adresstowp-websoft9.png)
@@ -140,3 +141,10 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 8. 插件数量不超过20个，不用的插件务必卸载，以避免插件冲突而导致网站不可用
 9. 网站内容为王，请将精力集中于内容的更新、知识库的建立
 10. 视频等大文件请放到其他存储中
+
+## 安装更多的 WordPress 网站
+
+我们的 WordPress 部署包支持用户自主安装更多的 WordPress网站
+
+* [Wordpress(LAMP) 安装一个新的网站](https://support.websoft9.com/docs/lamp/solution-deployment.html#deploy-second-application)
+* [Wordpress(LEMP) 安装一个新的网站](https://support.websoft9.com/docs/lnmp/solution-deployment.html#deploy-second-application)

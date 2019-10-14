@@ -16,8 +16,12 @@ Follow is the sample using **SendGrid's SMTP Service** to configure sending mail
    SMTP password: #fdfwwBJ8f    
    ```
 2. Log in WordPress Console
-3. Enter the SMTP settings
-![WordPress SMTP](https://libs.websoft9.com/Websoft9/DocsPicture/en/metabase/metabase-smtp-websoft9.png)
-4. Click the **Test Connection**, you can get the feedback *"no errors were..."* if SMTP is useful
+3. Go to Setting->General Settings, set your email which will diplay in the email sended for users
+   ![WordPress SMTP](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-setdmail-websoft9.png)
+4. Install the plugin: [WP Mail SMTP by WPForms](https://wordpress.org/plugins/wp-mail-smtp/)
+5. Start to configure the WP Mail SMTTP(This sample is SendGrid)
+   ![WordPress SMTP](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-smtpsetdetail-websoft9.png)
+6. Click the **Send Email**, you can get the feedback *"Your email was sent successfully!..."* if SMTP is useful
+   ![WordPress SMTP](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-mailss-websoft9.png)
 
 More SMTP Service(Gmail, Hotmail, QQ mail, Yahoo mail, SendGrid and so on)  settings or Issues with SMTP, please refer to Websoft9's *[SMTP Guide](https://support.websoft9.com/docs/faq/tech-smtp.html)*

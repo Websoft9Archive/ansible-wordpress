@@ -2,8 +2,8 @@
 
 WordPress deployment package includes MySQL and Web-GUI tool phpMyAdmin for MySQL management, refer to these steps to use it:
 
-1. Log in Cloud Console, make sure the **TCP:9090** port is allowed on **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)**
-2. Using the Chrome or FireFox to visit URL *http://Internet IP:9090*
+1. Log in Cloud Console, make sure the **TCP:80** port is allowed on **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)**
+2. Using the Chrome or FireFox to visit URL *http://Internet IP/phpmyadmin*  
   ![log in phpMyadmin](https://libs.websoft9.com/Websoft9/DocsPicture/en/mysql/mysql-login-websoft9.png)
 3. Enter username and password of MySQL([Don't known password?](/stack-accounts.md))
 4. Start to manage MySQL now
