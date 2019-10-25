@@ -41,7 +41,7 @@ Edit the  [phpMyAdmin configuration file](/stack-components.md#phpmyadmin), repl
 
 Yes, modify it by [vhost configuration file](/stack-components.md#apache)
 
-#### How to enable HTTS for log in WordPress?
+#### How to enable HTTTS for log in WordPress?
 
 Insert these codes below in you `wp-config.php` file
 

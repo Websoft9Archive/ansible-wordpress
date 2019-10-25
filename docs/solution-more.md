@@ -28,7 +28,7 @@ WordPress domain name binding steps:
      ...
 
    ```
-3. Save it and restart [Nginx Service](/admin-services.md#nginx)
+3. Save it and restart [Web Service](/admin-services.md#apache)
 
 
 ## Change Domain
