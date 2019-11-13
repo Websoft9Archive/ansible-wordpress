@@ -48,4 +48,4 @@
    |  云平台   |  管理员账号   |
    | --- | --- |
    |  Azure   |  创建服务器的时候自行设置   |
-   |  azure，阿里云，华为云，腾讯云   |  administrator   |
+   |  AWS，阿里云，华为云，腾讯云   |  administrator   |
