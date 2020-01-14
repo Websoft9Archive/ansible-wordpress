@@ -1,2 +1,2 @@
-[server]
-47.252.7.116  ansible_ssh_user=root  ansible_ssh_pass=Qwer1234 ansible_sudo_pass=Qwer1234
+[wordpress]
+159.138.142.24  ansible_ssh_user=root  ansible_ssh_pass=Qwerty123456  ansible_sudo_pass=Qwerty123456  

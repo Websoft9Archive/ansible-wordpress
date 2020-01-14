@@ -1,0 +1,48 @@
+# 核心任务
+- name: main
+  hosts: all
+  become: yes
+  become_method: sudo
+  vars_files:
+    - vars/main.yml
+  vars_prompt:
+    - name: 'theme_choose'
+      prompt: "Choose serial number to install wordpress \n
+      1: default theme\n
+      2: avada theme\n
+      3: porto theme\n"
+      private: no
+      default: 1
+
+    - name: 'install_type_choose'
+      prompt: "Choose serial number to install MySQL \n
+      1: just install wordpress\n
+      2: install wordpress & discuz\n"
+      private: no
+      default: 1  
+
+  vars:
+    theme_name:
+      '1': 'twentytwenty'
+      '2': 'avada'
+      '3': 'porto'
+    install_method:
+      '1': 'wordpress'
+      '2': 'wordpress_discuz'
+    theme: "{{theme_name[theme_choose]}}"
+
+    install_type: "{{install_method[install_type_choose]}}"
+
+  roles:
+    - {role: role_common, tags: "common"}
+    - {role: role_cloud, tags: "cloud"}
+    - {role: role_apache, tags: "apache"}
+    - {role: role_mysql, tags: "mysql"}
+    - {role: role_php-fpm, tags: "php-fpm"}
+    - {role: role_inotify_watch, tags: "inotify_watch"}
+    - {role: role_lamp, tags: "lamp"}
+    - {role: role_phpmyadmin, tags: "phpmyadmin"}
+    - {role: role_9panel, tags: "9panel"}
+    - {role: wordpress, tags: "wordpress"}
+    - {role: role_init_password, tags: "inti_password"}
+    - {role: role_end, tags: "end"}

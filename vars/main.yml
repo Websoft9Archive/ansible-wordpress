@@ -1,0 +1,38 @@
+# MySQL 版本和默认密码
+mysql_version: 5.7       # centos版本 5.5 5.6 5.7  Ubuntu支持5.7和8.0
+mysql_root_password: 123456
+phpver: '7.2'
+
+
+# 生成应用数据库和用户
+mysql_databases:
+ - name: wordpress
+   encoding: utf8
+ 
+mysql_users:
+ - name: wordpress
+   host: localhost
+   priv: 'wordpress.*:ALL'
+
+# 初始化MySQL root密码
+init_db: 
+    mysql:
+      user: root
+      password: 123456
+  
+  
+# 应用数据库信息
+application_name: wordpress
+application_service: php-fpm
+application_database: wordpress 
+application_database_user: wordpress
+application_database_host: localhost
+application_database_password: 123456
+application_config_path: 
+  - /data/wwwroot/wordpress/wp-config.php
+
+# wordpress & discuz
+classic_theme: https://libs.websoft9.com/apps/wordpress/wordpress-5.3.2.zip
+avada_theme: http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz
+porto_theme: http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz
+discuz: https://gitee.com/ComsenzDiscuz/DiscuzX.git

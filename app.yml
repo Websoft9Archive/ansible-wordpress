@@ -1,9 +1,0 @@
----
-- name: Wordpress
-  hosts: all
-  become: yes
-  become_method: sudo
-  become_user: root
-  roles:
-    - { role: wordpress , tags: "wordpress"} 
-    - { role: wordpress-discuz , tags: "wordpress-discuz" }

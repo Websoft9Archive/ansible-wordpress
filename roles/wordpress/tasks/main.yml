@@ -12,16 +12,16 @@
 # 下载源文件
 - name: Download wordpress which include default theme
   unarchive:
-    src: "{{ twentynineteen }}"
+    src: "{{ classic_theme }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: root
     group: root
-  when: theme == 'twentynineteen'
+  when:  theme == 'twentytwenty'
 
 - name: Download wordpress which include avada theme
   unarchive:
-    src: "{{ avada }}"
+    src: "{{ avada_theme }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: root
@@ -30,7 +30,7 @@
 
 - name: Download wordpress which include porto theme
   unarchive:
-    src: "{{ porto }}"
+    src: "{{ porto_theme }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: root
@@ -78,30 +78,6 @@
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
-
-- name: Obtain mysql root's password
-  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
-  register: mysql_root_password
-
-- name: Create wordpress databases
-  mysql_db:
-    login_user: root
-    login_password: "{{ mysql_root_password.stdout }}"
-    name: wordpress
-    state: present
-
-- name: Copy databases initialization.sh
-  copy:
-    src: init.sh
-    dest: /root
-    mode: 0770
-
-- name: initialization Script Start
-  lineinfile:
-    path: /etc/rc.d/rc.local
-    regexp: '/root/init.sh'
-    line: '/root/init.sh'
-    mode: 0770
 
 - name: Enable 9panel I
   lineinfile:
