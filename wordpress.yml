@@ -15,21 +15,21 @@
       default: 1
 
     - name: 'install_type_choose'
-      prompt: "Choose serial number to install MySQL \n
-      1: just install wordpress\n
+      prompt: "Choose an install type: \n
+      1: install wordpress\n
       2: install wordpress & discuz\n"
       private: no
       default: 1  
 
   vars:
     theme_name:
-      '1': 'twentytwenty'
+      '1': 'classic'
       '2': 'avada'
       '3': 'porto'
     install_method:
       '1': 'wordpress'
       '2': 'wordpress_discuz'
-    theme: "{{theme_name[theme_choose]}}"
+    wordpress_theme_select: "{{theme_name[theme_choose]}}"
 
     install_type: "{{install_method[install_type_choose]}}"
 
@@ -41,8 +41,8 @@
     - {role: role_php-fpm, tags: "php-fpm"}
     - {role: role_inotify_watch, tags: "inotify_watch"}
     - {role: role_lamp, tags: "lamp"}
+    - {role: role_init_password, tags: "inti_password"}
     - {role: role_phpmyadmin, tags: "phpmyadmin"}
     - {role: role_9panel, tags: "9panel"}
     - {role: wordpress, tags: "wordpress"}
-    - {role: role_init_password, tags: "inti_password"}
     - {role: role_end, tags: "end"}

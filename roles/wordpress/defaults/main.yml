@@ -1,0 +1,8 @@
+# wordpress & discuz 下载链接
+wordpress_theme: 
+    classic: "https://libs.websoft9.com/apps/wordpress/wordpress-5.3.2.zip"
+    avada: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
+    porto: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
+
+wordpress_theme_select: classic
+
