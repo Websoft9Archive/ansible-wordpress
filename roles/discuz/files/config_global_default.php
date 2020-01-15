@@ -28,11 +28,11 @@ $_config = array();
  *
  */
 $_config['db'][1]['dbhost']  		= 'localhost';
-$_config['db'][1]['dbuser']  		= 'discuz';
-$_config['db'][1]['dbpw'] 	 	= '123456';
+$_config['db'][1]['dbuser']  		= 'dz_user';
+$_config['db'][1]['dbpw'] 	 	= 'discuz_password';
 $_config['db'][1]['dbcharset'] 		= 'utf8';
 $_config['db'][1]['pconnect'] 		= 0;
-$_config['db'][1]['dbname']  		= 'ultrax';
+$_config['db'][1]['dbname']  		= 'discuz';
 $_config['db'][1]['tablepre'] 		= 'pre_';
 
 /**

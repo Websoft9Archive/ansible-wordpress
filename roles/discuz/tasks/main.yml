@@ -1,0 +1,104 @@
+---
+# Discuz!X3.4
+- name: System Upgrade
+  yum: name=* state=latest
+
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
+- name: Download Discuz!X3.4
+  git:
+    repo: "{{ Discuz }}"
+    dest: /data/wwwroot/discuz
+
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+#====================apache and nginx==========================================#
+- block:
+  - name: Copy Nginx Vhost Configuration
+    template: src=default.conf dest=/etc/nginx/conf.d/
+    
+  - name: restart Nginx
+    service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx version') != -1
+
+
+- name: Copy Apache Vhost Configuration
+  template: src=vhost.conf dest=/etc/httpd/vhost/
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+
+- name: change Nginx owner
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx version') != -1
+
+- name: change Apache owner
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+
+- name: change nginx owner
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx version') != -1
+
+- name: change apache owner
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+
+- name: restart Nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx version') != -1 
+
+#==========================+=================================================#
+
+- name: Enable 9panel I
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["Discuz"];'
+
+
+- name: copy discuz config
+  copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
+
+
+- name: Obtain mysql root's password
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
+  register: mysql_root_password
+
+- name: Create discuz databases
+  mysql_db:
+    login_user: root
+    login_password: "{{ mysql_root_password.stdout }}"
+    name: discuz
+    state: present
+
+- name: Databases Random Password
+  copy: 
+    src: init.sh
+    dest: /root/
+    mode: 0755
+
+- name: Setting Startup
+  lineinfile:
+    path: /etc/rc.d/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0750    
+  
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;

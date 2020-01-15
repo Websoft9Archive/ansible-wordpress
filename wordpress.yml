@@ -21,6 +21,13 @@
       private: no
       default: 1  
 
+    - name: 'web_type_choose'
+      prompt: "Choose a web server: \n
+      1: apache\n
+      2: nginx\n"
+      private: no
+      default: 1
+
   vars:
     theme_name:
       '1': 'classic'
@@ -29,20 +36,26 @@
     install_method:
       '1': 'wordpress'
       '2': 'wordpress_discuz'
+    web_type_choose:
+      '1': 'apache'
+      '2': 'nginx'
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
 
     install_type: "{{install_method[install_type_choose]}}"
 
+    web_type: "{{web_type_choose[web_type_choose]}}"
+
   roles:
     - {role: role_common, tags: "common"}
     - {role: role_cloud, tags: "cloud"}
-    - {role: role_apache, tags: "apache"}
-    - {role: role_mysql, tags: "mysql"}
+    - {role: role_apache, tags: "apache", when: web_type == 'apache'}
+    - {role: role_mysql, tags: "mysql", when: web_type == 'nginx'}
     - {role: role_php-fpm, tags: "php-fpm"}
     - {role: role_inotify_watch, tags: "inotify_watch"}
     - {role: role_lamp, tags: "lamp"}
     - {role: role_init_password, tags: "inti_password"}
     - {role: role_phpmyadmin, tags: "phpmyadmin"}
     - {role: role_9panel, tags: "9panel"}
+    - {role: discuz, tags: "discuz"}
     - {role: wordpress, tags: "wordpress"}
     - {role: role_end, tags: "end"}
