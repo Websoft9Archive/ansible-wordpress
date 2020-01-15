@@ -35,7 +35,7 @@
       '3': 'porto'
     install_method:
       '1': 'wordpress'
-      '2': 'wordpress_discuz'
+      '2': 'wp_dz_integration'
     web_type_choose:
       '1': 'apache'
       '2': 'nginx'
@@ -48,14 +48,16 @@
   roles:
     - {role: role_common, tags: "common"}
     - {role: role_cloud, tags: "cloud"}
-    - {role: role_apache, tags: "apache", when: web_type == 'apache'}
-    - {role: role_mysql, tags: "mysql", when: web_type == 'nginx'}
+    - {role: role_apache, tags: "apache", when: "{{web_type}}" == 'apache'}
+    - {role: role_nginx, tags: "nginx", when: "{{web_type}}" == 'nginx'}
+    - {role: role_mysql, tags: "mysql"}
     - {role: role_php-fpm, tags: "php-fpm"}
     - {role: role_inotify_watch, tags: "inotify_watch"}
-    - {role: role_lamp, tags: "lamp"}
+    - {role: role_lamp, tags: "lamp", when: "{{web_type}}" == 'apache'}
+    - {role: role_lnmp, tags: "lamp", when: "{{web_type}}" == 'nginx'}
     - {role: role_init_password, tags: "inti_password"}
     - {role: role_phpmyadmin, tags: "phpmyadmin"}
     - {role: role_9panel, tags: "9panel"}
-    - {role: discuz, tags: "discuz"}
+    - {role: discuz, tags: "discuz", when: "{{install_type}}" == 'wp_dz_integration'}
     - {role: wordpress, tags: "wordpress"}
     - {role: role_end, tags: "end"}
