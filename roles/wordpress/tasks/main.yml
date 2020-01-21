@@ -1,10 +1,14 @@
 ---
+# 安装discuz
+- debug: 
+    msg: Discuz will be installed on {{ ansible_distribution }}
+  when: "{{install_type}} == wp_dz_integration"
+
+- include: wp_dz_integration.yml
+  when: "{{install_type}} == wp_dz_integration" 
+
 # 安装wordpress
 - debug:
     msg: WordPress will be installed on {{ ansible_distribution }} 
 
 - include: "{{ansible_os_family}}.yml"
-
-# 安装wordpress和discuz集成
-- include: wp_dz.yml
-  when: "{{install_type}} == wp_dz_integration" 

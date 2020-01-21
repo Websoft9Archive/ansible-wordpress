@@ -1,0 +1,59 @@
+---
+# Discuz!X3.4
+- name: System Upgrade
+  yum: name=* state=latest
+
+- name: Download Discuz!X3.4
+  git:
+    repo: "{{ discuz }}"
+    dest: /data/wwwroot/discuz
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+#====================apache and nginx==========================================#
+- block:
+  - name: Copy Nginx Vhost Configuration
+    template: src=default.conf dest=/etc/nginx/conf.d/
+
+  - name: change nginx owner
+    shell: chown nginx. -R /data/wwwroot
+
+  - name: change Nginx owner
+    shell: chown nginx. -R /data/wwwroot
+  
+  - name: restart Nginx
+    service: name=nginx state=restarted enabled=yes
+  when: web_type_select == 'nginx'
+
+- block:
+  - name: Copy Apache Vhost Configuration
+    template: src=vhost.conf dest=/etc/httpd/vhost/
+
+  - name: change Apache owner
+    shell: chown apache. -R /data/wwwroot
+
+  - name: change apache owner
+    shell: chown apache. -R /data/wwwroot
+
+  - name: restart Apache
+    service: name=httpd state=restarted enabled=yes
+  when: web_type_select == 'apache'
+#==========================+=================================================#
+
+- name: copy discuz config
+  copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
+
+- name: Obtain mysql root's password
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
+  register: mysql_root_password
+
+# TODO: 创建discuz数据库
+- name: Create discuz databases
+  mysql_db:
+    login_user: root
+    login_password: "{{ mysql_root_password.stdout }}"
+    name: discuz
+    state: present

@@ -33,31 +33,36 @@
       '1': 'classic'
       '2': 'avada'
       '3': 'porto'
-    install_method:
+    install_type:
       '1': 'wordpress'
       '2': 'wp_dz_integration'
-    web_type_choose:
+    web_type:
       '1': 'apache'
       '2': 'nginx'
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
 
-    install_type: "{{install_method[install_type_choose]}}"
+    install_type_select: "{{install_type[install_type_choose]}}"
 
-    web_type: "{{web_type_choose[web_type_choose]}}"
+    web_type_select: "{{web_type[web_type_choose]}}"
 
   roles:
-    - {role: role_common, tags: "common"}
-    - {role: role_cloud, tags: "cloud"}
-    - {role: role_apache, tags: "apache", when: "{{web_type}}" == 'apache'}
-    - {role: role_nginx, tags: "nginx", when: "{{web_type}}" == 'nginx'}
-    - {role: role_mysql, tags: "mysql"}
-    - {role: role_php-fpm, tags: "php-fpm"}
-    - {role: role_inotify_watch, tags: "inotify_watch"}
-    - {role: role_lamp, tags: "lamp", when: "{{web_type}}" == 'apache'}
-    - {role: role_lnmp, tags: "lnmp", when: "{{web_type}}" == 'nginx'}
-    - {role: role_init_password, tags: "inti_password"}
-    - {role: role_phpmyadmin, tags: "phpmyadmin"}
-    - {role: role_9panel, tags: "9panel"}
-    - {role: discuz, tags: "discuz", when: "{{install_type}}" == 'wp_dz_integration'}
-    - {role: wordpress, tags: "wordpress"}
-    - {role: role_end, tags: "end"}
+    - role: role_common
+    - role: role_cloud
+    - role: role_apache
+      when: web_type_select == 'apache'
+    - role: role_nginx
+      when: web_type_select == 'nginx'
+    - role: role_mysql
+    - role: role_php-fpm
+    - role: role_inotify_watch
+    - role: role_lamp
+      when: web_type_select == 'apache'
+    - role: role_lnmp
+      when: web_type_select == 'nginx'
+    - role: role_init_password
+    - role: role_phpmyadmin
+    - role: role_9panel
+    - role: discuz 
+      when: install_type_select == 'wp_dz_integration'
+    - role: wordpress
+    - role: role_end
