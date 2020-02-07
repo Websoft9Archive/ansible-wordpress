@@ -5,9 +5,8 @@
 
 # 获取Web服务器类型
 - name: Get WebServer
-  shell: nginx -v
-  register: nginx_ver
-  ignore_errors: yes
+  shell: "curl -Is http://127.0.0.1 | grep 'Server' |awk -F ': ' '{print $2}'|tr 'A-Z' 'a-z'"
+  register: http_type
 
 # 下载源文件
 - debug: var=wordpress_theme.{{wordpress_theme_select}}
@@ -42,7 +41,7 @@
   - name: restart nginx 
     service: name=nginx state=restarted enabled=yes
     
-  when: nginx_ver.stderr.find('nginx version') != -1
+  when: http_type.stdout = "nginx"
 
 - block:
   - name: Copy Apache Vhost Configuration
@@ -51,7 +50,7 @@
   - name: restart Apache
     service: name=httpd state=restarted enabled=yes
 
-  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+  when: http_type.stdout = "apache"
 # ============================================================================#
 
 - name: Copy PHP.ini Template
