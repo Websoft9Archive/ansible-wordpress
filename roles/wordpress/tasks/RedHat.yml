@@ -73,7 +73,7 @@
 
 - name: change Apache owner
   shell: chown apache. -R /data/wwwroot
-  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+  when: http_type.stdout = "apache"
 
 - name: restart Apache
   service: name=httpd state=restarted enabled=yes
@@ -81,7 +81,7 @@
 
 - name: restart Nginx
   service: name=nginx state=restarted enabled=yes
-  when: nginx_ver.stderr.find('nginx version') != -1
+  when: http_type.stdout = "nginx"
 # ============================================================================#
 
 - name: Permission directory 750
