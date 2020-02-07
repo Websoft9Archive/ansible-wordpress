@@ -41,28 +41,28 @@
       '2': 'nginx'
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
 
-    install_type_select: "{{install_type[install_type_choose]}}"
+    wordpress_install_type_select: "{{install_type[install_type_choose]}}"
 
-    web_type_select: "{{web_type[web_type_choose]}}"
+    wordpress_web_type_select: "{{web_type[web_type_choose]}}"
 
   roles:
     - role: role_common
     - role: role_cloud
     - role: role_apache
-      when: web_type_select == 'apache'
+      when: wordpress_web_type_select == 'apache'
     - role: role_nginx
-      when: web_type_select == 'nginx'
+      when: wordpress_web_type_select == 'nginx'
     - role: role_mysql
     - role: role_php-fpm
     - role: role_inotify_watch
     - role: role_lamp
-      when: web_type_select == 'apache'
+      when: wordpress_web_type_select == 'apache'
     - role: role_lnmp
-      when: web_type_select == 'nginx'
+      when: wordpress_web_type_select == 'nginx'
     - role: role_init_password
     - role: role_phpmyadmin
     - role: role_9panel
     - role: discuz 
-      when: install_type_select == 'wp_dz_integration'
+      when: wordpress_install_type_select == 'wp_dz_integration'
     - role: wordpress
     - role: role_end
