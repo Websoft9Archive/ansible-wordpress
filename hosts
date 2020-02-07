@@ -1,2 +1,0 @@
-[wordpress]
-139.9.137.140  ansible_ssh_user=root  ansible_ssh_pass=Qwerty123456  ansible_sudo_pass=Qwerty123456  
