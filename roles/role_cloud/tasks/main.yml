@@ -54,7 +54,7 @@
   - name: AWS Configure
     yum:
       name: ec2-instance-connect
-    when: ansible_distribution == 'Centos'
+    when: ansible_distribution == 'Centos' or ansible_distribution == 'Amazon'
   
   - name: Start ec2-instance-connect
     service:

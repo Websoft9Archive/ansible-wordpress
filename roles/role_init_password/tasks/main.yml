@@ -40,5 +40,3 @@
     path: /etc/rc.d/rc.local
     mode: 0750
   when: ansible_distribution == 'CentOS'
-
-

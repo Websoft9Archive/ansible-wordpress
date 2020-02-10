@@ -1,8 +1,8 @@
-- import_tasks: CentOS.yml
-  when: ansible_distribution == 'CentOS'
+- import_tasks: RedHat.yml
+  when: ansible_os_family == 'RedHat'
 
-- import_tasks: Ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+- import_tasks: Debian.yml
+  when: ansible_os_family == 'Debian'
 
 - name: Configure Nginx
   copy:

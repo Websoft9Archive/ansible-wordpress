@@ -1,11 +1,23 @@
-# 核心任务
-- name: main
+## 部署
+- name: WordPress
   hosts: all
   become: yes
-  become_method: sudo
-  vars_files:
-    - vars/main.yml
+  become_method: sudo  
   vars_prompt:
+    - name: 'webserver_select'
+      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
+      1: Apache\n
+      2: Nginx\n"
+      private: no
+      default: 1
+    
+    - name: 'install_type_choose'
+      prompt: "Choose an install type: \n
+      1: install wordpress\n
+      2: install wordpress & discuz\n"
+      private: no
+      default: 1
+
     - name: 'theme_choose'
       prompt: "Choose serial number to install wordpress \n
       1: default theme\n
@@ -14,21 +26,10 @@
       private: no
       default: 1
 
-    - name: 'install_type_choose'
-      prompt: "Choose an install type: \n
-      1: install wordpress\n
-      2: install wordpress & discuz\n"
-      private: no
-      default: 1  
-
-    - name: 'web_type_choose'
-      prompt: "Choose a web server: \n
-      1: apache\n
-      2: nginx\n"
-      private: no
-      default: 1
-
   vars:
+    temp_ver:
+      '1': 'apache'
+      '2': 'nginx'
     theme_name:
       '1': 'classic'
       '2': 'avada'
@@ -36,33 +37,29 @@
     install_type:
       '1': 'wordpress'
       '2': 'wp_dz_integration'
-    web_type:
-      '1': 'apache'
-      '2': 'nginx'
+    
+    wordpress_webs: "{{temp_ver[webserver_select]}}"
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
-
     wordpress_install_type_select: "{{install_type[install_type_choose]}}"
-
-    wordpress_web_type_select: "{{web_type[web_type_choose]}}"
+ 
+  
+  vars_files:
+    - vars/main.yml
 
   roles:
-    - role: role_common
-    - role: role_cloud
-    - role: role_apache
-      when: wordpress_web_type_select == 'apache'
-    - role: role_nginx
-      when: wordpress_web_type_select == 'nginx'
-    - role: role_mysql
-    - role: role_php-fpm
-    - role: role_inotify_watch
-    - role: role_lamp
-      when: wordpress_web_type_select == 'apache'
-    - role: role_lnmp
-      when: wordpress_web_type_select == 'nginx'
-    - role: role_init_password
-    - role: role_phpmyadmin
-    - role: role_9panel
-    - role: discuz 
-      when: wordpress_install_type_select == 'wp_dz_integration'
-    - role: wordpress
-    - role: role_end
+    - {role: role_common, tags: "role_common"}
+    - {role: role_cloud, tags: "role_cloud"}
+    - {role: role_apache,  tags: "role_apache", when: wordpress_webs == 'apache'}
+    - {role: role_nginx, tags: "role_nginx", when: wordpress_webs == 'apache'}
+    - {role: role_mysql, tags: "role_mysql"}
+    - {role: role_php-fpm, tags: "role_php-fpm"}
+    - {role: role_inotify_watch, tags: "role_inotify_watch"}
+    - {role: role_lamp, tags: "role_lamp", when: wordpress_webs == 'apache'}
+    - {role: role_lnmp, tags: "role_lnmp", when: wordpress_webs == 'nginx'}
+    - {role: role_init_password, tags: "role_init_password"}
+    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    - {role: role_9panel, tags: "role_9panel"}
+    - {role: role_redis, tags: "role_redis"}
+    - {role: discuz, tags: "discuz", when: wordpress_install_type_select == 'wp_dz_integration'}
+    - {role: wordpress, tags: "wordpress"}
+    - {role: role_end, tags: "end"}

@@ -12,17 +12,17 @@ init_db:
   #   password: mongodb_pass
 
 
-
-application_name: 
-application_service: 
-application_database: 
-application_database_user: 
-application_database_host: 
-application_database_password: 
-application_default_account:   
-application_default_password: 
-application_random_password:  #True or False
-application_random_password_method: []
-application_config_path: []
+init_application:
+  application:  # application name
+    service: 
+    database: 
+    database_user: 
+    database_host: 
+    database_password: 
+    default_account: 
+    default_password: 
+    random_password:  #True or False
+    random_password_method: 
+    config_path: 
 
 

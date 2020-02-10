@@ -5,7 +5,16 @@
   with_items:
     - {src: mysql-community.repo.jinja2,dest: /etc/yum.repos.d/mysql-community.repo}
     - {src: RPM-GPG-KEY-mysql,dest: /etc/pki/rpm-gpg/}
-  when: ansible_distribution_major_version == "7"
+  when: ansible_distribution == "CentOS" 
+
+- name: Import MySQL Repo
+  template:
+    src: '{{item.src}}'
+    dest: '{{item.dest}}'
+  with_items:
+    - {src: mysql-community-aws.repo.jinja2,dest: /etc/yum.repos.d/mysql-community.repo}
+    - {src: RPM-GPG-KEY-mysql,dest: /etc/pki/rpm-gpg/}
+  when: ansible_distribution == 'Amazon'
 
 - name: Install MySQL{{ mysql_version }}
   yum: 
@@ -37,12 +46,31 @@
       dest: /etc/my.cnf
       regexp: '#validate_password=OFF' 
       line: 'validate_password=OFF'
+    when: (mysql_version == 5.7) or (mysql_version == '5.7')
+  
+  - name: Disable  validate password plugin
+    lineinfile:
+      dest: /etc/my.cnf
+      regexp: "{{item.regexp}}"
+      line: "{{item.line}}"
+    with_items:
+      - {regexp: "#validate_password.check_user_name=OFF" ,line: validate_password.check_user_name=OFF}
+      - {regexp: "#validate_password.length=4" ,line: validate_password.length=4}
+      - {regexp: "#validate_password.mixed_case_count=0" ,line: validate_password.mixed_case_count=0}
+      - {regexp: "#validate_password.number_count=0" ,line: validate_password.number_count=0}
+      - {regexp: "#validate_password.policy=0" ,line: validate_password.policy=0}
+      - {regexp: "#validate_password.special_char_count=0" ,line: validate_password.special_char_count=0}
+    when: (mysql_version == 8.0) or (mysql_version == '8.0')
+
 
   - name: Restart MySQL{{mysql_version}} Service
     service: name=mysqld state=restarted enabled=yes
 
   - name: Change MySQL57+ root user password 
     shell: mysqladmin -u root --password="{{ mysql_root_temp_password.stdout }}" password "{{mysql_root_password}}"
+
+
+
 
   when: (mysql_version == 5.7) or (mysql_version == '5.7') or (mysql_version == 8.0) or (mysql_version == '8.0')
 
@@ -51,6 +79,7 @@
     name: root 
     host: "{{ item }}" 
     password: "{{mysql_root_password}}"
+    login_unix_socket: /var/lib/mysql/mysql.sock
   with_items:
     - 127.0.0.1
     - ::1
@@ -64,6 +93,7 @@
     login_password: "{{mysql_root_password}}"
     name: ''
     host_all: yes
+    login_unix_socket: /var/lib/mysql/mysql.sock
     state: absent
 
 - name: Remove hostname user accounts
@@ -74,6 +104,7 @@
   mysql_db:
     login_user: root
     login_password: "{{mysql_root_password}}"
+    login_unix_socket: /var/lib/mysql/mysql.sock
     name: test
     state: absent
 

@@ -1,15 +1,18 @@
 ---
-# 系统更新
-- name: System Upgrade
-  yum: name=* state=latest
+# 9panel
+- name: Enable 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["WordPress"];'
 
-# 获取Web服务器类型
-- name: Get WebServer
-  shell: "curl -Is http://127.0.0.1 | grep 'Server' |awk -F ': ' '{print $2}'|tr 'A-Z' 'a-z'"
-  register: http_type
-
-# 下载源文件
+# 下载WordPress源文件
 - debug: var=wordpress_theme.{{wordpress_theme_select}}
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
 
 - name: Download wordpress which include default theme
   unarchive:
@@ -28,62 +31,30 @@
     group: root
     mode: 0640
 
-- name: Remove example dir
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
-# ====================apache and nginx==========================================#
-- block:
-  - name: Copy Nginx Vhost Configuration
-    template: src=default.conf dest=/etc/nginx/conf.d/
-  
-  - name: restart nginx 
-    service: name=nginx state=restarted enabled=yes  
-  when: http_type.stdout == "nginx"
-
-- block:
-  - name: Copy Apache Vhost Configuration
-    template: src=vhost.conf dest=/etc/httpd/vhost/
-
-  - name: restart Apache
-    service: name=httpd state=restarted enabled=yes
-  when: http_type.stdout == "apache"
-# ============================================================================#
-
 - name: Copy PHP.ini Template
   template: src=php.ini dest=/etc/php.ini
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
-- name: Enable 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["WordPress"];'
-
-
-# ====================apache and nginx========================================== #
-- block:
-  - name: change Nginx owner
-    shell: chown nginx. -R /data/wwwroot
-    
-  - name: restart Nginx
-    service: name=nginx state=restarted enabled=yes
-  when: http_type.stdout == "nginx"
+# 根据不同的基础环境分别处理
 
 - block:
-  - name: change Apache owner
-    shell: chown apache. -R /data/wwwroot
+  - name: change owner&group for Apache
+    shell: chown -R {{wordpress_owner}}:{{wordpress_owner}} /data/wwwroot
+
+  - name: Copy Apache or Nginx vhost configuration
+    template: src={{wordpress_vhost_src}} dest={{wordpress_vhost_dir}}
     
-  - name: restart Apache
-    service: name=httpd state=restarted enabled=yes
-  when: http_type.stdout == "apache"
-# ============================================================================#
+  - name: restart Apache or Nginx
+    service: name={{wordpress_service}} state=restarted enabled=yes
+
+# 系统通用
 - name: Permission directory 750
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
 
 - name: Permission file 640
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
+- name: System Upgrade
+  yum: name=* state=latest

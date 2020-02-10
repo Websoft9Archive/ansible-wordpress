@@ -2,8 +2,16 @@
 bind-address=0.0.0.0
 datadir=/data/mysql
 socket=/var/lib/mysql/mysql.sock
-{% if mysql_version == 5.7 or mysql_version == '5.7' %}
+{% if (mysql_version == 5.7 or mysql_version == '5.7') %}
 #validate_password=OFF
+{% endif %}
+{% if (mysql_version == 8.0 or mysql_version == '8.0') %}
+#validate_password.check_user_name=OFF
+#validate_password.length=4
+#validate_password.mixed_case_count=0
+#validate_password.number_count=0
+#validate_password.policy=0
+#validate_password.special_char_count=0
 {% endif %}
 init-connect = 'SET NAMES utf8mb4'
 character-set-server = utf8mb4
@@ -49,7 +57,7 @@ myisam_max_sort_file_size = 10G
 myisam_repair_threads = 1
 interactive_timeout = 28800
 wait_timeout = 28800
-{% if mysql_version == 5.7 or mysql_version == '5.7' %}
+{% if (mysql_version == 5.7 or mysql_version == '5.7') or (mysql_version == 8.0 or mysql_version == '8.0')  %}
 default_authentication_plugin=mysql_native_password
 {% endif %}
 

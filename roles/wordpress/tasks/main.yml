@@ -1,11 +1,17 @@
 ---
-# 安装discuz
-- debug: 
-    msg: Discuz will be installed on {{ ansible_distribution }}
-  when: wordpress_install_type_select == 'wp_dz_integration'
+#引入PHP运行环境元数据，并初始化
 
-- include: wp_dz_integration.yml
-  when: wordpress_install_type_select == 'wp_dz_integration' 
+- include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
+
+#Create var for this playbook
+- set_fact:
+    wordpress_vhost_dir: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.vhost_dir
+    wordpress_vhost_src: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.vhost_src
+    wordpress_service: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.service
+    wordpress_owner: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.owner
+
+- debug:
+    msg: runtime {{ wordpress_vhost_dir }}, {{wordpress_vhost_src}}, {{wordpress_service}}, {{wordpress_owner}}, {{wordpress_webs}}, {{ansible_distribution}}
 
 # 安装wordpress
 - debug:

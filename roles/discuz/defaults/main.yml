@@ -1,0 +1,6 @@
+#Discuz版本，需定期维护
+discuz_version: X3.4
+discuz_repo: https://gitee.com/ComsenzDiscuz/DiscuzX.git
+
+#Web服务器：apache | nginx，通过交互式选择获取
+wordpress_webs: apache

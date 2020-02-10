@@ -35,7 +35,7 @@ mysql_databases: []
 # 新建数据库用户
 mysql_users: []
  # - name: example
-  # host: locahost
+  # host: localhost
   # password: password
   # priv: 'example.*:ALL'
 ```
@@ -71,7 +71,7 @@ mysql_databases:
   
 mysql_users: 
   - name: example
-    host: locahost
+    host: localhost
     password: password
     priv: 'example.*:ALL'
 ```
