@@ -32,9 +32,6 @@
     state: present
 
 # 系统通用
-- name: System Upgrade
-  yum: name=* state=latest
-
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
