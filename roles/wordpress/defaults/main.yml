@@ -10,3 +10,7 @@ wordpress_theme_select: classic
 wordpress_webs: apache
 
 
+wordpress_vhost_dir: /etc/httpd/vhost
+wordpress_vhost_src: vhost.conf
+wordpress_service: httpd
+wordpress_owner: apache

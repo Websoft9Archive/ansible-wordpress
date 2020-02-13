@@ -7,11 +7,17 @@ phpver: '7.2'
 mysql_databases:
  - name: wordpress
    encoding: utf8
+ - name: discuz
+   encoding: utf8
  
 mysql_users:
  - name: wordpress
    host: localhost
    priv: 'wordpress.*:ALL'
+
+ - name: discuz
+   host: localhost
+   priv: 'discuz.*:ALL'
 
 # 初始化MySQL root密码
 init_db: 
@@ -20,14 +26,15 @@ init_db:
       password: 123456  
   
 # 应用数据库信息
-application_name: wordpress
-application_service: php-fpm
-application_database: wordpress 
-application_database_user: wordpress
-application_database_host: localhost
-application_database_password: 123456
-application_config_path: 
-  - /data/wwwroot/wordpress/wp-config.php
+init_application:
+  wordpress:
+    service: php-fpm
+    database: wordpress 
+    database_user: wordpress
+    database_host: localhost
+    database_password: 123456
+    config_path: 
+      - /data/wwwroot/wordpress/wp-config.php
 
 # wordpress & discuz
 wordpress_theme: 

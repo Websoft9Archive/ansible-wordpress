@@ -19,25 +19,26 @@
     src: "{{wordpress_theme[wordpress_theme_select]}}"
     dest: /data/wwwroot
     remote_src: yes
-    owner: apache
-    group: apache
 
 # 修改默认主题
 - name: Replace default theme
   template:
     src: default-constants.php
     dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
-    owner: root
-    group: root
     mode: 0640
 
 - name: Copy PHP.ini Template
-  template: src=php.ini dest=/etc/php.ini
+  copy: src=php.ini dest=/etc/php.ini
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
-# 根据不同的基础环境分别处理
+# 复制discuz.conf范例文件
+- name: Copy Discuz vhost file
+  copy: src=discuz.conf.范例  dest={{wordpress_vhost_dir}}
+  when: wordpress_install_type_select == 'wp_dz_integration' and wordpress_webs='apache'
+
+# 根据不同的基础环境分别处理 Apache 和 Nginx 配置文件
 
 - block:
   - name: change owner&group for Apache

@@ -12,6 +12,11 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
+- name: Create discuz directory
+  file:
+    path: /data/wwwroot/discuz
+    state: directory
+
 - name: Download Discuz!X3.4
   git:
     repo: https://gitee.com/ComsenzDiscuz/DiscuzX.git
@@ -19,17 +24,6 @@
 
 - name: copy discuz config
   template: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
-
-- name: Obtain mysql root's password
-  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
-  register: mysql_root_password
-
-- name: Create discuz databases
-  mysql_db:
-    login_user: root
-    login_password: "{{ mysql_root_password.stdout }}"
-    name: discuz
-    state: present
 
 # 系统通用
 - name: Permission directory

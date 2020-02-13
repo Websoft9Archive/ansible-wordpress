@@ -3,16 +3,17 @@
 
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
+- set_fact: discuz_webs="{{wordpress_webs}}"
+
 #Create var for this playbook
 - set_fact:
-    wordpress_vhost_dir: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.vhost_dir
-    wordpress_vhost_src: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.vhost_src
-    wordpress_service: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.service
-    wordpress_owner: php_runtime_meta.{{ansible_distribution}}.{{wordpress_webs}}.owner
+    discuz_vhost_dir: php_runtime_meta.{{ansible_distribution}}.{{discuz_webs}}.vhost_dir
+    discuz_vhost_src: php_runtime_meta.{{ansible_distribution}}.{{discuz_webs}}.vhost_src
+    discuz_service: php_runtime_meta.{{ansible_distribution}}.{{discuz_webs}}.service
+    discuz_owner: php_runtime_meta.{{ansible_distribution}}.{{discuz_webs}}.owner
 
 - debug:
-    msg: runtime {{ wordpress_vhost_dir }}, {{wordpress_vhost_src}}, {{wordpress_service}}, {{wordpress_owner}}, {{wordpress_webs}}, {{ansible_distribution}}
-
+    msg: runtime {{ discuz_vhost_dir }}, {{discuz_vhost_src}}, {{discuz_service}}, {{discuz_owner}}, {{discuz_webs}}, {{ansible_distribution}}
 
 - debug:
     msg: Discuz will be installed on {{ ansible_distribution }} 

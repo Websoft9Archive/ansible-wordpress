@@ -3,4 +3,9 @@ discuz_version: X3.4
 discuz_repo: https://gitee.com/ComsenzDiscuz/DiscuzX.git
 
 #Web服务器：apache | nginx，通过交互式选择获取
-wordpress_webs: apache
+discuz_webs: apache
+
+discuz_vhost_dir: /etc/httpd/vhost
+discuz_vhost_src: vhost.conf
+discuz_service: httpd
+discuz_owner: apache

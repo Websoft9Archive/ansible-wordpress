@@ -10,14 +10,14 @@
 
 | 条件       | 详情                                  | 备注                 |
 | ---------- | ------------------------------------- | -------------------- |
-| 操作系统   | CentOS7.x, Ubuntu18.04, Amazon Linux2 |                      |
+| 操作系统   | CentOS7.x |                      |
 | 公有云     | AWS, Azure, 阿里云, 华为云, 腾讯云    |                      |
 | 私有云     | KVM, VMware, VirtualBox, OpenStack    |                      |
 | 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M  | 建议采用按量100M带宽 |
 
 ## 组件
 
-包含的核心组件为：LAMP, WordPress
+包含的核心组件为：WordPress + Apache/Nginx + MySQL + PHP 
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
@@ -53,3 +53,7 @@
 
 - 命令脚本部署与镜像部署有什么区别？请参考[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
 - 本项目支持在 Ansible Tower 上运行吗？支持
+
+### To do
+* 添加 Nginx 支持
+* 添加 Ubuntu18.04, Amazon Linux2 支持
