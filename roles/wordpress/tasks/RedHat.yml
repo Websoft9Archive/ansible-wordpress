@@ -41,7 +41,7 @@
 # 根据不同的基础环境分别处理 Apache 和 Nginx 配置文件
 
 - block:
-  - name: change owner&group for Apache
+  - name: change owner&group
     shell: chown -R {{wordpress_owner}}:{{wordpress_owner}} /data/wwwroot
 
   - name: Copy Apache or Nginx vhost configuration
