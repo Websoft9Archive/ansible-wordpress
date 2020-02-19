@@ -2,7 +2,9 @@
 - name: WordPress
   hosts: all
   become: yes
-  become_method: sudo  
+  become_method: sudo 
+  vars_files:
+    - vars/main.yml 
   vars_prompt:
     - name: 'webserver_select'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
@@ -41,10 +43,10 @@
     wordpress_webs: "{{temp_ver[webserver_select]}}"
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
     wordpress_install_type_select: "{{install_type[install_type_choose]}}"
- 
-  
-  vars_files:
-    - vars/main.yml
+
+  pre_tasks:
+    - include_vars: roles/role_cloud/vars/cloud_download_url.yml
+      when: region == '1' or region == 1
 
   roles:
     - {role: role_common, tags: "role_common"}
