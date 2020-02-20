@@ -40,10 +40,10 @@
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Rename dir 
-  shell: |
-    mv /data/wwwroot/w* /data/wwwroot/wordpress
-    mv /data/wwwroot/W* /data/wwwroot/wordpress
+# - name: Rename dir 
+#   shell: |
+#     mv /data/wwwroot/w* /data/wwwroot/wordpress
+#     mv /data/wwwroot/W* /data/wwwroot/wordpress
     
 # 修改默认主题
 - name: Replace default theme

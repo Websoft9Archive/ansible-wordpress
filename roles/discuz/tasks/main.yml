@@ -29,10 +29,8 @@
     line: 'var set_apps=["WordPress","Discuz"];'
 
 # Discuz!X3.4
-- name: Remove example dir
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*
 
 - name: Create discuz directory
   file:
@@ -44,6 +42,11 @@
     repo: https://gitee.com/ComsenzDiscuz/DiscuzX.git
     dest: /data/wwwroot/discuz
     version: "{{discuz_version}}"
+
+# - name: Rename dir name
+#   shell: |
+      # mv /data/wwwroot/d* /data/wwwroot/discuz
+      # mv /data/wwwroot/D* /data/wwwroot/discuz
 
 - name: copy discuz config
   template: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config/config_global_default.php
