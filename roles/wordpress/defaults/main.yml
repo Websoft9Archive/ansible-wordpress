@@ -14,3 +14,7 @@ wordpress_vhost_dir: /etc/httpd/vhost
 wordpress_vhost_src: vhost.conf
 wordpress_service: httpd
 wordpress_owner: apache
+wordpress_name: "wordpress"
+wordpress_title: "WordPress"
+wordpress_download_url: "https://github.com/WordPress/WordPress.git"
+wordpress_version: "5.3.2"

@@ -9,6 +9,10 @@
     wordpress_vhost_src: php_runtime_meta.[ansible_distribution].[wordpress_webs].vhost_src
     wordpress_service: php_runtime_meta.[ansible_distribution].[wordpress_webs].service
     wordpress_owner: php_runtime_meta.[ansible_distribution].[wordpress_webs].owner
+    wordpress_name: "wordpress"
+    wordpress_title: "WordPress"
+    wordpress_download_url: "https://github.com/WordPress/WordPress.git"
+    wordpress_version: "5.3.2"
 
 - debug:
     msg: runtime {{ wordpress_vhost_dir }}, {{wordpress_vhost_src}}, {{wordpress_service}}, {{wordpress_owner}}, {{wordpress_webs}}, {{ansible_distribution}}
@@ -16,13 +20,6 @@
 # 安装wordpress
 - debug:
     msg: WordPress will be installed on {{ ansible_distribution }} 
-
-# 9panel
-- name: Enable 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["WordPress"];'
 
 # 下载WordPress源文件
 - debug: var=wordpress_theme.{{wordpress_theme_select}}
@@ -32,12 +29,22 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
+- name: Remove existing dir
+  file:
+    path: /data/wwwroot/{{wordpress_name}}
+    state: absent
+
 - name: Download wordpress which include default theme
   unarchive:
     src: "{{wordpress_theme[wordpress_theme_select]}}"
     dest: /data/wwwroot
     remote_src: yes
 
+- name: Rename dir 
+  shell: |
+    mv /data/wwwroot/w* /data/wwwroot/wordpress
+    mv /data/wwwroot/W* /data/wwwroot/wordpress
+    
 # 修改默认主题
 - name: Replace default theme
   template:

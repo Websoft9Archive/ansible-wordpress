@@ -6,7 +6,31 @@
   vars_files:
     - vars/main.yml 
   vars_prompt:
-    - name: 'webserver_select'
+    - name: 'webs_selection'
+      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
+      1: Apache\n
+      2: Nginx\n"
+      private: no
+      default: 1
+
+  vars:
+
+    webs_select:
+      '1': 'apache'
+      '2': 'nginx'
+
+    infrastructure_select:
+      '1': 'LAMP'
+      '2': 'LNMP'
+
+    owncloud_webs: "{{webs_select[webs_selection]}}" 
+
+    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+    w9panel_set_apps: 
+      - OwnCloud
+  
+  vars_prompt:
+    - name: 'webs_selection'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
       1: Apache\n
       2: Nginx\n"
@@ -29,9 +53,12 @@
       default: 1
 
   vars:
-    temp_ver:
+    webs_select:
       '1': 'apache'
       '2': 'nginx'
+    infrastructure_select:
+      '1': 'LAMP'
+      '2': 'LNMP'
     theme_name:
       '1': 'classic'
       '2': 'avada'
@@ -40,9 +67,13 @@
       '1': 'wordpress'
       '2': 'wp_dz_integration'
     
-    wordpress_webs: "{{temp_ver[webserver_select]}}"
+    wordpress_webs: "{{webs_select[webs_selection]}}"
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
     wordpress_install_type_select: "{{install_type[install_type_choose]}}"
+
+    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+    w9panel_set_apps: 
+      - WordPress
 
   pre_tasks:
     - include_vars: roles/role_cloud/vars/cloud_download_url.yml
