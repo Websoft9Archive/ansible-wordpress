@@ -13,7 +13,6 @@
     discuz_owner: php_runtime_meta.[ansible_distribution].[discuz_webs].owner
     discuz_db_password: "{{mysql_root_password}}"
 
-
 - debug:
     msg: runtime {{ discuz_vhost_dir }}, {{discuz_vhost_src}}, {{discuz_service}}, {{discuz_owner}}, {{discuz_webs}}, {{ansible_distribution}}
 
@@ -22,7 +21,7 @@
     msg: Discuz will be installed on {{ ansible_distribution }} 
 
 # 9panel
-- name: Enable 9panel I
+- name: Enable 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
@@ -30,7 +29,9 @@
 
 # Discuz!X3.4
 - name: Remove extra dir
-  shell: rm -rf /data/wwwroot/*
+  shell: |
+    rm -rf /data/wwwroot/www.example.com
+    rm -rf /data/wwwroot/{{discuz_name}}
 
 - name: Create discuz directory
   file:
@@ -39,14 +40,9 @@
 
 - name: Download Discuz!X3.4
   git:
-    repo: https://gitee.com/ComsenzDiscuz/DiscuzX.git
+    repo: "{{discuz_download_url}}"
     dest: /data/wwwroot/discuz
     version: "{{discuz_version}}"
-
-# - name: Rename dir name
-#   shell: |
-      # mv /data/wwwroot/d* /data/wwwroot/discuz
-      # mv /data/wwwroot/D* /data/wwwroot/discuz
 
 - name: copy discuz config
   template: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config/config_global_default.php
