@@ -45,7 +45,7 @@
     version: "{{discuz_version}}"
 
 - name: Rename dir name
-  shell: if [ ! -d "/data/wwwroot/{{discuz_name}}" ]; then mv *{{discuz_name}}* {{discuz_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{discuz_name}}" ]; then mv *{{discuz_name}}* {{discuz_name}}; fi
 
 - name: copy discuz config
   template: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config/config_global_default.php
