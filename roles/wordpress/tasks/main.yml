@@ -30,6 +30,9 @@
     src: "{{wordpress_theme[wordpress_theme_select]}}"
     dest: /data/wwwroot
     remote_src: yes
+
+- name: Rename dir name
+  shell: if [ ! -d "/data/wwwroot/{{wordpress_name}}" ]; then mv *{{wordpress_name}}* {{wordpress_name}}; fi
     
 # 修改默认主题
 - name: Replace default theme
