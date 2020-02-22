@@ -7,10 +7,10 @@
 
 #Create var for this playbook
 - set_fact:
-    discuz_vhost_dir: php_runtime_meta.[ansible_distribution].[discuz_webs].vhost_dir
-    discuz_vhost_src: php_runtime_meta.[ansible_distribution].[discuz_webs].vhost_src
-    discuz_service: php_runtime_meta.[ansible_distribution].[discuz_webs].service
-    discuz_owner: php_runtime_meta.[ansible_distribution].[discuz_webs].owner
+    discuz_vhost_dir: php_runtime_meta[ansible_distribution][discuz_webs].vhost_dir
+    discuz_vhost_src: php_runtime_meta[ansible_distribution][discuz_webs].vhost_src
+    discuz_service: php_runtime_meta[ansible_distribution][discuz_webs].service
+    discuz_owner: php_runtime_meta[ansible_distribution][discuz_webs].owner
     discuz_db_password: "{{mysql_root_password}}"
 
 - debug:
