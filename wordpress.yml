@@ -27,7 +27,7 @@
 
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
-      - OwnCloud
+      - WordPress
   
   vars_prompt:
     - name: 'webs_selection'
