@@ -50,7 +50,7 @@
 # 复制discuz.conf范例文件
 - name: Copy Discuz vhost file
   copy: src=discuz.conf.范例  dest={{wordpress_vhost_dir}}
-  when: wordpress_install_type_select == 'wp_dz_integration' and wordpress_webs='apache'
+  when: wordpress_install_type_select == "wp_dz_integration" and wordpress_webs == "apache"
 
 # 根据不同的基础环境分别处理 Apache 和 Nginx 配置文件
 
