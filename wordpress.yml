@@ -68,6 +68,9 @@
       '2': 'wp_dz_integration'
     
     wordpress_webs: "{{webs_select[webs_selection]}}"
+    phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
+    w9panel_webs: "{{webs_select[webs_selection]}}"
+    
     wordpress_theme_select: "{{theme_name[theme_choose]}}"
     wordpress_install_type_select: "{{install_type[install_type_choose]}}"
 
