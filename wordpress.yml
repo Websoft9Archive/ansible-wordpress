@@ -84,19 +84,19 @@
         msg: WordPress will be installed on {{w9panel_set_infrastructure}}, OS is {{ansible_distribution}}, region code is {{region}}
 
   roles:
-    - {role: role_common, tags: "role_common"}
-    - {role: role_cloud, tags: "role_cloud"}
-    - {role: role_apache,  tags: "role_apache", when: wordpress_webs == 'apache'}
-    - {role: role_nginx, tags: "role_nginx", when: wordpress_webs == 'nginx'}
-    - {role: role_mysql, tags: "role_mysql"}
-    - {role: role_php-fpm, tags: "role_php-fpm"}
-    - {role: role_inotify_watch, tags: "role_inotify_watch"}
-    - {role: role_lamp, tags: "role_lamp", when: wordpress_webs == 'apache'}
-    - {role: role_lnmp, tags: "role_lnmp", when: wordpress_webs == 'nginx'}
-    - {role: role_init_password, tags: "role_init_password"}
-    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
-    - {role: role_9panel, tags: "role_9panel"}
-    - {role: role_redis, tags: "role_redis"}
-    - {role: discuz, tags: "discuz", when: wordpress_install_type_select == 'wp_dz_integration'}
+    # - {role: role_common, tags: "role_common"}
+    # - {role: role_cloud, tags: "role_cloud"}
+    # - {role: role_apache,  tags: "role_apache", when: wordpress_webs == 'apache'}
+    # - {role: role_nginx, tags: "role_nginx", when: wordpress_webs == 'nginx'}
+    # - {role: role_mysql, tags: "role_mysql"}
+    # - {role: role_php-fpm, tags: "role_php-fpm"}
+    # - {role: role_inotify_watch, tags: "role_inotify_watch"}
+    # - {role: role_lamp, tags: "role_lamp", when: wordpress_webs == 'apache'}
+    # - {role: role_lnmp, tags: "role_lnmp", when: wordpress_webs == 'nginx'}
+    # - {role: role_init_password, tags: "role_init_password"}
+    # - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    # - {role: role_9panel, tags: "role_9panel"}
+    # - {role: role_redis, tags: "role_redis"}
+    # - {role: discuz, tags: "discuz", when: wordpress_install_type_select == 'wp_dz_integration'}
     - {role: wordpress, tags: "wordpress"}
     - {role: role_end, tags: "end"}
