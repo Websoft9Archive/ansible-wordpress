@@ -19,6 +19,8 @@
 
 ### Features
 
+* 2020-02-24  单个wordpress测试成功
+
 * 2020-02-13  格式化变量模板
 
 * 2020-02-12  格式化整个ansible-wordpress项目
