@@ -64,7 +64,7 @@
     shell: chown -R {{discuz_owner}}:{{discuz_owner}} /data/wwwroot
 
   - name: Copy Apache or Nginx vhost configuration
-    template: src={{discuz_vhost_src}} dest={{discuz_vhost_dir}}
+    copy: src={{discuz_vhost_src}} dest={{discuz_vhost_dir}}
     
   - name: restart Apache or Nginx
     service: name={{discuz_service}} state=restarted enabled=yes
