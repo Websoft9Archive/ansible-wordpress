@@ -1,0 +1,117 @@
+---
+#preparation tasks for 9panel
+
+- set_fact: 
+    w9panel_owner: "www-data"
+  when: ansible_os_family == 'Debian'
+
+- set_fact: 
+    w9panel_owner: "{{ w9panel_webs }}"
+  when: ansible_os_family == 'RedHat'
+
+- debug:
+    msg: owner is {{w9panel_owner}}
+
+- name: Remove 9panel and example folder if exist
+  shell: |
+    rm -rf /data/apps/9panel
+    rm -rf /data/wwwroot/www.example.com
+    
+# Download,unzip,rename 9panel from different region
+
+- name: Download 9panel from Github
+  git:
+    repo: "{{ w9panel_download_url }}"
+    dest: /data/apps/9panel
+    version: latest
+  when: region == '0' or region == 0
+
+- block:
+  - name: Download 9panel from OSS
+    unarchive:
+      src: "{{ w9panel_download_url }}"
+      dest: /data/apps
+      remote_src: yes
+
+  - name: Rename directory name
+    shell: cd /data/apps; if [ ! -d "9panel" ]; then mv *9panel* 9panel; fi 
+
+  when: region == '1' or region == 1
+
+
+
+# Set 9panel display of infrastructure and apps
+
+- name: set infrastructure of 9Panel to {{w9panel_set_infrastructure}}
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_infrastructure='
+    line: 'var set_infrastructure="{{ w9panel_set_infrastructure }}";'
+
+- name: set apps of 9Panel {{ w9panel_set_apps | list }}
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps='
+    line: 'var set_apps={{ w9panel_set_apps | list }};'
+
+
+#Copy 9panel to /data/wwwroot/www.example.com if w9panel_set_apps[0]==Example
+
+- block:
+  - name: Create /data/wwwroot/www.example.com
+    file: 
+        path: /data/wwwroot/www.example.com
+        state: directory
+        mode: 0750
+
+  - name: Set www.example.com I - copy 9panel
+    shell: cp -rp /data/apps/9panel/*  /data/wwwroot/www.example.com
+
+  - name: Set www.example.com II - delete unnecessary files
+    file:
+      path: "/data/wwwroot/www.example.com/{{ item }}"
+      state: absent
+    with_items:
+      - db.html
+      - ftp.html
+      - index.html
+      - tools.html
+
+  - name: Set www.example.com II - rename index.html
+    command: mv /data/wwwroot/www.example.com/example.html /data/wwwroot/www.example.com/index.html
+  
+  when: w9panel_set_apps[0] == 'Example'
+
+#System settings for 9panel
+
+- name: Change /data/apps directory Owner
+  file: 
+      path: /data/apps
+      owner: "{{w9panel_owner}}"
+      group: "{{w9panel_owner}}"
+      recurse: yes
+
+- name: Change /data/wwwroot directory Owner
+  file: 
+      path: /data/wwwroot
+      owner: "{{w9panel_owner}}"
+      group: "{{w9panel_owner}}"
+      recurse: yes
+
+- block:
+  - name: Copy 9panel Configuration
+    copy: src=9panel.conf dest=/etc/httpd/conf.d/
+
+  - name: restart Apache
+    service: name=httpd state=restarted enabled=yes
+
+  when: w9panel_webs == "apache"
+  
+- block: 
+  - name: Copy 9panel Configuration
+    copy: src=9panel-nginx.conf dest=/etc/nginx/extra/9panel.conf
+
+  - name: restart Nginx
+    service: name=nginx state=restarted enabled=yes
+
+  when: w9panel_webs == "nginx"
