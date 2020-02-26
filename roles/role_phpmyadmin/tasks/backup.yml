@@ -1,0 +1,119 @@
+---
+# 预处理
+
+- set_fact: 
+    phpmyadmin_owner: "www-data"
+  when: ansible_os_family == 'Debian'
+- set_fact: 
+    phpmyadmin_owner: "{{ phpmyadmin_webs }}"
+  when: ansible_os_family == 'RedHat'
+
+- debug:
+    msg: owner is {{phpmyadmin_owner}}
+
+- name: Remove phpmyadmin if it exist
+  shell: |
+    rm -rf /data/apps/*phpmyadmin*
+    rm -rf /data/apps/*phpMyAdmin*
+
+- name: Create apps directory for PHPMyAdmin download
+  file: 
+      path: /data/apps
+      state: directory
+      mode: 0750
+
+# 根据不同的操作系统，更新、安装基础软件工具等操作
+- debug:
+    msg: Will install components on {{ ansible_distribution }} 
+
+- include: "{{ansible_os_family}}.yml"
+
+- block:
+    
+  - name: Check whether the local machine contains MySQL
+    shell: curl -Is 127.0.0.1:3306 > /dev/null;echo $?
+    register: check_mysqlserver
+
+  - name: Download phpMyAdmin from {{phpmyadmin_download_url.old}}
+    unarchive:
+      src: "{{phpmyadmin_download_url.old}}"
+      dest: /data/apps
+      remote_src: yes
+    when: phpmyadmin_php_version <= "5.4"
+
+  - name: Download phpMyAdmin from {{phpmyadmin_download_url.new}}
+    unarchive:
+      src: "{{phpmyadmin_download_url.new}}"
+      dest: /data/apps
+      remote_src: yes
+    when: phpmyadmin_php_version > "5.5"
+
+  - name: phpMyadmin directory rename
+    shell: cd /data/apps; if [ ! -d "phpmyadmin" ]; then mv *phpMyAdmin* phpmyadmin; fi
+    ignore_errors: True
+  
+  - name: phpMyadmin Configuration
+    copy: 
+      src: config.inc.php
+      dest: /data/apps/phpmyadmin/
+  
+  - block:
+    - name: Active phpMyAdmin 4.0.x Advanced Features
+      mysql_db:
+        config_file: /etc/my.cnf
+        login_user: root
+        login_password: "{{phpmyadmin_mysql_password}}"
+        name: phpmyadmin
+        state: import
+        target: /data/apps/phpmyadmin/examples/create_tables.sql
+      when: phpmyadmin_php_version <= "5.4"
+
+    - name: Active phpMyAdmin 4.x Advanced Features
+      mysql_db:
+        config_file: /etc/my.cnf
+        login_user: root
+        login_password: "{{phpmyadmin_mysql_password}}"
+        name: phpmyadmin
+        state: import
+        target: /data/apps/phpmyadmin/sql/create_tables.sql
+      when: phpmyadmin_php_version >= "5.5"
+    when: check_mysqlserver.stdout == '0'
+   
+  - name: allow login to any user entered server in cookie based authentication 
+    lineinfile:
+      dest: /data/apps/phpmyadmin/libraries/config.default.php
+      regexp: "$cfg['AllowArbitraryServer'] = false;"
+      line: "$cfg['AllowArbitraryServer'] = true;"
+      state: present
+    when: check_mysqlserver.stdout > '0'
+
+  - name: change phpMyadmin permission
+    file: 
+      path: /data/apps/phpmyadmin
+      group: "{{phpmyadmin_owner}}"
+      owner: "{{phpmyadmin_owner}}"
+      recurse: yes
+      state: directory
+  
+  # phpMyAdmin Apache
+  - block: 
+    - name: Copy phpMyAdmin Configuration for apache
+      copy: src=phpMyAdmin-apache.conf dest=/etc/httpd/conf.d/phpMyAdmin.conf
+    
+    - name: apache service restart
+      service: name=httpd state=restarted
+
+    when: phpmyadmin_webs == 'apache'
+
+
+  # phpMyAdmin Nginx
+  - block: 
+    - name: Copy phpMyAdmin Configuration for nginx
+      copy: src=phpMyAdmin-nginx.conf dest=/etc/nginx/extra/phpmyadmin.conf
+      
+    - name: nginx service restart
+      service: name=nginx state=restarted
+
+    when: phpmyadmin_webs == 'nginx'
+
+  when: ansible_os_family == 'RedHat'

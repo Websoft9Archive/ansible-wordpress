@@ -1,0 +1,10 @@
+- import_tasks: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- import_tasks: Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: copy rewrite
+  copy: 
+    src: rewrite
+    dest: /etc/nginx/conf.d/
