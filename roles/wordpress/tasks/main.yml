@@ -40,9 +40,7 @@
     src: default-constants.php
     dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
     mode: 0640
-
-- name: Copy PHP.ini Template
-  copy: src=php.ini dest=/etc/php.ini
+  when: wordpress_theme_select != "classic"
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
