@@ -30,8 +30,7 @@
 # Discuz!X3.4
 - name: Remove extra dir
   shell: |
-    rm -rf /data/wwwroot/www.example.com
-    rm -rf /data/wwwroot/{{discuz_name}}
+    rm -rf /data/wwwroot/*{{discuz_name}}*
 
 - name: Create discuz directory
   file:
@@ -52,10 +51,9 @@
 
 # 系统通用
 - name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+  shell: |
+    find /data/wwwroot -type d -exec chmod 750 {} \;
+    find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
 # 根据不同的基础环境分别处理
 
@@ -64,7 +62,7 @@
     shell: chown -R {{discuz_owner}}:{{discuz_owner}} /data/wwwroot
 
   - name: Copy Apache or Nginx vhost configuration
-    copy: src={{discuz_vhost_src}} dest={{discuz_vhost_dir}}
+    template: src={{discuz_vhost_src}} dest={{discuz_vhost_dir}}
     
   - name: restart Apache or Nginx
     service: name={{discuz_service}} state=restarted enabled=yes

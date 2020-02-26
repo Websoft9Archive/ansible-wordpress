@@ -22,7 +22,6 @@
 
 - name: Remove extra dir
   shell: |
-    rm -rf /data/wwwroot/www.example.com
     rm -rf /data/wwwroot/{{wordpress_name}}
 
 - name: Download wordpress which include default theme
