@@ -102,4 +102,5 @@
     - {role: role_redis, tags: "role_redis"}
     - {role: discuz, tags: "discuz", when: wordpress_install_type_select == 'wp_dz_integration'}
     - {role: wordpress, tags: "wordpress"}
-    - {role: role_end, tags: "end"}
+    - {role: role_preend, tags: "role_preend"}
+    - {role: role_end, tags: "role_end"}
