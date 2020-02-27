@@ -9,7 +9,8 @@
     wordpress_vhost_src: "{{php_runtime_meta[ansible_os_family][wordpress_webs].vhost_src}}"
     wordpress_service: "{{php_runtime_meta[ansible_os_family][wordpress_webs].service}}"
     wordpress_owner: "{{php_runtime_meta[ansible_os_family][wordpress_webs].owner}}"
-
+    wordpress_db_password: "{{mysql_root_password}}"
+    
 - debug:
     msg: runtime {{ wordpress_vhost_dir }}, {{wordpress_vhost_src}}, {{wordpress_service}}, {{wordpress_owner}}, {{wordpress_webs}}, {{ansible_distribution}}
 
