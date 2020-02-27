@@ -5,30 +5,7 @@
   become_method: sudo 
   vars_files:
     - vars/main.yml 
-  vars_prompt:
-    - name: 'webs_selection'
-      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
-      1: Apache\n
-      2: Nginx\n"
-      private: no
-      default: 1
-
-  vars:
-
-    webs_select:
-      '1': 'apache'
-      '2': 'nginx'
-
-    infrastructure_select:
-      '1': 'LAMP'
-      '2': 'LNMP'
-
-    owncloud_webs: "{{webs_select[webs_selection]}}" 
-
-    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
-    w9panel_set_apps: 
-      - WordPress
-  
+ 
   vars_prompt:
     - name: 'webs_selection'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
@@ -37,18 +14,18 @@
       private: no
       default: 1
     
-    - name: 'install_type_choose'
-      prompt: "Choose an install type: \n
-      1: install wordpress\n
-      2: install wordpress & discuz\n"
+    - name: 'addapps_selection'
+      prompt: "Do you want to install another application with WordPress? [ 1/2 ]  \n\n
+      1: No, only WordPress\n
+      2: Discuz\n"
       private: no
       default: 1
 
-    - name: 'theme_choose'
-      prompt: "Choose serial number to install wordpress \n
-      1: default theme\n
-      2: avada theme\n
-      3: porto theme\n"
+    - name: 'theme_selection'
+      prompt: "Do you want to use a commercial theme for your WordPress [ 1/2/3 ]  \n\n
+      1: No, only default\n
+      2: Avada\n
+      3: Porto\n"
       private: no
       default: 1
 
@@ -59,21 +36,21 @@
     infrastructure_select:
       '1': 'LAMP'
       '2': 'LNMP'
-    theme_name:
-      '1': 'classic'
+    theme_select:
+      '1': ''
       '2': 'avada'
       '3': 'porto'
-    install_type:
-      '1': 'wordpress'
-      '2': 'wp_dz_integration'
+    addapps_select:
+      '1': ''
+      '2': 'discuz'
     
     discuz_webs: "{{webs_select[webs_selection]}}"
     wordpress_webs: "{{webs_select[webs_selection]}}"
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}"
-    
-    wordpress_theme_select: "{{theme_name[theme_choose]}}"
-    wordpress_install_type_select: "{{install_type[install_type_choose]}}"
+
+    wordpress_addapps: "{{addapps_select[addapps_selection]}}"
+    wordpress_theme: "{{theme_select[theme_selection]}}"
 
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
@@ -96,11 +73,11 @@
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
     - {role: role_lamp, tags: "role_lamp", when: wordpress_webs == 'apache'}
     - {role: role_lnmp, tags: "role_lnmp", when: wordpress_webs == 'nginx'}
-    - {role: role_init_password, tags: "role_init_password"}
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
-    - {role: discuz, tags: "discuz", when: wordpress_install_type_select == 'wp_dz_integration'}
+    - {role: discuz, tags: "discuz", when: wordpress_apps == 'discuz'}
     - {role: wordpress, tags: "wordpress"}
+    - {role: role_init_password, tags: "role_init_password"}
     - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}

@@ -1,14 +1,29 @@
-#WordPress版本，需定期维护
-wordpress_theme: 
-    classic: "https://libs.websoft9.com/apps/wordpress/wordpress-5.3.2.zip"
-    avada: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
-    porto: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
+#默认官方下载包
+wordpress_download_url: "https://libs.websoft9.com/apps/wordpress/wordpress-5.3.2.zip"
 
-wordpress_theme_select: classic
+#商业主题的下载包包含官方源码和主题
+wordpress_theme_meta:
+  avada: 
+    download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
+    other: ""
+  porto: 
+    download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
+    other: ""
+
+#组合apps名称
+wordpress_addapps_meta:
+   discuz:
+     title: "Discuz"
+     documentroot: "upload"
 
 #Web服务器：apache | nginx，通过交互式选择获取
 wordpress_webs: apache
 
+wordpress_addapps: ""
+wordpress_theme: ""
+
+#数据库连接信息
+wordpress_db_password: "123456"
 
 wordpress_vhost_dir: /etc/httpd/vhost
 wordpress_vhost_src: vhost.conf
@@ -16,5 +31,3 @@ wordpress_service: httpd
 wordpress_owner: apache
 wordpress_name: "wordpress"
 wordpress_title: "WordPress"
-wordpress_download_url: "https://github.com/WordPress/WordPress.git"
-wordpress_version: "5.3.2"

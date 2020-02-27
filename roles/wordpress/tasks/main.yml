@@ -13,41 +13,48 @@
 - debug:
     msg: runtime {{ wordpress_vhost_dir }}, {{wordpress_vhost_src}}, {{wordpress_service}}, {{wordpress_owner}}, {{wordpress_webs}}, {{ansible_distribution}}
 
-# 安装wordpress
-- debug:
-    msg: WordPress will be installed on {{ ansible_distribution }} 
-
-# 下载WordPress源文件
-- debug: var=wordpress_theme.{{wordpress_theme_select}}
+#WordPress pre-installation
 
 - name: Remove extra dir
   shell: |
     rm -rf /data/wwwroot/{{wordpress_name}}
 
-- name: Download wordpress which include default theme
+- set_fact:
+    wordpress_download_url: "{{wordpress_theme_meta[wordpress_theme].download_url}}"
+  when: not wordpress_theme
+
+#WordPress installation
+
+- name: Download wordpress from {{wordpress_download_url}}
   unarchive:
-    src: "{{wordpress_theme[wordpress_theme_select]}}"
+    src: "{{wordpress_download_url}}"
     dest: /data/wwwroot
     remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{wordpress_name}}" ]; then mv *{{wordpress_name}}* {{wordpress_name}}; fi
 
-# 修改默认主题
-- name: Replace default theme
+- name: Replace theme name in the file default-constants.php
   template:
     src: default-constants.php
     dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
     mode: 0640
-  when: wordpress_theme_select != "classic"
+  when: not wordpress_theme
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
-# 复制discuz.conf范例文件
-- name: Copy Discuz vhost file
-  copy: src=discuz.conf.范例  dest={{wordpress_vhost_dir}}
-  when: wordpress_install_type_select == "wp_dz_integration" and wordpress_webs == "apache"
+- name: Reset 9Panel if include {{wordpress_addapps}}
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["WordPress"\];'
+    line: 'var set_apps=["WordPress","{{wordpress_addapps}}"];'
+
+# System settings
+- name: Permission settings
+  shell: |
+    find /data/wwwroot -type d -exec chmod 750 {} \;
+    find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
 # 根据不同的基础环境分别处理 Apache 和 Nginx 配置文件
 
@@ -60,10 +67,3 @@
     
   - name: restart Apache or Nginx
     service: name={{wordpress_service}} state=restarted enabled=yes
-
-# 系统通用
-- name: Permission directory 750
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-
-- name: Permission file 640
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;

@@ -1,12 +1,23 @@
 #全局
 region: "1"
 
-# MySQL 版本和默认密码
+# PHP版本选择
+php_version: "7.2"
+
+# MySQL 版本和默认密码，后面所有应用的密码与此密码保持一致
 mysql_version: "5.7"       
 mysql_root_password: "123456"
-phpver: "7.2"
 
-# 生成应用数据库和用户
+# WordPress role 所需的连接信息，保持MySQL创建的一致
+wordpress_db_password: "123456"
+
+# Discuz role 所需的连接信息，保持MySQL创建的一致
+discuz_db_password: "123456"
+
+# phpmyadmin role 所需的连接信息，保持MySQL创建的一致
+phpmyadmin_mysql_password: "123456"
+
+# MySQL 创建应用数据库和用户
 mysql_databases:
  - name: wordpress
    encoding: utf8
@@ -22,13 +33,12 @@ mysql_users:
    host: localhost
    priv: 'discuz.*:ALL'
 
-# 初始化MySQL root密码
+# 随机密码处理
 init_db: 
     mysql:
       user: root
       password: "123456"  
   
-# 应用数据库信息
 init_application:
   wordpress:
     service: php-fpm
@@ -46,11 +56,3 @@ init_application:
     database_password: "123456"
     config_path: 
       - /data/wwwroot/discuz/upload/config/config_global_default.php
-
-# wordpress & discuz
-wordpress_theme: 
-  classic: "https://libs.websoft9.com/apps/wordpress/wordpress-5.3.2.zip"
-  avada: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
-  porto: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
-
-discuz: https://gitee.com/ComsenzDiscuz/DiscuzX.git
