@@ -49,7 +49,8 @@
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["WordPress"\];'
-    line: 'var set_apps=["WordPress","{{wordpress_addapps}}"];'
+    line: 'var set_apps=["WordPress","{{wordpress_addapps_meta[wordpress_addapps].title}}"];'
+  when: wordpress_addapps
 
 # System settings
 - name: Permission settings

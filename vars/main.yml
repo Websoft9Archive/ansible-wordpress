@@ -39,11 +39,3 @@ init_application:
     database_password: "123456"
     config_path: 
       - /data/wwwroot/wordpress/wp-config.php
-  discuz:
-    service: php-fpm
-    database: discuz 
-    database_user: discuz
-    database_host: localhost
-    database_password: "123456"
-    config_path: 
-      - /data/wwwroot/discuz/upload/config/config_global_default.php
