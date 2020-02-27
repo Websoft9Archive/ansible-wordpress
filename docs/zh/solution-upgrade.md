@@ -53,7 +53,9 @@ WordPress 内核升级非常简单，当进入后台之后系统会提示需要�
 2. 登录云服务器，进入 [WordPress 的根目录](/zh/stack-components.html#wordpress路径)
 3. 删除此目录下的 `wp-admin` 和 `wp-includes` 文件夹
 4. 上传本地解压后的 WordPress代码，有同名文件提醒的时候选择覆盖上传
-
+5. 重新访问WordPress，可能会出现下图所示的数据库升级步骤
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-update-db-websoft9.jpg)
+6. 点击【升级WordPress数据库】即可
 
 ### 插件升级
 
