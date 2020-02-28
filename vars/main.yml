@@ -1,5 +1,5 @@
 #全局
-region: "1"
+region: "0"
 
 # PHP版本选择
 php_version: "7.2"

@@ -80,7 +80,7 @@
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
-    - {role: discuz, tags: "discuz", when: wordpress_apps == 'discuz'}
+    - {role: discuz, tags: "discuz", when: wordpress_addapps == 'discuz'}
     - {role: wordpress, tags: "wordpress"}
     - {role: role_init_password, tags: "role_init_password"}
     - {role: role_preend, tags: "role_preend"}
