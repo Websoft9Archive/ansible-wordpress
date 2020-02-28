@@ -27,7 +27,7 @@ ALTER USER {{app_attr.database_user}} WITH PASSWORD '$new_password';
 {% endif %}
 {% endif %}
 
-{% if db_names == 'mongodb' %}
+{% if db_names == 'mongod' %}
 sleep 10
 echo "
 use admin

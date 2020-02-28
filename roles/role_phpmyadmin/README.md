@@ -17,7 +17,7 @@ Ansible Role: phpmyadmin
 
 ## Related roles
 
-本 Role 在语法上单独存在，但程序运行时需要确保已经运行： apache | nginx, php, lamp | lnmp, mysql | mariadb 等 Roles。以 LAMP 为例：
+本 Role 在语法上引用了php-fpm和mysql的变量，但程序运行时需要确保已经运行： apache | nginx, php, lamp | lnmp, mysql | mariadb 等 Roles。以 LAMP 为例：
 
 ```
   roles:
@@ -61,7 +61,7 @@ Ansible Role: phpmyadmin
   
   vars:
     phpmyadmin_webs: 'apache'
-    phpmyadmin_password: '123456'
+    phpmyadmin_mysql_password: '123456'
     phpmyadmin_php_version: '7.2'
 
   roles:

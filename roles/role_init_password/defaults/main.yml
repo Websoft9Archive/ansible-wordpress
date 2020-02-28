@@ -7,7 +7,7 @@ init_db:
   #   user: postgres
   #   password: ABCDEFG
 
-  # mongodb:
+  # mongod:
   #   user: root
   #   password: mongodb_pass
 

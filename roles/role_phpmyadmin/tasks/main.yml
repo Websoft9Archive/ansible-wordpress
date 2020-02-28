@@ -4,6 +4,7 @@
     phpmyadmin_vhost_dir: "{{phpmyadmin_runtime_meta[ansible_os_family][phpmyadmin_webs].vhost_dir}}"
     phpmyadmin_service: "{{phpmyadmin_runtime_meta[ansible_os_family][phpmyadmin_webs].service}}"
     phpmyadmin_owner: "{{phpmyadmin_runtime_meta[ansible_os_family][phpmyadmin_webs].owner}}"
+    phpmyadmin_mysql_password: "{{mysql_root_password}}"
 
 - debug:
     msg: runtime {{ phpmyadmin_vhost_dir }}, {{phpmyadmin_service}}, {{phpmyadmin_owner}}, {{phpmyadmin_webs}}, {{ansible_distribution}}

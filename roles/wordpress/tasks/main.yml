@@ -18,7 +18,9 @@
 
 - name: Remove extra dir
   shell: |
-    rm -rf /data/wwwroot/{{wordpress_name}}
+    rm -rf /data/wwwroot/*{{wordpress_name}}*
+    rm -rf /data/wwwroot/*{{wordpress_title}}*
+
 
 - set_fact:
     wordpress_download_url: "{{wordpress_theme_meta[wordpress_theme].download_url}}"
@@ -33,7 +35,7 @@
     remote_src: yes
 
 - name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "{{wordpress_name}}" ]; then mv *{{wordpress_name}}* {{wordpress_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{wordpress_title}}" ]; then mv *{{wordpress_title}}* {{wordpress_name}}; fi
 
 - name: Replace theme name in the file default-constants.php
   template:
