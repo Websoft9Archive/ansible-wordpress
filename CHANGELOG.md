@@ -3,13 +3,11 @@
 ## To do
 
 * 添加 Nginx 支持
-* 添加 Ubuntu18.04, Amazon Linux2 支持
+* 添加 Ubuntu18.04 支持
 
 ## Logs
 
 ### Bug Fixes
-
-* 2020-02-10  完善变量范围
 
 * 2020-02-14  数字型变量统一增加双引号
 
@@ -18,6 +16,7 @@
 * 2020-02-12  修改为和ansible-template统一格式
 
 ### Features
+* 2020-02-29  wp-dz测试成功
 
 * 2020-02-24  单个wordpress测试成功
 
