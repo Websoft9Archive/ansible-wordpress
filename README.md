@@ -23,9 +23,37 @@
 
 ## 本项目安装的是 WordPress 最新版吗？
 
-本项目采用官方最新下载链接进行版本控制，即每一次安装均可保证各个组件为官方发布的最新稳定版。
+本项目通过下载[WordPress 源码](https://github.com/WordPress/WordPress/)进行安装，其中下载链接存储在：[role/wordpress/defaults/main.yml](/roles/wordpress/defaults/main.yml)
 
-我们会定期检查安装脚本 URL 地址的准确性，以保证用户可以顺利安装。
+```
+#默认官方下载包
+wordpress_download_url: "https://github.com/WordPress/WordPress/archive/5.3.2.zip"
+
+#商业主题的下载包包含官方源码和主题
+wordpress_theme_meta:
+  avada: 
+    download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
+    other: ""
+  porto: 
+    download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
+    other: ""
+```
+
+如果你想修改版本号，请先查看 WordPress 仓库 [releases](https://gitee.com/ComsenzDiscuz/DiscuzX/releases) 页面的下载链接，再修改上面的 `wordpress_download_url` 变量值即可安装指定版本。
+
+我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新的 WordPress 版本。
+
+**注意：**
+如果安装的是 WordPress 集成应用，以 WordPress + Discuz 为例，除了修改 WordPress 的下载链接，还需修改 Discuz 的版本号，其中版本号存储在：[role/discuz/defaults/main.yml](/roles/discuz/defaults/main.yml)
+
+```
+#Discuz版本，需定期维护
+discuz_version: v3.4-20191201
+```
+
+如果你想修改 Discuz 的版本号，请先查看 Discuz 仓库 [tags](https://gitee.com/ComsenzDiscuz/DiscuzX/tags) 标签值，再修改上面的 `discuz_version` 变量值即可安装指定版本。
+
+我们也会定期检查 Discuz 版本，并测试官方版本的可用性，以保证用户可以顺利安装最新的 Discuz 版本。
 
 ## 安装指南
 
