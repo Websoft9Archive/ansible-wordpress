@@ -33,9 +33,9 @@
   shell: cd /data/wwwroot; if [ ! -d "{{wordpress_title}}" ]; then mv *{{wordpress_title}}* {{wordpress_name}}; fi
 
 - block:
-  - name: Download another theme
+  - name: Download {{wordpress_theme}} theme
     unarchive:
-      src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{wordpress_theme}}.zip"
+      src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{wordpress_theme_meta[wordpress_theme].theme}}.zip"
       dest: /data/wwwroot/wordpress/wp-content/themes
       remote_src: yes
 
