@@ -25,6 +25,11 @@ wordpress_theme_meta:
   the7: 
     theme: "dt-the7"
     plugin:
+      - Ultimate_VC_Addons
+      - dt-the7-core
+      - go_pricing
+      - js_composer
+      - revslider
     
   divi: 
     theme: "Divi"
