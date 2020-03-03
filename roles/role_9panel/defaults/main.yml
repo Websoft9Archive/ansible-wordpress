@@ -7,8 +7,7 @@ region: '0'
 
 w9panel_webs: 'apache'
 
-# .zip or .git can used for URL
-w9panel_download_url: https://github.com/Websoft9/9panel.git
+w9panel_download_url: https://github.com/Websoft9/9panel/archive/latest.zip
 
 w9panel_set_infrastructure: LAMP
 w9panel_set_apps: 

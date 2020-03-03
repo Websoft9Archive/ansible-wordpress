@@ -17,17 +17,10 @@
     rm -rf /data/apps/9panel
     rm -rf /data/wwwroot/www.example.com
     
-# Download,unzip,rename 9panel from different region
-
-- name: Download 9panel from Github
-  git:
-    repo: "{{ w9panel_download_url }}"
-    dest: /data/apps/9panel
-    version: latest
-  when: region == '0' or region == 0
+# Download,unzip,rename 9panel
 
 - block:
-  - name: Download 9panel from OSS
+  - name: Download 9panel from {{ w9panel_download_url }}
     unarchive:
       src: "{{ w9panel_download_url }}"
       dest: /data/apps
@@ -35,10 +28,6 @@
 
   - name: Rename directory name
     shell: cd /data/apps; if [ ! -d "9panel" ]; then mv *9panel* 9panel; fi 
-
-  when: region == '1' or region == 1
-
-
 
 # Set 9panel display of infrastructure and apps
 
