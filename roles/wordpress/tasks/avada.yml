@@ -1,13 +1,13 @@
 ---
 - name: Download avada theme
   unarchive:
-    src: "https://libs.websoft9.com/apps/wordpress/{{wordpress_theme}}/{{wordpress_theme}}.zip"
+    src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{wordpress_theme}}.zip"
     dest: /data/wwwroot/wordpress/wp-content/themes
     remote_src: yes
 
 - name: Download avada plugin
   unarchive:
-    src: "https://libs.websoft9.com/apps/wordpress/{{wordpress_theme}}/{{item}}.zip"
+    src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{item}}.zip"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
   with_items:
