@@ -2,9 +2,22 @@
 wordpress_download_url: "https://github.com/WordPress/WordPress/archive/5.3.2.zip"
 
 #商业主题的下载包包含官方源码和主题
+# wordpress_theme_meta:
+#   avada: 
+#     download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
+#     other: ""
+#   porto: 
+#     download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"
+#     other: ""
+
 wordpress_theme_meta:
   avada: 
-    download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-avada.tar.gz"
+    theme: "https://libs.websoft9.com/apps/wordpress/avada/avada.zip"
+    plugin:
+      fusion-core: "https://libs.websoft9.com/apps/wordpress/avada/fusion-core.zip"
+      fusion-builder: "https://libs.websoft9.com/apps/wordpress/avada/fusion-builder.zip"
+      layerslider: "https://libs.websoft9.com/apps/wordpress/avada/LayerSlider.zip"
+      revslider: "https://libs.websoft9.com/apps/wordpress/avada/revslider.zip"
     other: ""
   porto: 
     download_url: "http://libs.websoft9.com/apps/wordpress/wordpress-porto.tar.gz"

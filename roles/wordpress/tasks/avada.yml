@@ -1,0 +1,14 @@
+---
+- name: Download avada theme
+  unarchive:
+    src: "{{wordpress_theme_meta[avada].theme}}"
+    dest: /data/wwwroot/wordpress/wp-content/themes
+    remote_src: yes
+
+- name: Download avada plugin
+  unarchive:
+    src: "{{item}}"
+    dest: /data/wwwroot/wordpress/wp-content/plugins
+    remote_src: yes
+  with_items:
+    - "{{wordpress_theme_meta[avada].plugin}}"
