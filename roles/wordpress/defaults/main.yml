@@ -21,6 +21,14 @@ wordpress_theme_meta:
       - porto-functionality
       - revslider
     other: ""
+  the7: 
+    theme: "the7"
+    plugin:
+    other: ""
+  divi: 
+    theme: "divi"
+    plugin:
+    other: ""
 
 #组合apps名称
 wordpress_addapps_meta:
