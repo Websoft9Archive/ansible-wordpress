@@ -11,4 +11,7 @@
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
   with_items:
-    - "{{wordpress_theme_meta[avada].plugin}}"
+    - "{{wordpress_theme_meta[avada][plugin].fusion-core}}"
+    - "{{wordpress_theme_meta[avada][plugin].fusion-builder}}"
+    - "{{wordpress_theme_meta[avada][plugin].revslider}}"
+    - - "{{wordpress_theme_meta[avada][plugin].layerslider}}"
