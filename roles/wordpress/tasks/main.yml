@@ -37,11 +37,26 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{wordpress_title}}" ]; then mv *{{wordpress_title}}* {{wordpress_name}}; fi
 
-- name: Replace theme name in the file default-constants.php
-  template:
-    src: default-constants.php
-    dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
-    mode: 0640
+- block:
+  - name: Download another theme
+    unarchive:
+      src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{wordpress_theme}}.zip"
+      dest: /data/wwwroot/wordpress/wp-content/themes
+      remote_src: yes
+
+  - name: Download  plugin
+    unarchive:
+      src: "{{wordpress_theme_download_url}}/{{wordpress_theme}}/{{item}}.zip"
+      dest: /data/wwwroot/wordpress/wp-content/plugins
+      remote_src: yes
+    with_items:
+      - "{{wordpress_theme_meta[wordpress_theme].plugin}}"
+
+  - name: Replace theme name in the file default-constants.php
+    template:
+      src: default-constants.php
+      dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
+      mode: 0640
   when: wordpress_theme
 
 - name: Copy WordPress config file
