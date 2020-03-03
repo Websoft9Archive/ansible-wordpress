@@ -14,4 +14,4 @@
     - "{{wordpress_theme_meta[avada][plugin].fusion-core}}"
     - "{{wordpress_theme_meta[avada][plugin].fusion-builder}}"
     - "{{wordpress_theme_meta[avada][plugin].revslider}}"
-    - - "{{wordpress_theme_meta[avada][plugin].layerslider}}"
+    - "{{wordpress_theme_meta[avada][plugin].layerslider}}"
