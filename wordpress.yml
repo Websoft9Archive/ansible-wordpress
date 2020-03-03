@@ -25,7 +25,9 @@
       prompt: "Do you want to use a commercial theme for your WordPress [ 1/2/3 ]  \n\n
       1: No, only default\n
       2: Avada\n
-      3: Porto\n"
+      3: Porto\n
+      4: the7\n
+      5: divi\n"
       private: no
       default: 1
 
