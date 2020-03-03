@@ -24,7 +24,7 @@
 
 - set_fact:
     wordpress_download_url: "{{wordpress_theme_meta[wordpress_theme].download_url}}"
-  when: wordpress_theme != ""
+  when: not wordpress_theme
 
 #WordPress installation
 
@@ -57,7 +57,7 @@
       src: default-constants.php
       dest: /data/wwwroot/wordpress/wp-includes/default-constants.php
       mode: 0640
-  when: wordpress_theme
+  when: wordpress_theme != ""
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
