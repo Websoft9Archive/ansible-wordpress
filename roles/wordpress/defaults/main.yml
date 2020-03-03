@@ -4,6 +4,7 @@ wordpress_theme_download_url: "https://libs.websoft9.com/apps/wordpress"
 
 #商业主题的下载包包含官方源码和主题
 wordpress_theme_meta:
+
   avada: 
     theme: "avada"
     plugin:
@@ -11,7 +12,7 @@ wordpress_theme_meta:
       - fusion-builder
       - LayerSlider
       - revslider
-    other: ""
+      
   porto: 
     theme: "porto"
     plugin:
@@ -20,15 +21,14 @@ wordpress_theme_meta:
       - js_composer
       - porto-functionality
       - revslider
-    other: ""
+
   the7: 
-    theme: "the7"
+    theme: "dt-the7"
     plugin:
-    other: ""
+    
   divi: 
-    theme: "divi"
+    theme: "Divi"
     plugin:
-    other: ""
 
 #组合apps名称
 wordpress_addapps_meta:
