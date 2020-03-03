@@ -1,17 +1,14 @@
 ---
 - name: Download avada theme
   unarchive:
-    src: "{{wordpress_theme_meta[avada].theme}}"
+    src: "https://libs.websoft9.com/apps/wordpress/{{wordpress_theme}}/{{wordpress_theme}}.zip"
     dest: /data/wwwroot/wordpress/wp-content/themes
     remote_src: yes
 
 - name: Download avada plugin
   unarchive:
-    src: "{{item}}"
+    src: "https://libs.websoft9.com/apps/wordpress/{{wordpress_theme}}/{{item}}.zip"
     dest: /data/wwwroot/wordpress/wp-content/plugins
     remote_src: yes
   with_items:
-    - "{{wordpress_theme_meta[avada][plugin].fusion-core}}"
-    - "{{wordpress_theme_meta[avada][plugin].fusion-builder}}"
-    - "{{wordpress_theme_meta[avada][plugin].revslider}}"
-    - "{{wordpress_theme_meta[avada][plugin].layerslider}}"
+    - "{{wordpress_theme_meta[wordpress_theme].plugin}}"
