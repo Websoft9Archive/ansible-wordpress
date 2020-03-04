@@ -29,7 +29,7 @@ $_config = array();
  */
 $_config['db'][1]['dbhost']  		= 'localhost';
 $_config['db'][1]['dbuser']  		= 'discuz';
-$_config['db'][1]['dbpw'] 	 	= '{{mysql_root_password}}';
+$_config['db'][1]['dbpw'] 	 	= '{{discuz_db_password}}';
 $_config['db'][1]['dbcharset'] 		= 'utf8';
 $_config['db'][1]['pconnect'] 		= 0;
 $_config['db'][1]['dbname']  		= 'discuz';

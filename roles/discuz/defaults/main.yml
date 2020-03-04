@@ -1,9 +1,3 @@
-#Discuz版本，需定期维护
-discuz_version: "v3.4-20191201"
-
-discuz_db_password: "123456"
-
-
 #Web服务器：apache | nginx，通过交互式选择获取
 discuz_webs: apache
 
@@ -11,7 +5,9 @@ discuz_vhost_dir: /etc/httpd/vhost
 discuz_vhost_src: vhost.conf
 discuz_service: httpd
 discuz_owner: apache
+discuz_db_password: "123456"
 discuz_name: "discuz"
 discuz_title: "Discuz"
 discuz_download_url: "https://gitee.com/ComsenzDiscuz/DiscuzX.git"
-discuz_version: "v3.4-20191201"   #版本号需定期维护
+#版本号需定期维护
+discuz_version: "v3.4-20191201"   
