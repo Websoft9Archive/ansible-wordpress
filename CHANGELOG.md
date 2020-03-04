@@ -4,6 +4,7 @@
 
 * 添加 Nginx 支持
 * 添加 Ubuntu18.04 支持
+* the7主题默认无法启用
 
 ## Logs
 
@@ -14,7 +15,5 @@
 * 2020-02-12  修改为和ansible-template统一格式
 
 ### Features
-* 2020-02-29  wp-dz测试成功
-* 2020-02-24  单个wordpress测试成功
-* 2020-02-13  格式化变量模板
-* 2020-02-12  格式化整个ansible-wordpress项目
+* 2020-03-04  增加：avada,porto,the7,divi主题支持
+* 2020-02-12  重新格式化整个ansible-wordpress项目
