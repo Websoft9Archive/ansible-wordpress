@@ -46,6 +46,7 @@
       remote_src: yes
     with_items:
       - "{{wordpress_theme_meta[wordpress_theme].plugin}}"
+    when: wordpress_theme_meta[wordpress_theme].plugin !=""
 
   - name: Replace theme name in the file default-constants.php
     template:
