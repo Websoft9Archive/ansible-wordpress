@@ -1,13 +1,4 @@
 init_application:
-  wordpress:
-    service: php-fpm
-    database: wordpress 
-    database_user: wordpress
-    database_host: localhost
-    database_password: "123456"
-    config_path: 
-      - /data/wwwroot/wordpress/wp-config.php
-      
   discuz:
     service: php-fpm
     database: discuz 
