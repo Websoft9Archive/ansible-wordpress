@@ -1,3 +1,12 @@
+mysql_databases:
+ - name: discuz
+   encoding: utf8
+
+mysql_users:
+ - name: discuz
+   host: localhost
+   priv: 'discuz.*:ALL'
+
 init_application:
   discuz:
     service: php-fpm
