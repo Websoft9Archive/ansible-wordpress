@@ -62,7 +62,7 @@
 - name: Reset 9Panel if include {{wordpress_addapps_meta[wordpress_addapps].title}}
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=[\'WordPress\'];'
+    regexp: '^var\bset_apps=.*;'
     line: 'var set_apps=["WordPress","{{wordpress_addapps_meta[wordpress_addapps].title}}"];'
   when: wordpress_addapps != ""
 
