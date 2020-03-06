@@ -46,6 +46,7 @@
       remote_src: yes
     with_items:
       - "{{wordpress_theme_meta[wordpress_theme].plugin}}"
+    when: wordpress_theme_meta[wordpress_theme].plugin !=""
 
   - name: Replace theme name in the file default-constants.php
     template:
@@ -56,13 +57,6 @@
 
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
-
-- name: Reset 9Panel if include {{wordpress_addapps}}
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["WordPress"\];'
-    line: 'var set_apps=["WordPress","{{wordpress_addapps_meta[wordpress_addapps].title}}"];'
-  when: wordpress_addapps != ""
 
 # System settings
 - name: Permission settings

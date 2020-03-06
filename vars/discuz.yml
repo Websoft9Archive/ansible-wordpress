@@ -1,3 +1,23 @@
+w9panel_set_apps: 
+  - WordPress
+  - Discuz
+
+mysql_databases:
+ - name: wordpress
+   encoding: utf8
+
+ - name: discuz
+   encoding: utf8
+
+mysql_users:
+ - name: wordpress
+   host: localhost
+   priv: 'wordpress.*:ALL'
+
+ - name: discuz
+   host: localhost
+   priv: 'discuz.*:ALL'
+
 init_application:
   discuz:
     service: php-fpm
@@ -7,3 +27,12 @@ init_application:
     database_password: "123456"
     config_path: 
       - /data/wwwroot/discuz/upload/config/config_global_default.php
+      
+  wordpress:
+    service: php-fpm
+    database: wordpress 
+    database_user: wordpress
+    database_host: localhost
+    database_password: "123456"
+    config_path: 
+      - /data/wwwroot/wordpress/wp-config.php

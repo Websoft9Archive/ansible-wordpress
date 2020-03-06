@@ -3,6 +3,7 @@ wordpress_download_url: "https://github.com/WordPress/WordPress/archive/5.3.2.zi
 wordpress_theme_download_url: "https://libs.websoft9.com/apps/wordpress"
 
 #商业主题的下载包包含官方源码和主题
+#注意：当无插件下载的时，请写：plugin: "" or plugin: False
 wordpress_theme_meta:
 
   avada: 
@@ -33,7 +34,7 @@ wordpress_theme_meta:
     
   divi: 
     theme: "Divi"
-    plugin:
+    plugin: ""
 
 #组合apps名称
 wordpress_addapps_meta:

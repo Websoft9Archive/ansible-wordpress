@@ -12,17 +12,11 @@ mysql_root_password: "123456"
 mysql_databases:
  - name: wordpress
    encoding: utf8
- - name: discuz
-   encoding: utf8
  
 mysql_users:
  - name: wordpress
    host: localhost
    priv: 'wordpress.*:ALL'
-
- - name: discuz
-   host: localhost
-   priv: 'discuz.*:ALL'
 
 # 随机密码处理
 init_db: 
