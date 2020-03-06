@@ -58,7 +58,7 @@
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
-- name: Reset 9Panel if include {{wordpress_addapps}}
+- name: Reset 9Panel if include {{wordpress_addapps_meta[wordpress_addapps].title}}
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["WordPress"\];'
