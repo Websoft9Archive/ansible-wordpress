@@ -58,6 +58,10 @@
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/
 
+- name: Remove unnecessary themes
+  shell: |
+    rm -rf /data/wwwroot/wordpress/wp-content/themes/twentyeleven
+
 # System settings
 - name: Permission settings
   shell: |
