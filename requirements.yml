@@ -32,10 +32,7 @@
 - src: http://github.com/websoft9dev/role_9panel
   version: master
 
-- src: http://github.com/websoft9dev/role_lamp
-  version: master
-
-- src: http://github.com/websoft9dev/role_lnmp
+- src: http://github.com/websoft9dev/role_runtime
   version: master
 
 - src: http://github.com/websoft9dev/role_inotify_watch
