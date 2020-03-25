@@ -48,6 +48,7 @@
       '1': ''
       '2': 'discuz'
     
+    runtime_name: "{{infrastructure_select[webs_selection] | lower}}" 
     discuz_webs: "{{webs_select[webs_selection]}}"
     wordpress_webs: "{{webs_select[webs_selection]}}"
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
@@ -79,13 +80,12 @@
     - {role: role_mysql, tags: "role_mysql"}
     - {role: role_php-fpm, tags: "role_php-fpm"}
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
-    - {role: role_lamp, tags: "role_lamp", when: wordpress_webs == 'apache'}
-    - {role: role_lnmp, tags: "role_lnmp", when: wordpress_webs == 'nginx'}
+    - {role: role_runtime, tags: "role_runtime"}
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
     - {role: discuz, tags: "discuz", when: wordpress_addapps == 'discuz'}
     - {role: wordpress, tags: "wordpress"}
     - {role: role_init_password, tags: "role_init_password"}
-    - {role: role_preend, preend_certbot: True, tags: "role_preend"}
+    - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}
