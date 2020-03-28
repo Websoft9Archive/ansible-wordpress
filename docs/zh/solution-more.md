@@ -155,6 +155,6 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 
 1. 登录WordPress后台，依次打开【外观】>【小工具】
 2. 从左侧的【可用小工具】中拖拽一个【文本】小工具到右侧的【页脚1】
-3. 填写好备案号相关信息，增加链接并分别点击【回车符】按钮和【保存】按钮
+3. 填写好备案号相关信息，增加链接（http://beian.miit.gov.cn），并分别点击【回车符】按钮和【保存】按钮
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-beian.png)
 4. 刷新网页看效果
