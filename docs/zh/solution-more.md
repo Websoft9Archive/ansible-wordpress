@@ -148,3 +148,13 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 
 * [Wordpress(LAMP) 安装一个新的网站](https://support.websoft9.com/docs/lamp/solution-deployment.html#deploy-second-application)
 * [Wordpress(LEMP) 安装一个新的网站](https://support.websoft9.com/docs/lnmp/solution-deployment.html#deploy-second-application)
+
+## 增加备案号
+
+如果你使用的WordPress默认自带主题，需要在页面底部增加ICP备案以及链接。具体操作步骤如下：
+
+1. 登录WordPress后台，依次打开【外观】>【小工具】
+2. 从左侧的【可用小工具】中拖拽一个【文本】小工具到右侧的【页脚1】
+3. 填写好备案号相关信息，增加链接并分别点击【回车符】按钮和【保存】按钮
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-beian.png)
+4. 刷新网页看效果
