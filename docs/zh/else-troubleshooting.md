@@ -38,6 +38,9 @@ Wordpress5.0之后的版本，编辑器与之前有了明显的区别。这里�
 ### WordPress 后台升级网络不通，官网也打不开？
 WordPress是国外的网站，后台升级地址也是国外的，如果网站打不开，后台升级同样就无法进行。如果您迫切需要升级，请参考我们的[WordPress手工升级文档](/zh/solution-upgrade.md#手动升级)
 
+### Wordpress导入一个演示数据显示 You don't have permission to access /wp-admin/admin.php on this server?
+待研究
+
 ## 数据库相关
 
 #### 数据库服务无法启动
