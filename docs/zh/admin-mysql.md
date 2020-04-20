@@ -1,6 +1,6 @@
 # MySQL
 
-WordPress 预装包中均内置 MySQL 及可视化数据库管理工具 `phpMyadmin`。如果你使用的是 Windows 服务器，也可以使用服务器上的其他数据库管理工具。
+WordPress 预装包中内置 MySQL 及可视化数据库管理工具 `phpMyadmin`。如果你使用的是 Windows 服务器，也可以使用服务器上的其他数据库管理工具。
 
 phpMyAdmin 使用的使用请参考如下步骤：
 
