@@ -2,9 +2,9 @@
 
 We collect the most common troubleshooting of using WordPress for your reference:
 
-## WordPress related
+> Instance troubleshooting is closely related to the Instance provider that is Cloud Platform, please refer to [Cloud Platform Documentation](https://support.websoft9.com/docs/faq/tech-instance.html) 
 
-Blow are the common toubleshooting for Wordpress
+#### Blow are the common toubleshooting for Wordpress
 
 | **Troubleshooting** | **solution** |
 | :--- | :--- |
@@ -14,8 +14,6 @@ Blow are the common toubleshooting for Wordpress
 | Very lowly or can't not be visit | No Disk Spaces, delete database log files |
 | Can't upload file  | The Folder permissions problem of OS |
 | Cant not send mail | The SMTP is wrong or no settings |
-
-## Database related
 
 #### Database service could not be started?
 
@@ -40,12 +38,3 @@ This maybe the database is damage, must repair it. To allow use of this page to 
 #### phpMyAdmin page access blank?
 
 Please try another browser, such as chrome or firefox. If the phpMyAdmin can be opened normally before, and now appears to be incomplete or blank, it is recommended to clean up the browser cache, cookies and other information
-
-## Instance related
-
-Instance troubleshooting is closely related to the Instance provider that is Cloud Platform   
-Please refer to [Cloud Platform Documentation](https://support.websoft9.com/docs/faq/tech-instance.html)
-
-## Network related
-
-## Other
