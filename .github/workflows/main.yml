@@ -21,7 +21,7 @@ jobs:
       env:
         CI: true
     
-    # copy to azure blob
+    #  to azure blob
     - name: debug
       run: ls
     - uses: bacongobbler/azure-blob-storage-upload@v1.0.0
@@ -29,19 +29,3 @@ jobs:
         source_dir: docs/html
         container_name: $web
         connection_string: ${{ secrets.Azure_blob }}
-
-    # copy to github.com/Websoft9/websoft9.github.io
-    - name: Git Push
-      run: |
-        cd docs
-        git clone https://github.com/Websoft9/websoft9.github.io.git
-        cp -r html/* websoft9.github.io/docs/
-        echo $(ls websoft9.github.io/docs/)
-        cd websoft9.github.io
-        echo "https://${{ secrets.ACCESS_TOKEN }}" > ~/.git-credentials
-        git config --global credential.helper store
-        git config --global user.email "chendelin1982@126.com"
-        git config --global user.name "chendelin1982"
-        git add .
-        git commit -m "Add changes" 
-        git push origin master
