@@ -6,10 +6,10 @@
 
 | 部署包名称 | 说明| 参考项 |
 | --- | --- | --- |
-| Wordpress(LAMP) | Apache+MySQL+PHP on Linux | [《LAMP管理员手册》](https://support.websoft9.com/docs/lamp/zh) |
-| Wordpress(LNMP)| Nginx+MySQL+PHP on Linux |[《LNMP管理员手册》](https://support.websoft9.com/docs/lnmp/zh)|
-| Wordpress(IIS)| IIS+MySQL+PHP on Windows |[《IIS 管理员手册》](https://support.websoft9.com/docs/windows/zh)|
-| Wordpress(WAMP)| Apache+MySQL+PHP on Windows |[《WAMPServer 管理员手册》](https://support.websoft9.com/docs/wampserver/zh/)|
+| WordPress(LAMP) | Apache+MySQL+PHP on Linux | [《LAMP管理员手册》](https://support.websoft9.com/docs/lamp/zh) |
+| WordPress(LNMP)| Nginx+MySQL+PHP on Linux |[《LNMP管理员手册》](https://support.websoft9.com/docs/lnmp/zh)|
+| WordPress(IIS)| IIS+MySQL+PHP on Windows |[《IIS 管理员手册》](https://support.websoft9.com/docs/windows/zh)|
+| WordPress(WAMP)| Apache+MySQL+PHP on Windows |[《WAMPServer 管理员手册》](https://support.websoft9.com/docs/wampserver/zh/)|
 
 ## 环境是什么？
 
