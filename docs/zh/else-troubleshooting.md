@@ -51,7 +51,7 @@ WordPress是国外的网站，后台升级地址也是国外的，如果网站�
 
 ### WordPress 管理员失去权限，无法正常登录后台？
 WordPress的后台管理是分权限的，而最高权限是超级管理员。当wordpress管理员因失去权限无法正常进入后台，可以通过进入PhpMyAdmin数据库管理工具，来进行权限恢复：
-* 在浏览器输入：http://服务器IP/phpmyadmin/ ，登录数据库;
+* 登录数据库管理工具phpMyAdmin:  http:// 服务器ip/phpMyAdmin/
 * 找到跟用户相关的数据表：wp_users和wp_usermeta;
 * 先进入wp_users,查看自己的管理员用户名，超级管理员用户id一般都是1，不是就修改；
 * 再进入wp_usermeta表，找到wp_user_level，wp_capabilities字段。如果对应账号wp_user_level的值不是10 ，请修改为10（超级管理员一半都是10，最高权   限）；查看wp_capabilities值，如果里面不是 “administrator”，可以直接改成：a:1:{s:13:"administrator";b:1;} ；
