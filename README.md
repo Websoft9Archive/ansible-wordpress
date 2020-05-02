@@ -18,7 +18,9 @@
 ## 组件
 
 包含的核心组件为：WordPress + Apache/Nginx + MySQL + PHP  
-可选的WordPress商业主题包括：Avada, The7, Porto, Divi，这些主题为友情赠送，请遵循主题官方作者的版权，我们不提供技术支持
+可选的WordPress商业主题包括：Avada, The7, Porto, Divi  
+
+> 这些主题为友情赠送，请遵循主题官方作者的版权，我们不提供技术支持
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
