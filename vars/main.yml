@@ -23,14 +23,6 @@ init_db:
   mysql:
     admin: root
     users: ["wordpress"]
-    password: "123456"  
-  
-init_application:
-  wordpress:
-    service: php-fpm
-    database: wordpress 
-    database_user: wordpress
-    database_host: localhost
-    database_password: "123456"
-    config_path: 
+    password: "123456"
+    config_paths: 
       - /data/wwwroot/wordpress/wp-config.php
