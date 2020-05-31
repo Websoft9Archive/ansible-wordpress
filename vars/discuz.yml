@@ -18,6 +18,13 @@ mysql_users:
    host: localhost
    priv: 'discuz.*:ALL'
 
+# 随机密码处理
+init_db: 
+  mysql:
+    admin: root
+    users: ["wordpress","discuz"]
+    password: "123456"  
+    
 init_application:
   discuz:
     service: php-fpm
