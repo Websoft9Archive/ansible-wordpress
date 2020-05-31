@@ -20,9 +20,10 @@ mysql_users:
 
 # 随机密码处理
 init_db: 
-    mysql:
-      user: root
-      password: "123456"  
+  mysql:
+    admin: root
+    users: ["wordpress"]
+    password: "123456"  
   
 init_application:
   wordpress:
