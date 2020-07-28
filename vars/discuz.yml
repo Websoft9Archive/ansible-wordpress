@@ -1,3 +1,4 @@
+common_os_support: ["CentOS", "Amazon"]
 w9panel_set_apps: 
   - WordPress
   - Discuz
