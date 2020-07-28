@@ -11,7 +11,6 @@ mysql_root_password: "123456"
 # MySQL 创建应用数据库和用户
 mysql_databases:
  - name: wordpress
-   encoding: utf8
  
 mysql_users:
  - name: wordpress
