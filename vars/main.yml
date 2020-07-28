@@ -1,6 +1,8 @@
 # Global
 region: "0"
 common_os_support: ["CentOS", "Amazon"]
+apache_certbot: True
+nginx_certbot: True
 
 php_version: "7.2"
 
