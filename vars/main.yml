@@ -1,14 +1,11 @@
-#全局
+# Global
 region: "0"
 
-# PHP版本选择
 php_version: "7.2"
 
-# MySQL 版本和默认密码，后面所有应用的密码与此密码保持一致
 mysql_version: "5.7"       
 mysql_root_password: "123456"
 
-# MySQL 创建应用数据库和用户
 mysql_databases:
  - name: wordpress
  
@@ -17,7 +14,6 @@ mysql_users:
    host: localhost
    priv: 'wordpress.*:ALL'
 
-# 随机密码处理
 init_db: 
   mysql:
     admin: root
