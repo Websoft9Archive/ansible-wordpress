@@ -1,11 +1,9 @@
-common_os_support: ["CentOS", "Amazon"]
 w9panel_set_apps: 
   - WordPress
   - Discuz
 
 mysql_databases:
  - name: wordpress
- 
  - name: discuz
 
 mysql_users:
@@ -17,7 +15,6 @@ mysql_users:
    host: localhost
    priv: 'discuz.*:ALL'
 
-# 随机密码处理
 init_db: 
   mysql:
     admin: root
