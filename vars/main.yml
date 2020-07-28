@@ -1,5 +1,6 @@
 # Global
 region: "0"
+common_os_support: ["CentOS", "Amazon"]
 
 php_version: "7.2"
 
