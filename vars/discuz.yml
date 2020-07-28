@@ -4,10 +4,8 @@ w9panel_set_apps:
 
 mysql_databases:
  - name: wordpress
-   encoding: utf8
-
+ 
  - name: discuz
-   encoding: utf8
 
 mysql_users:
  - name: wordpress
