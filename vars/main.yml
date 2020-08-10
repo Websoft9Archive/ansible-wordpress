@@ -4,6 +4,9 @@ common_os_support: ["CentOS", "Amazon"]
 apache_certbot: True
 nginx_certbot: True
 
+docker_applications: 
+  - phpmyadmin
+
 php_version: "7.2"
 
 mysql_version: "5.7"       
