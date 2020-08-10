@@ -10,6 +10,7 @@
 
 ### Bug Fixes
 
+* 2020-08-10  phpMyAdmin on Docker replace phpMyAdmin
 * 2020-03-01  修正模板文件中的 include extra/*.conf;
 * 2020-02-13  修改变量格式以及变量名统一命名,修改README.md文件
 * 2020-02-12  修改为和ansible-template统一格式
