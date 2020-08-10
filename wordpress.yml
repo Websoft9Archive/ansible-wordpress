@@ -51,7 +51,6 @@
     runtime_name: "{{infrastructure_select[webs_selection] | lower}}" 
     discuz_webs: "{{webs_select[webs_selection]}}"
     wordpress_webs: "{{webs_select[webs_selection]}}"
-    phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}"
 
     wordpress_addapps: "{{addapps_select[addapps_selection]}}"
@@ -83,7 +82,7 @@
     - {role: role_php-fpm, tags: "role_php-fpm"}
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
     - {role: role_runtime, tags: "role_runtime"}
-    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    - {role: role_docker, tags: "role_docker"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
     - {role: discuz, tags: "discuz", when: wordpress_addapps == 'discuz'}
