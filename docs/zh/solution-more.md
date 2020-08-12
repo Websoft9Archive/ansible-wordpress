@@ -158,3 +158,23 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 3. 填写好备案号相关信息，增加链接，并分别点击【回车符】按钮和【保存】按钮
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/wordpress/wordpress-beian.png)
 4. 刷新网页看效果
+
+## 安全处理
+
+### 代码植入处理
+
+WordPress 由于被广泛使用，导致安全漏洞被无限放大，其中WordPress网站被植入第三方代码是最常见的安全故障。
+
+* 源码中植入非常明显的代码
+* 源码中植入难以察觉的代码
+* 数据库中被植入
+
+经过实践，下面介绍一种简单有效的处理办法
+
+1. 通过在线安全检查网站[sitecheck.sucuri.net](https://sitecheck.sucuri.net)进行排查，初步定义被植入的内容
+2. 登录WordPress后台，安装安全插件[Wordfence Scan Enabled](https://wordpress.org/plugins/wordfence/)
+3. 运行Wordfence Scan Enabled，启动网站健康检查
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-wordfence-websoft9.png)
+4. 对于“Critical”标记的结果，手工一一处理
+
+
