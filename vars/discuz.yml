@@ -1,3 +1,5 @@
+php_version: "7.2"
+
 w9panel_set_apps: 
   - WordPress
   - Discuz
