@@ -79,7 +79,7 @@
     - {role: role_apache,  tags: "role_apache", when: wordpress_webs == 'apache'}
     - {role: role_nginx, tags: "role_nginx", when: wordpress_webs == 'nginx'}
     - {role: role_mysql, tags: "role_mysql"}
-    - {role: role_php-fpm, tags: "role_php-fpm"}
+    - {role: role_php, tags: "role_php"}
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
     - {role: role_runtime, tags: "role_runtime"}
     - {role: role_docker, tags: "role_docker"}
