@@ -7,7 +7,7 @@ nginx_certbot: True
 docker_applications: 
   - phpmyadmin
 
-php_version: "7.2"
+php_version: "7.4"
 
 mysql_remote: True
 mysql_version: "5.7"       
