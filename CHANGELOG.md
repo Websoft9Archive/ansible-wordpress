@@ -16,5 +16,7 @@
 * 2020-02-12  修改为和ansible-template统一格式
 
 ### Features
+
+* 2020-08-15  Change to phpMyAdmin on Docker
 * 2020-03-04  增加：avada,porto,the7,divi主题支持
 * 2020-02-12  重新格式化整个ansible-wordpress项目
