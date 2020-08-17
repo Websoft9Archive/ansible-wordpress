@@ -2,6 +2,9 @@
 wordpress_download_url: "https://github.com/WordPress/WordPress/archive/5.5.zip"
 wordpress_theme_download_url: "https://libs.websoft9.com/apps/wordpress"
 
+# wp-cli refer to: https://make.wordpress.org/cli/
+wordpress_cli_url: "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
+
 #商业主题的下载包包含官方源码和主题
 #注意：当无插件下载的时，请写：plugin: "" or plugin: False
 wordpress_theme_meta:
