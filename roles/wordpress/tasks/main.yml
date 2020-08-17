@@ -61,6 +61,13 @@
 - name: Remove unnecessary themes
   shell: |
     rm -rf /data/wwwroot/wordpress/wp-content/themes/twentyeleven
+ 
+- name: Install wp cli 
+  shell: |
+    rm -rf /usr/local/bin/wp
+    curl -O {{ wordpress_cli_url }}
+    chmod +x wp-cli.phar
+    sudo mv wp-cli.phar /usr/local/bin/wp
 
 # System settings
 - name: Permission settings
