@@ -1,8 +1,6 @@
 # Global
 region: "0"
 common_os_support: ["CentOS", "Amazon"]
-apache_certbot: True
-nginx_certbot: True
 
 docker_applications: 
   - phpmyadmin
