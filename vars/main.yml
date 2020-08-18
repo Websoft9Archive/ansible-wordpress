@@ -1,6 +1,6 @@
 # Global
 region: "0"
-common_os_support: ["CentOS", "Amazon"]
+common_os_support: ["CentOS", "Ubuntu", "Amazon"]
 
 apache_certbot: True
 nginx_certbot: True
