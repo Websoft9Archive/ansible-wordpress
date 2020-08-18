@@ -59,8 +59,6 @@
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
       - WordPress
-    
-    preend_certbot: True
 
   pre_tasks:
 
