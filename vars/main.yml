@@ -5,7 +5,7 @@ common_os_support: ["CentOS", "Ubuntu", "Amazon"]
 apache_certbot: True
 nginx_certbot: True
 nginx_appname: "wordpress"
-apache_appname: "example"
+apache_appname: "wordpress"
 
 docker_applications: 
   - phpmyadmin
