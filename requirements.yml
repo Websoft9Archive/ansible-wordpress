@@ -20,7 +20,7 @@
 - src: http://github.com/websoft9dev/role_docker
   version: master
 
-- src: http://github.com/websoft9dev/role_init_password
+- src: http://github.com/websoft9dev/role_initpassword
   version: master
 
 - src: http://github.com/websoft9dev/role_preend
@@ -30,9 +30,6 @@
   version: master
 
 - src: http://github.com/websoft9dev/role_9panel
-  version: master
-
-- src: http://github.com/websoft9dev/role_runtime
   version: master
 
 - src: http://github.com/websoft9dev/role_inotify_watch
