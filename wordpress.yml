@@ -84,6 +84,6 @@
     - {role: role_redis, tags: "role_redis"}
     - {role: discuz, tags: "discuz", when: wordpress_addapps == 'discuz'}
     - {role: wordpress, tags: "wordpress"}
-    - {role: role_init_password, tags: "role_init_password"}
+    - {role: role_initpassword, tags: "role_initpassword"}
     - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}
