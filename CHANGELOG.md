@@ -5,6 +5,7 @@
 * 添加 Ubuntu18.04 支持
 * the7主题默认无法启用
 * wp-cli default configuration
+* elementor插件以及主题
 
 ## Logs
 
