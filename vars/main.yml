@@ -3,9 +3,12 @@ region: "0"
 common_os_support: ["CentOS", "Ubuntu", "Amazon"]
 
 apache_certbot: True
+apache_appname: "wordpress"
+apache_vhost_mode: "www"
+
 nginx_certbot: True
 nginx_appname: "wordpress"
-apache_appname: "wordpress"
+nginx_vhost_mode: "www"
 
 docker_applications: 
   - phpmyadmin
@@ -21,7 +24,6 @@ mysql_databases:
  
 mysql_users:
  - name: wordpress
-   host: localhost
    priv: 'wordpress.*:ALL'
 
 init_db: 
