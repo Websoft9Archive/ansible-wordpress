@@ -35,7 +35,7 @@ themeConfig: {
   repo: 'Websoft9/ansible-wordpress',
   editLinks: true,
   docsDir: 'docs',
-  docsBranch: 'master',
+  docsBranch: 'main',
 
   //主题多语言
   locales: {
