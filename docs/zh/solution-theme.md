@@ -41,9 +41,8 @@ Avada安装和下载有两种方式，请根据实际情况选择合适您的方
 购买地址：https://themeforest.net/item/avada-responsive-multipurpose-theme/2833226
 
 #### 方式三：在Websoft9下载主题自行安装
-* [Avada 5.7.2 官方原版下载](https://libs.websoft9.com/apps/wordpress/wordpress5.0.2-avada5.7.2-en.tar.gz)
-* [Avada 5.3.1 汉化版下载](https://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.3.1%E5%85%88%E8%A7%A3%E5%8E%8B.zip)
-* [Avada 5.5 汉化版下载](https://libs.websoft9.com/Websoft9/documents/zh/wordpress/avada%20v5.5%E5%85%88%E8%A7%A3%E5%8E%8B.1.zip)
+* [Avada 7.1.1 官方原版下载](https://libs.websoft9.com/apps/wordpress/avada7.1.1-en.zip)
+* [Avada 6.2 汉化版下载](https://libs.websoft9.com/apps/wordpress/avada6.2-cn.zip)
 
 ---
 
