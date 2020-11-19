@@ -25,6 +25,8 @@ wordpress_theme_meta:
       - js_composer
       - porto-functionality
       - revslider
+      - sliderrevolution
+      - wpbakerybuilder
 
   the7: 
     theme: "dt-the7"
@@ -37,7 +39,8 @@ wordpress_theme_meta:
     
   divi: 
     theme: "Divi"
-    plugin: ""
+    plugin: 
+      - Divi-Builder-Layouts-147
 
 #组合apps名称
 wordpress_addapps_meta:
