@@ -18,7 +18,7 @@
 
 ### Features
 
-* 2020-11-19  Themes: avada6.2-cn, divi4.5.5, porto5.4.6-en, the79.1.1.1
+* 2020-11-19  Themes: avada6.2-cn, divi4.5.5-cn, porto5.4.6-en, the79.1.1.1-cn
 * 2020-08-17  Add wp-cli tools
 * 2020-08-15  Change to phpMyAdmin on Docker
 * 2020-03-04  增加：avada,porto,the7,divi主题支持
