@@ -1,5 +1,9 @@
 php_version: "7.2"
 
+php_configuration_extras:
+  - name: max_input_time
+    value: "2000"
+
 w9panel_set_apps: 
   - WordPress
   - Discuz
