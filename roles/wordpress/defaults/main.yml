@@ -1,5 +1,5 @@
 # Need update
-wordpress_download_url: "https://github.com/WordPress/WordPress/archive/5.5.3.zip"
+wordpress_download_url: "https://wordpress.org/latest.zip"
 wordpress_theme_download_url: "https://libs.websoft9.com/apps/wordpress"
 
 # wp-cli refer to: https://make.wordpress.org/cli/
