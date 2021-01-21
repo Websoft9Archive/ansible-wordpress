@@ -8,6 +8,6 @@ discuz_owner: apache
 discuz_db_password: "123456"
 discuz_name: "discuz"
 discuz_title: "Discuz"
-discuz_download_url: "https://gitee.com/ComsenzDiscuz/DiscuzX.git"
+discuz_download_url: "https://gitee.com/Discuz/DiscuzX"
 #版本号需定期维护
-discuz_version: "v3.4-20191201"   
+discuz_version: "v3.4-20210119"   
