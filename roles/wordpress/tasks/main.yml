@@ -29,9 +29,6 @@
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "{{wordpress_title}}" ]; then mv *{{wordpress_title}}* {{wordpress_name}}; fi
-
 - block:
   - name: Download {{wordpress_theme}} theme
     unarchive:
