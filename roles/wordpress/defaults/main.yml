@@ -1,52 +1,12 @@
 # Need update
 wordpress_download_url: "https://wordpress.org/latest.zip"
-wordpress_theme_download_url: "https://libs.websoft9.com/apps/wordpress"
+
+# Accelerate download from OSS
+wordpress_theme_download_url: "https://libs-websoft9-com.oss-accelerate.aliyuncs.com/apps/wordpress"
 
 # wp-cli refer to: https://make.wordpress.org/cli/
 wordpress_cli_url: "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
 
-#商业主题的下载包包含官方源码和主题
-#注意：当无插件下载的时，请写：plugin: "" or plugin: False
-wordpress_theme_meta:
-
-  avada: 
-    theme: "avada"
-    plugin:
-      - fusion-core
-      - fusion-builder
-      - LayerSlider
-      - revslider
-      
-  porto: 
-    theme: "porto"
-    plugin:
-      - Ultimate_VC_Addons
-      - dynamic-featured-image
-      - js_composer
-      - porto-functionality
-      - revslider
-      - sliderrevolution
-      - wpbakerybuilder
-
-  the7: 
-    theme: "dt-the7"
-    plugin:
-      - Ultimate_VC_Addons
-      - dt-the7-core
-      - go_pricing
-      - js_composer
-      - revslider
-    
-  divi: 
-    theme: "Divi"
-    plugin: 
-      - Divi-Builder-Layouts-147
-
-#组合apps名称
-wordpress_addapps_meta:
-   discuz:
-     title: "Discuz"
-     documentroot: "upload"
 
 #Web服务器：apache | nginx，通过交互式选择获取
 wordpress_webs: apache

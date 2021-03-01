@@ -1,0 +1,42 @@
+#商业主题的下载包包含官方源码和主题
+#注意：当无插件下载的时，请写：plugin: "" or plugin: False
+wordpress_theme_meta:
+
+  avada: 
+    theme: "avada"
+    plugin:
+      - fusion-core
+      - fusion-builder
+      - LayerSlider
+      - revslider
+      
+  porto: 
+    theme: "porto"
+    plugin:
+      - Ultimate_VC_Addons
+      - dynamic-featured-image
+      - js_composer
+      - porto-functionality
+      - revslider
+      - sliderrevolution
+      - wpbakerybuilder
+
+  the7: 
+    theme: "dt-the7"
+    plugin:
+      - Ultimate_VC_Addons
+      - dt-the7-core
+      - go_pricing
+      - js_composer
+      - revslider
+    
+  divi: 
+    theme: "Divi"
+    plugin: 
+      - Divi-Builder-Layouts-147
+
+#组合apps名称
+wordpress_addapps_meta:
+   discuz:
+     title: "Discuz"
+     documentroot: "upload"
