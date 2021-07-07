@@ -86,3 +86,7 @@
   
   - name: restart php-fpm
     service: name=php-fpm state=restarted
+
+- name: Check wordpress version
+  shell: |
+    sudo echo "wordpress version:" $(cat /data/wwwroot/wordpress/wp-admin/about.php |grep sanitize_title |head -1 |awk -F "'" '{print $2}') |sudo tee -a /data/logs/install_version.txt  
