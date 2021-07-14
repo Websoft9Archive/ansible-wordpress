@@ -9,3 +9,13 @@
 1. 将下载的Th7包上传到路径： oss://libs-websoft9-com/apps/wordpress/，目的是为了备份每个历史版本
 2. 解压该zip包，然后将主题和插件的压缩文件上传到路径： oss://libs-websoft9-com/apps/wordpress/the7/
 3. 检查插件，如果插件中有[Meta文件](https://github.com/Websoft9/ansible-wordpress/blob/main/roles/wordpress/vars/main.yml)定义插件列表外的，需要追加该插件到对应列表
+```
+  the7: 
+    theme: "dt-the7"
+    plugin:
+      - Ultimate_VC_Addons
+      - dt-the7-core
+      - go_pricing
+      - js_composer
+      - revslider
+```
