@@ -89,4 +89,4 @@
 
 - name: Check wordpress version
   shell: |
-    echo "wordpress version:" `cat /data/wwwroot/wordpress/wp-admin/about.php |grep "Check out the latest version" |  awk '{print $28}'` |sudo tee -a /data/logs/install_version.txt  
+    sudo echo "wordpress version:" `cat /data/wwwroot/wordpress/wp-admin/about.php |grep "Check out the latest version" |  awk '{print $28}'` |sudo tee -a /data/logs/install_version.txt  
