@@ -4,6 +4,7 @@ wordpress_theme_meta:
 
   avada: 
     theme: "avada"
+    version: "v7.3.1"
     plugin:
       - fusion-core
       - fusion-builder
@@ -12,6 +13,7 @@ wordpress_theme_meta:
       
   porto: 
     theme: "porto"
+    version: "v5.4.6"
     plugin:
       - Ultimate_VC_Addons
       - dynamic-featured-image
@@ -23,6 +25,7 @@ wordpress_theme_meta:
 
   the7: 
     theme: "dt-the7"
+    version: "v9.13.1.0"
     plugin:
       - Ultimate_VC_Addons
       - dt-the7-core
@@ -32,6 +35,7 @@ wordpress_theme_meta:
     
   divi: 
     theme: "Divi"
+    version: "v4.5.5"
     plugin: 
       - Divi-Builder-Layouts-147
 
