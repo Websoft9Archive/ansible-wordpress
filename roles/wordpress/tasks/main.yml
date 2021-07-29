@@ -95,10 +95,10 @@
 - name: Check wordpress plugin version
   shell: |
     sudo echo "{{discuz_webs}} version:" `grep "define('DISCUZ_VERSION'," ./wwwroot/discuz/upload/source/discuz_version.php | awk -F ',' '{print $2}' | awk -F \' '{print $2}'` |sudo tee -a /data/logs/install_version.txt
-  when: {{discuz_webs}} == "discuz"
+  when: discuz_webs == "discuz"
 
 
 - name: Check wordpress themes version
   shell: |
     sudo echo "{{wordpress_theme}}" `grep 'Version'  ./wp-content/themes/avada/style.css` |sudo tee -a /data/logs/install_version.txt
-  when: {{wordpress_theme}} != ''
+  when: wordpress_theme != ''
