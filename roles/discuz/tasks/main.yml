@@ -55,3 +55,8 @@
 
   - name: restart php-fpm
     service: name=php-fpm state=restarted
+
+- name: Check wordpress discuz version
+  shell: |
+    sudo echo "{{wordpress_addapps}} version:" `grep "define('DISCUZ_VERSION'," /data/wwwroot/{{wordpress_addapps}}/upload/source/discuz_version.php | awk -F ',' '{print $2}' | awk -F \' '{print $2}'` |sudo tee -a /data/logs/install_version.txt
+  when: addapps_selection != '1'
