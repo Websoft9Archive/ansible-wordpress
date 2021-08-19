@@ -1,0 +1,18 @@
+{
+  "name": "wordpress",
+  "trademark": "WordPress",
+  "official_url": "https://wordpress.org/",
+  "support_os": "CentOS7.x, Ubuntu20.04, Amazon Linux2",
+  "requirements_cpu": "1",
+  "requirements_memory": "1",
+  "requirements_Bandwidth": "100",
+  "requirements_disk": "20",
+  "requirements_swap": "2",
+  "requirements_configure_url": "https://wordpress.org/about/requirements/",
+  "components": "WordPress,PHP, MySQL, Nginx/Apache, Docker, phpmyadmin on Docker, Redis",
+  "install_way": {
+    "en": "Package isntallation",
+    "zh": "包安装"
+  },
+  "install_url": "https://wordpress.org/download/releases/"
+}
