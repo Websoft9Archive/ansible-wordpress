@@ -14,16 +14,16 @@ System Requirement to install this repository are as following：
 
 | Conditions       | Details                               | Notes                |
 | ------------------- | --------------------------------| -------------------- |
-| Operating System   | CentOS7.x, Amazon Linux2, Ubuntu18.04 | Optional                 |
+| Operating System   | CentOS7.x, Ubuntu20.04, Amazon Linux2 | Optional                 |
 | Public Cloud     | AWS, Azure, Alibaba Cloud, HUAWEI ClOUD, Tencent Cloud    | Optional                 |
 | Private Cloud     | KVM, VMware, VirtualBox, OpenStack    | Optional                 |
-| Server Configuration | vCPU no less than 1 core, Memory no less than  1 GIB, Storage no less than 10 GB, Bandwidth no less than 100M ||
+| Server Configuration | vCPU no less than 1 core, Memory no less than 1 GIB, Storage no less than 20 GB, Swap no less than 2GB |Bandwidth no less than 100M|
 
-To learn more information, please view [Installation & Configuration](https://wordpress.apache.org/installation.html).
+To learn more information, please view [Installation & Configuration](https://wordpress.org/about/requirements/).
 
 ## Ecosystem
 
-Core components of this repository: WordPress, Avada/The7/Porto/Divi theme, Apache/Nginx, MySQL, PHP, phpMyAdmin on Docker
+Core components of this repository: WordPress,PHP, MySQL, Nginx/Apache, Docker, phpmyadmin on Docker, Redis
 
 Learn more about [Parameters](/docs/stack-components.md).
 
@@ -50,10 +50,6 @@ Follow our [WordPress image](https://apps.websoft9.com/wordpress) for installati
 
 **[Administrator Guide](https://support.websoft9.com/docs/wordpress)** 
 
-## Changelog
-
-Detailed changes are documented in the [CHANGELOG](/CHANGELOG.md).
-
 ## License
 
 [LGPL-3.0](/License.md), Additional Terms: It is not allowed to publish free or paid image based on this repository in any Cloud platform's Marketplace.
@@ -64,14 +60,16 @@ This program provided by Websoft9 contains a series of software with separate co
 
 ## FAQ
 
+#### How to install and view the latest release?
+
+This repository install way is Package isntallation, you can  view the version from [Official URL](https://wordpress.org/download/releases/).  
+We will check [Release version](https://github.com/Websoft9/ansible-wordpress/releases) regularly. Update and test this project to ensure that users can successfully install the required version of WordPress.
+
 #### Can I run this repository on Ansible Tower? 
 
 Yes.
 
-#### How to install and view the latest release?
+#### Although the results of the deploy by image are consistent with the results of deploy by script, what is the difference between the two deployment methods?
 
-This repository always install the latest WordPress, you can get the WordPress version from [WordPress repository](https://github.com/WordPress/WordPress/releases), and modify the Ansible variable **[wordpress_version](/roles/ansible/wordpress/defaults/main.yml)** to change the WordPress version for this repository. 
+Suggest you read the document [Deploy by Image vs Deploy by Script](https://support.websoft9.com/docs/faq/bz-product.html#deployment-comparison).
 
-#### Is the default password safe?
-
-The solution used the random password solution, every deployment produce unique password which is different from other users
