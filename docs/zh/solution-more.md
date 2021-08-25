@@ -132,6 +132,7 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
 下面以阿里云OSS对象存储为例，介绍在WordPress中使用OSS，实现WordPress后台的页面或文章使用资源时自动上传到OSS，并关联使用。具体的操作分两步：在阿里云OSS管理中创建Bucket存储空间；在WordPress后台中配置OSS。
 
 1. 创建 Bucket存储空间
+
    进入阿里云控制台，可通过菜单的【产品与服务】>【对象存储 OSS】进入OSS控制台，然后点击创建 Bucket按钮创建存储空间，如图：
    ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/oss-websoft9.png)
    
@@ -140,24 +141,32 @@ WordPress使用OSS有两种方式，第一种是通过OSS客户端上传文件�
    ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/oss-bucket2-websoft9.png)
    
    > 1、【地域】建议与服务器所在地就近选择，如果使用的是阿里云的服务器，建议选择和服务器同区域，这样可以通过内网互通节约上传流量成本，同时上传速度也快很多的。
+   > 
    > 2、【读写权限】选择【公共读】，这样可以实现图片正常访问。
 
    ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/oss-bucket3-websoft9.png)
    > 通过【概述】查看OSS存储空间对外的访问URL，通过【传输管理】-【域名管理】可以通过CNAME域名解析，将一个更加友好的域名，如 images.websoft9.com ，指向默认的URL。
 
 2. WordPress后台OSS配置
+
    进入 WordPress 后台，进入【插件】管理，下载阿里云 OSS Upload 插件并启用
+   
    ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/wordpress-oss-plugin-websoft9.png)
    
    对 OSS Upload 插件进行配置，使之关联阿里云的OSS对象存储
+   
    ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/wordpress-oss-websoft9.png)
-   ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/wordpress-oss-websoft9.png)
+   ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/oss-bucket3-websoft9.png)
    
    > **Access Key**和**Secret Key**登录阿里云后台获取：点击阿里云右上角用户头像，选择**accesskeys**，然后创建好AccessKey
+   > 
    > 在阿里云的OSS管理界面的【概述】【访问域名】【外网访问】获取相关访问链接和地域节点。配置后点击【地域节点】下方的【测试一下】查看网络连通及读写操作，出现“写入正常, 读取正常, 删除正常”，表示配置成功。
 
-   设置资源本地备份与同步。建议勾选，在网站的前期配置和文件同步过程中，可避免图片丢失无法恢复的问题。
-
+  设置资源本地备份与同步。建议勾选，在网站的前期配置和文件同步过程中，可避免图片丢失无法恢复的问题。
+  
+  设置完成后点击【保存更改】按钮，然后可以再点击【上传整个本地存储目录】来同步文件到OSS，这个过程可能需要些时间，同步完成后，网站前台页面图以正常访问，表示配置成功。
+  ![OSS](https://libs.websoft9.com/Websoft9/blog/tmp/wordpress/zh/wordpress-oss2-websoft9.png)
+  
 
 ## WordPress 后台10大要点
 
