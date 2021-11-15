@@ -218,4 +218,8 @@ WordPress 由于被广泛使用，导致安全漏洞被无限放大，其中Word
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/wordpress/wordpress-wordfence-websoft9.png)
 4. 对于“Critical”标记的结果，手工一一处理
 
+> 其他扫描工具：
+> 1. Quttera Web Malware Scanner 
+> 2. Anti-Malware Security and Brute-Force Firewall  
+
 
