@@ -41,6 +41,8 @@ WordPress 域名绑定操作步骤：
 4. 保存后生效
 
 > 如果更换域名后，网站中有一部分图片地址还是原来的域名，此时需要手工逐一修正
+> 如果在第2步操作完成后，无法进入第3步访问后台操作，请访问 Wordpress 数据库，将 option 表中的 home 和 siteurl 两个属性修改为【新的域名】
+> 通过 Websoft9 已经配置好的 MySQL 可视化工具 phpMyAdmin (http://ip/phpmyadmin 或 http://ip:9090 )进行快捷操作
 
 ## 管理员密码
 
