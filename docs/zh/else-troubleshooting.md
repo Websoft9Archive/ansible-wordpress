@@ -57,5 +57,16 @@ WordPress的后台管理是分权限的，而最高权限是超级管理员。�
 * 再进入wp_usermeta表，找到wp_user_level，wp_capabilities字段。如果对应账号wp_user_level的值不是10 ，请修改为10（超级管理员一半都是10，最高权   限）；查看wp_capabilities值，如果里面不是 “administrator”，可以直接改成：a:1:{s:13:"administrator";b:1;} ；
 * 重新登录。
 
+### WordPress 管理员权限无法更新/安装系统、插件和主题
+修改 wp-config.php 文件配置项：
+
+```
+define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_MODS',true);
+```
+
+将 'true' 改成 'false'即可。
+
+
 ### Wordpress导入一个演示数据显示 You don't have permission to access /wp-admin/admin.php on this server?
 待研究
